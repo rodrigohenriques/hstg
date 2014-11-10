@@ -1,9 +1,14 @@
 package br.com.brosource.hstgbrasil.server;
 
+import android.util.Log;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
+import br.com.brosource.hstgbrasil.util.C;
 
 /**
  * Created by rodrigohenriques on 11/1/14.
@@ -22,7 +27,7 @@ public class HstgRestClient {
         client.get(getAbsoluteUrl(NEWS_LIST + TOKEN), null, responseHandler);
     }
 
-    public static void getAgendaList(JsonHttpResponseHandler responseHandler) {
+    public static void getAgendaList(AgendaListHandler responseHandler) {
         client.get(getAbsoluteUrl(AGENDA_LIST + TOKEN), null, responseHandler);
     }
 
@@ -31,6 +36,10 @@ public class HstgRestClient {
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {
-        return BASE_URL + relativeUrl;
+        String url = BASE_URL + relativeUrl;
+
+        Log.i(C.App.LOG_TAG, url);
+
+        return url;
     }
 }

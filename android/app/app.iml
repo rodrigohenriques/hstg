@@ -78,9 +78,10 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 20, L preview Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 15 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="butterknife-6.0.0" level="project" />
+    <orderEntry type="library" exported="" name="gson-1.7.2" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.5" level="project" />
   </component>
 </module>

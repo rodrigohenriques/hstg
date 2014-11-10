@@ -2,10 +2,23 @@ package br.com.brosource.hstgbrasil.gui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.TextHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import br.com.brosource.hstgbrasil.R;
+import br.com.brosource.hstgbrasil.model.Evento;
+import br.com.brosource.hstgbrasil.server.HstgRestClient;
+import br.com.brosource.hstgbrasil.util.C;
 
 
 public class InicialActivity extends Activity {
@@ -14,6 +27,19 @@ public class InicialActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
+
+        HstgRestClient.getAgendaList(new TextHttpResponseHandler() {
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+
+            }
+        });
+
     }
 
 
