@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.Session;
+import com.facebook.SessionState;
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -18,13 +20,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.R;
+import br.com.brosource.hstgbrasil.control.HstgActivity;
 import br.com.brosource.hstgbrasil.model.Evento;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.util.C;
 
 
-public class InicialActivity extends Activity {
+public class InicialActivity extends HstgActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,5 +61,13 @@ public class InicialActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+        if (state.isOpened()) {
+            Log.i(C.App.LOG_TAG, "Logged in...");
+        } else if (state.isClosed()) {
+            Log.i(C.App.LOG_TAG, "Logged out...");
+        }
     }
 }
