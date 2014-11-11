@@ -15,9 +15,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.model.Evento;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
+import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.util.C;
 
 
@@ -28,15 +31,10 @@ public class InicialActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
 
-        HstgRestClient.getAgendaList(new TextHttpResponseHandler() {
+        HstgRestClient.getAgendaList(new AgendaListHandler() {
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, String responseString) {
-
+            public void onSuccess(ArrayList<Evento> list) {
+                // faz o que tiver que fazer com os objetos retornados
             }
         });
 

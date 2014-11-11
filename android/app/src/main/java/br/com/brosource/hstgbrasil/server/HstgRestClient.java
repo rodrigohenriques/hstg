@@ -14,7 +14,7 @@ import br.com.brosource.hstgbrasil.util.C;
  * Created by rodrigohenriques on 11/1/14.
  */
 public class HstgRestClient {
-    private static final String BASE_URL = "http://usehstg.com.br/homologacao/api";
+    private static final String BASE_URL = "http://usehstg.com.br/api";
     private static final String NEWS_LIST = "/news/list";
     private static final String AGENDA_LIST = "/agenda/list";
     private static final String PRODUTO_LIST = "/produto/list";
