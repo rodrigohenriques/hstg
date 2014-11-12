@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azul">#3c5a99</color>
+    <color name="amarelo">#f9ec23</color>
+    <color name="rosa">#d23793</color>
+    <color name="verde">#10a44a</color>
+    <color name="preto">#000000</color>
+    <color name="cinza">#939597</color>
+    <color name="branco">#ffffff</color>
+
+    <!-- Cores clicadas -->
+    <color name="azul_click">#3c5a80</color>
+</resources>

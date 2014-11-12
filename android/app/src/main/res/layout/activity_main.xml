@@ -1,0 +1,128 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.brosource.hstgbrasil.gui.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/main_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/preto"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="0dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_hstg_topo" />
+
+        <com.facebook.widget.ProfilePictureView
+            android:id="@+id/main_profile_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center_horizontal"
+            facebook:preset_size="small" />
+
+        <TextView
+            android:id="@+id/main_text_saudacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ola, Bruna Soares"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/branco"
+            android:textSize="28sp"
+            android:gravity="center_vertical"
+            android:layout_alignTop="@+id/main_profile_pic"
+            android:layout_alignBottom="@+id/main_profile_pic"
+            android:layout_toRightOf="@+id/main_profile_pic" />
+
+    </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/main_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/amarelo"
+        android:padding="16dp"
+        android:layout_marginTop="@dimen/main_espaco_itens"
+        android:textSize="32sp"
+        android:text="#NEWS"
+        android:layout_below="@+id/main_header"/>
+
+    <TextView
+        android:id="@+id/main_agenda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul"
+        android:padding="16dp"
+        android:layout_marginTop="@dimen/main_espaco_itens"
+        android:textSize="32sp"
+        android:text="#AGENDA"
+        android:layout_below="@+id/main_news"/>
+
+    <TextView
+        android:id="@+id/main_galeria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rosa"
+        android:padding="16dp"
+        android:layout_marginTop="@dimen/main_espaco_itens"
+        android:textSize="32sp"
+        android:text="#GALERIA"
+        android:layout_below="@+id/main_agenda"/>
+
+    <TextView
+        android:id="@+id/main_produtos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verde"
+        android:padding="16dp"
+        android:layout_marginTop="@dimen/main_espaco_itens"
+        android:textSize="32sp"
+        android:text="#PRODUTOS"
+        android:layout_below="@+id/main_galeria"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_produtos"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/main_espaco_itens">
+
+        <TextView
+            android:id="@+id/main_meus_dados"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/preto"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:textColor="@color/branco"
+            android:text="MEUS DADOS"/>
+
+        <TextView
+            android:id="@+id/main_wifi_party"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cinza"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:textColor="@color/branco"
+            android:text="WIFI    PARTY"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
