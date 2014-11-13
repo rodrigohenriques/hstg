@@ -9,6 +9,7 @@ import com.loopj.android.http.RequestParams;
 
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
+import br.com.brosource.hstgbrasil.server.handler.ProdutoListHandler;
 import br.com.brosource.hstgbrasil.util.C;
 
 /**
@@ -32,7 +33,7 @@ public class HstgRestClient {
         client.get(getAbsoluteUrl(AGENDA_LIST + TOKEN), null, responseHandler);
     }
 
-    public static void getProdutoList(JsonHttpResponseHandler responseHandler) {
+    public static void getProdutoList(ProdutoListHandler responseHandler) {
         client.get(getAbsoluteUrl(PRODUTO_LIST + TOKEN), null, responseHandler);
     }
 
