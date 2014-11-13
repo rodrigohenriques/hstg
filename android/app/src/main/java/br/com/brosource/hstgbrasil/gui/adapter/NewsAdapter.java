@@ -1,4 +1,4 @@
-package br.com.brosource.hstgbrasil.adapter;
+package br.com.brosource.hstgbrasil.gui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

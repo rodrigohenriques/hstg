@@ -2,14 +2,12 @@ package br.com.brosource.hstgbrasil.gui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.R;
-import br.com.brosource.hstgbrasil.adapter.NewsAdapter;
+import br.com.brosource.hstgbrasil.gui.adapter.NewsAdapter;
 import br.com.brosource.hstgbrasil.model.Noticia;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
