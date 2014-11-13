@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/rodrigohenriques/hstg/android/facebook/src/main/assets" />
+        <source path="/Users/haroldoolivieri/Desenvolvimento/Android/AndroidStudioProjetos/HSTG/hstg/android/facebook/src/main/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/rodrigohenriques/hstg/android/facebook/src/debug/assets" />
+        <source path="/Users/haroldoolivieri/Desenvolvimento/Android/AndroidStudioProjetos/HSTG/hstg/android/facebook/src/debug/assets" />
     </dataSet>
 
 </merger>

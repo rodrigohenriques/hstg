@@ -26,4 +26,5 @@ dependencies {
     compile 'com.google.code.gson:gson:1.7.2'
     compile 'com.pkmmte.view:circularimageview:1.1'
     compile project(':facebook')
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }

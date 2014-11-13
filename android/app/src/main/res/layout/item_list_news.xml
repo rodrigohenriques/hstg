@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@color/branco"
+    android:layout_marginTop="2.5dp"
+    android:layout_marginBottom="2.5dp"
+    android:layout_height="140dp"
+    android:layout_width="match_parent">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/item_img_news"
+                android:layout_weight="4"
+                android:scaleType="centerCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_news_default" />
+
+            <RelativeLayout
+                android:layout_weight="0"
+                android:layout_marginLeft="5dp"
+                android:background="@color/cinza"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/item_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="TITULO DA NOTICIA"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:id="@+id/item_txt_titulo_news"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    android:layout_below="@+id/item_txt_titulo_news"
+                    android:paddingTop="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:maxLines="3"
+                    android:ellipsize="marquee"
+                    android:maxWidth="200dp"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:text="Descrição breve da notícia.Máximo de 3 linhas..."
+                    android:id="@+id/item_txt_descricao_news"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true" />
+            </RelativeLayout>
+        </TableRow>
+        </TableLayout>
+
+
+
+
+
+
+
+</LinearLayout>

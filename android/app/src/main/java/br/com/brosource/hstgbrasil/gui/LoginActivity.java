@@ -67,7 +67,6 @@ public class LoginActivity extends HstgActivity {
         setContentView(R.layout.activity_inicial);
 
         ButterKnife.inject(this);
-
         mTxtEntrar.setTypeface(CustomFont.getHumeGeometricSans3Thin(this));
     }
 

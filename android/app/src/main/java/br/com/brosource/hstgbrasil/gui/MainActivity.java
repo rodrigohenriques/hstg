@@ -1,6 +1,7 @@
 package br.com.brosource.hstgbrasil.gui;
 
 import android.graphics.Bitmap;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,8 +26,10 @@ import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 public class MainActivity extends HstgActivity {
+
     @InjectView(R.id.main_profile_pic)
     ProfilePictureView mProfilePic;
     @InjectView(R.id.main_text_saudacao)
@@ -102,6 +105,12 @@ public class MainActivity extends HstgActivity {
         mProdutos.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mWiFi.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+    }
+
+    @OnClick(R.id.main_news)
+    public void openNews() {
+        Intent itt = new Intent(this, NewsActivity.class);
+        startActivity(itt);
     }
 
     @Override

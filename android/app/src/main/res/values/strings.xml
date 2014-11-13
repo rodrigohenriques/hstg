@@ -9,4 +9,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_news">NewsActivity</string>
 
+    <string name="topo">Topo ˆ</string>
+    <string name="news">#NEWS</string>
+
 </resources>

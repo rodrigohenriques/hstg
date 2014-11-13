@@ -17,7 +17,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="96dp"
+            android:layout_height="80dp"
             android:layout_alignParentLeft="true"
             android:padding="8dp"
             android:scaleType="fitStart"
@@ -34,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/inicial_image_fb"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:scaleType="fitStart"
                 android:src="@drawable/ic_login_fb"/>
 
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/action_entrar"
-                android:textSize="45sp"
+                android:textSize="35sp"
                 android:gravity="center"
                 android:textColor="@color/branco"
                 android:padding="0dp"
