@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,6 +23,7 @@ import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.server.handler.ProdutoListHandler;
 import br.com.brosource.hstgbrasil.util.CustomFont;
+import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import br.com.brosource.hstgbrasil.widgets.MultiViewPager;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -34,6 +39,8 @@ public class ProdutoActivity extends FragmentActivity {
     @InjectView(R.id.txt_produto)
     TextView labelProduto;
 
+    ButteryProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +48,31 @@ public class ProdutoActivity extends FragmentActivity {
 
         ButterKnife.inject(this);
 
+        progressBar = new ButteryProgressBar(this);
+        progressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24));
+
+        final FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
+        decorView.addView(progressBar);
+
+        ViewTreeObserver observer = progressBar.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                View contentView = decorView.findViewById(android.R.id.content);
+                progressBar.setY(contentView.getY());
+
+                ViewTreeObserver observer = progressBar.getViewTreeObserver();
+                observer.removeGlobalOnLayoutListener(this);
+            }
+        });
+
         labelProduto.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
 
         HstgRestClient.getProdutoList(new ProdutoListHandler() {
             @Override
             public void onSuccess(final ArrayList<Produto> list) {
+
+                progressBar.setVisibility(View.INVISIBLE);
 
                 mPager = (MultiViewPager) findViewById(R.id.produto_pager);
                 mAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {

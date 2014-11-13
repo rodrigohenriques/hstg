@@ -73,18 +73,23 @@
         android:id="@+id/produto_banner"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/branco"
         android:layout_width="match_parent"
-        android:background="@color/cinza"
         android:layout_height="60dp">
 
-        <TextView
-            android:gravity="center"
+
+        <View
+            android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/branco"
-            android:id="@+id/txt_banner"
-            android:text="BANNER" />
+            android:layout_height="2dp"
+            android:background="@drawable/line"></View>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:background="@drawable/banner"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
@@ -27,7 +28,7 @@ import br.com.brosource.hstgbrasil.util.C;
 public class GraphClient {
     private static AsyncHttpClient client = new AsyncHttpClient();
 
-    public static void getPhotoFacebook(final String id) {
+    public static void getPhotoFacebook(final String id, final ImageView imageView) {
 
         Bitmap bitmap = null;
 
@@ -42,9 +43,11 @@ public class GraphClient {
             @Override
             public void onSuccess(int statusCode, Header[] headers, File file) {
                 try {
-                    Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
 
-                    bitmap.isRecycled();
+                    Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
+                    imageView.setImageBitmap(bitmap);
+
+
                 } catch (FileNotFoundException e) {
                     Log.e(C.App.LOG_TAG, "Carregamento da imagem do perfil", e);
                 }

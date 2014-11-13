@@ -24,6 +24,7 @@ import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
+import br.com.brosource.hstgbrasil.widgets.ImageViewCircle;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -31,7 +32,7 @@ import butterknife.OnClick;
 public class MainActivity extends HstgActivity {
 
     @InjectView(R.id.main_profile_pic)
-    ProfilePictureView mProfilePic;
+    ImageViewCircle mProfilePic;
     @InjectView(R.id.main_text_saudacao)
     TextView mTxtSaudacao;
     @InjectView(R.id.main_news)
@@ -72,14 +73,10 @@ public class MainActivity extends HstgActivity {
                         if (session == Session.getActiveSession()) {
                             if (user != null) {
 
-
-                                GraphClient.getPhotoFacebook(user.getId());
-
-                                // Set the id for the ProfilePictureView
-                                // view that in turn displays the profile picture.
-                                mProfilePic.setProfileId(user.getId());
-                                // Set the Textview's text to the user's name.
-                                mTxtSaudacao.setText("Ola, " + user.getName());
+                                mProfilePic.invalidate();
+                                GraphClient.getPhotoFacebook(user.getId(), mProfilePic);
+                                //mProfilePic.setProfileId(user.getId());
+                                mTxtSaudacao.setText("Olá, " + user.getName());
                             }
                         }
                         if (response.getError() != null) {
@@ -98,6 +95,8 @@ public class MainActivity extends HstgActivity {
         ButterKnife.inject(this);
 
         mTxtSaudacao.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
+
+        mProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_picture_holo_light));
 
         mNews.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mAgenda.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));

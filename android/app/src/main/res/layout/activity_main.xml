@@ -32,36 +32,35 @@
             android:background="@color/branco"
             android:gravity="center_vertical"
             android:textSize="14sp"
+            android:visibility="gone"
             android:padding="8dp"
             android:clickable="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/preto"
-        android:padding="12dp"
+        android:padding="10dp"
         android:layout_below="@+id/main_topbar">
 
-        <com.facebook.widget.ProfilePictureView
+        <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
             android:id="@+id/main_profile_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
-            android:gravity="center_horizontal"
-            facebook:preset_size="small" />
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
 
         <TextView
             android:id="@+id/main_text_saudacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ola, Bruna Soares"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:maxLines="2"
+            android:ellipsize="marquee"
+            android:paddingLeft="16dp"
+            android:text="Olá, "
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/branco"
             android:textSize="28sp"
             android:gravity="center_vertical"
@@ -82,33 +81,48 @@
         android:text="#NEWS"
         android:clickable="true"
         android:textColor="@drawable/text_button_preto"
-        android:layout_below="@+id/main_header"/>
+        android:layout_below="@+id/main_header" />
 
     <TextView
         android:id="@+id/main_agenda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azul"
-        android:padding="16dp"
+        android:padding="12dp"
         android:layout_marginTop="@dimen/main_espaco_itens"
         android:textSize="32sp"
         android:text="#AGENDA"
         android:clickable="true"
         android:textColor="@drawable/text_button_preto"
-        android:layout_below="@+id/main_news"/>
+        android:layout_below="@+id/main_news" />
 
-    <TextView
-        android:id="@+id/main_galeria"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/rosa"
-        android:padding="16dp"
-        android:layout_marginTop="@dimen/main_espaco_itens"
-        android:textSize="32sp"
-        android:text="#GALERIA"
-        android:clickable="true"
-        android:textColor="@drawable/text_button_preto"
-        android:layout_below="@+id/main_agenda"/>
+        android:orientation="horizontal"
+        android:id="@+id/content_galeria"
+        android:layout_below="@+id/main_agenda"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/main_galeria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/rosa"
+            android:padding="16dp"
+            android:layout_marginTop="@dimen/main_espaco_itens"
+            android:textSize="32sp"
+            android:text="#GALERIA"
+            android:clickable="false"
+            android:textColor="@drawable/text_button_preto" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center|right"
+            android:layout_height="60dp"
+            android:background="@drawable/soon_branco"/>
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/main_produtos"
@@ -121,11 +135,12 @@
         android:text="#PRODUTOS"
         android:clickable="true"
         android:textColor="@drawable/text_button_preto"
-        android:layout_below="@+id/main_galeria"/>
+        android:layout_below="@+id/content_galeria" />
 
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
+        android:weightSum="2"
         android:layout_height="match_parent"
         android:layout_below="@+id/main_produtos"
         android:orientation="horizontal"
@@ -138,22 +153,37 @@
             android:layout_weight="1"
             android:background="@color/preto"
             android:gravity="center"
+            android:minLines="2"
             android:textSize="32sp"
             android:clickable="true"
             android:textColor="@drawable/text_button_branco"
-            android:text="MEUS DADOS"/>
+            android:text="Meus\nDados" />
 
-        <TextView
-            android:id="@+id/main_wifi_party"
+        <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:id="@+id/content_wifi"
             android:background="@color/cinza"
-            android:gravity="center"
-            android:textSize="32sp"
-            android:clickable="true"
-            android:textColor="@drawable/text_button_branco"
-            android:text="WIFI    PARTY"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/main_wifi_party"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:clickable="false"
+                android:textColor="@drawable/text_button_branco"
+                android:text="WiFi\nParty" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_gravity="center"
+                android:layout_height="60dp"
+                android:background="@drawable/soon_preto"/>
+        </FrameLayout>
+
+
     </LinearLayout>
 
 </RelativeLayout>
