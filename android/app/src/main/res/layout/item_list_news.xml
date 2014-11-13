@@ -4,7 +4,7 @@
     android:background="@color/branco"
     android:layout_marginTop="2.5dp"
     android:layout_marginBottom="2.5dp"
-    android:layout_height="140dp"
+    android:layout_height="120dp"
     android:layout_width="match_parent">
 
 
@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableRow android:weightSum="4">
+        <TableRow android:weightSum="5">
 
             <ImageView
                 android:id="@+id/item_img_news"
-                android:layout_weight="4"
+                android:layout_weight="5"
                 android:scaleType="centerCrop"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -36,7 +36,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="TITULO DA NOTICIA"
+                    android:text="Titulo da Noticia"
+                    android:textAllCaps="true"
                     android:singleLine="true"
                     android:ellipsize="marquee"
                     android:id="@+id/item_txt_titulo_news"
@@ -45,14 +46,14 @@
 
                 <TextView
                     android:layout_below="@+id/item_txt_titulo_news"
-                    android:paddingTop="40dp"
+                    android:paddingTop="30dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:maxLines="3"
                     android:ellipsize="marquee"
                     android:maxWidth="200dp"
-                    android:textAppearance="?android:attr/textAppearance"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Descrição breve da notícia.Máximo de 3 linhas..."
                     android:id="@+id/item_txt_descricao_news"
                     android:layout_alignParentTop="true"

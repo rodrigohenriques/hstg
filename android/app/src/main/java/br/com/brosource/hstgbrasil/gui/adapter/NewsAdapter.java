@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.model.Noticia;
+import br.com.brosource.hstgbrasil.util.CustomFont;
 
 /**
  * Created by haroldoolivieri on 11/12/14.
@@ -48,12 +49,14 @@ public class NewsAdapter extends ArrayAdapter<Noticia> {
             holder.txtTitulo = (TextView) convertView.findViewById(R.id.item_txt_titulo_news);
             holder.txtDescricao = (TextView) convertView.findViewById(R.id.item_txt_descricao_news);
 
+            holder.txtTitulo.setTypeface(CustomFont.getHumeGeometricSans3Bold(context));
+            holder.txtDescricao.setTypeface(CustomFont.getHumeGeometricSans3Light(context));
+
             convertView.setTag(holder);
 
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
         .showImageOnLoading(R.drawable.ic_news_default)

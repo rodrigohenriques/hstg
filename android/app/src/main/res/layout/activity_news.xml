@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:padding="0dp"
@@ -56,7 +56,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/amarelo"
             android:text="@string/news"
-            android:id="@+id/textView" />
+            android:id="@+id/txt_news" />
     </LinearLayout>
 
     <ListView
@@ -81,6 +81,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/branco"
+            android:id="@+id/txt_topo"
             android:text="@string/topo"/>
 
     </LinearLayout>

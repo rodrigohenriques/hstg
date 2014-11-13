@@ -25,11 +25,12 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:textColor="@drawable/text_button_preto"
             android:text="Ao Vivo"
             android:background="@color/branco"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:textSize="14sp"
             android:padding="8dp"
             android:clickable="true"
