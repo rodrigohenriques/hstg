@@ -1,5 +1,6 @@
 package br.com.brosource.hstgbrasil.gui;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,9 +13,16 @@ import com.facebook.SessionState;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.ProfilePictureView;
 
+import java.util.ArrayList;
+
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
+import br.com.brosource.hstgbrasil.model.Noticia;
+import br.com.brosource.hstgbrasil.server.GraphClient;
+import br.com.brosource.hstgbrasil.server.HstgRestClient;
+import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.util.CustomFont;
+import br.com.brosource.hstgbrasil.util.HstgUtil;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -61,6 +69,8 @@ public class MainActivity extends HstgActivity {
                         if (session == Session.getActiveSession()) {
                             if (user != null) {
 
+
+                                GraphClient.getPhotoFacebook(user.getId());
 
                                 // Set the id for the ProfilePictureView
                                 // view that in turn displays the profile picture.
