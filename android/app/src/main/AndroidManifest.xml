@@ -33,6 +33,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.LoginActivity" />
         </activity>
+        <activity
+            android:name="br.com.brosource.hstgbrasil.gui.NewsActivity"
+            android:label="@string/title_activity_news" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

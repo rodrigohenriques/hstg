@@ -7,5 +7,6 @@
     <string name="facebook_app_id">301196450079640</string>
     <string name="action_entrar">Entrar</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
 
 </resources>

@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.brosource.hstgbrasil.gui.NewsActivity">
+
+    <RelativeLayout
+        android:id="@+id/main_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/preto"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="0dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_hstg_topo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@drawable/text_button_preto"
+            android:text="Ao Vivo"
+            android:background="@color/branco"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

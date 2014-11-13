@@ -8,6 +8,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
+import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.util.C;
 
 /**
@@ -23,7 +24,7 @@ public class HstgRestClient {
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
-    public static void getNewsList(JsonHttpResponseHandler responseHandler) {
+    public static void getNewsList(NewsListHandler responseHandler) {
         client.get(getAbsoluteUrl(NEWS_LIST + TOKEN), null, responseHandler);
     }
 

@@ -68,33 +68,7 @@ public class LoginActivity extends HstgActivity {
 
         ButterKnife.inject(this);
 
-        HstgRestClient.getAgendaList(new AgendaListHandler() {
-            @Override
-            public void onSuccess(ArrayList<Evento> list) {
-                // faz o que tiver que fazer com os objetos retornados
-            }
-        });
-
         mTxtEntrar.setTypeface(CustomFont.getHumeGeometricSans3Thin(this));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.inicial, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @OnClick(R.id.inicial_button_login_facebook)

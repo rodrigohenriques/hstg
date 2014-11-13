@@ -7,31 +7,51 @@
     tools:context="br.com.brosource.hstgbrasil.gui.MainActivity">
 
     <RelativeLayout
-        android:id="@+id/main_header"
+        android:id="@+id/main_topbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:background="@color/preto"
         android:padding="12dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:padding="0dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_hstg_topo" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@drawable/text_button_preto"
+            android:text="Ao Vivo"
+            android:background="@color/branco"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/main_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/preto"
+        android:padding="12dp"
+        android:layout_below="@+id/main_topbar">
+
         <com.facebook.widget.ProfilePictureView
             android:id="@+id/main_profile_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
             android:layout_gravity="center"
-            android:layout_marginBottom="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="12dp"
             android:gravity="center_horizontal"
             facebook:preset_size="small" />
 
@@ -59,6 +79,8 @@
         android:layout_marginTop="@dimen/main_espaco_itens"
         android:textSize="32sp"
         android:text="#NEWS"
+        android:clickable="true"
+        android:textColor="@drawable/text_button_preto"
         android:layout_below="@+id/main_header"/>
 
     <TextView
@@ -70,6 +92,8 @@
         android:layout_marginTop="@dimen/main_espaco_itens"
         android:textSize="32sp"
         android:text="#AGENDA"
+        android:clickable="true"
+        android:textColor="@drawable/text_button_preto"
         android:layout_below="@+id/main_news"/>
 
     <TextView
@@ -81,6 +105,8 @@
         android:layout_marginTop="@dimen/main_espaco_itens"
         android:textSize="32sp"
         android:text="#GALERIA"
+        android:clickable="true"
+        android:textColor="@drawable/text_button_preto"
         android:layout_below="@+id/main_agenda"/>
 
     <TextView
@@ -92,6 +118,8 @@
         android:layout_marginTop="@dimen/main_espaco_itens"
         android:textSize="32sp"
         android:text="#PRODUTOS"
+        android:clickable="true"
+        android:textColor="@drawable/text_button_preto"
         android:layout_below="@+id/main_galeria"/>
 
     <LinearLayout
@@ -109,7 +137,8 @@
             android:background="@color/preto"
             android:gravity="center"
             android:textSize="32sp"
-            android:textColor="@color/branco"
+            android:clickable="true"
+            android:textColor="@drawable/text_button_branco"
             android:text="MEUS DADOS"/>
 
         <TextView
@@ -120,9 +149,9 @@
             android:background="@color/cinza"
             android:gravity="center"
             android:textSize="32sp"
-            android:textColor="@color/branco"
+            android:clickable="true"
+            android:textColor="@drawable/text_button_branco"
             android:text="WIFI    PARTY"/>
     </LinearLayout>
-
 
 </RelativeLayout>
