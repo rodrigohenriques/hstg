@@ -118,7 +118,7 @@ public class MainActivity extends HstgActivity {
         super.onBackPressed();
 
         if (Session.getActiveSession().isOpened()) {
-            Session.getActiveSession().close();
+            Session.getActiveSession().closeAndClearTokenInformation();
         }
     }
 }
