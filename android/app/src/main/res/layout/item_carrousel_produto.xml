@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}">
+
+    <FrameLayout
+        android:id="@+id/vg_cover"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="190dp"
+                android:background="@color/verde"
+                android:layout_height="190dp">
+
+                <ImageView
+                    android:id="@+id/img_produto"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:background="@drawable/ic_default_produto"
+                    android:scaleType="centerCrop"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:text="NOME DO PRODUTO"
+                android:textAllCaps="true"
+                android:textColor="@color/preto"
+                android:id="@+id/txt_nome_produto"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/preto"
+                android:paddingTop="5dp"
+                android:maxLines="2"
+                android:minLines="2"
+                android:ellipsize="marquee"
+                android:text="Descrição Produto"
+                android:gravity="center"
+                android:id="@+id/txt_desc_produto"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/preto"
+                android:layout_marginBottom="10dp"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:text="R$ 50"
+                android:gravity="center"
+                android:id="@+id/txt_preco"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

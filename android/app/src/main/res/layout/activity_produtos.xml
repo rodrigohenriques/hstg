@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}">
+
+    <RelativeLayout
+        android:id="@+id/main_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/preto"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="0dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/main_header"
+        android:id="@+id/hstg_verde"
+        android:layout_width="match_parent"
+        android:background="@color/verde"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_hstg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/produto_black"
+        android:layout_below="@+id/hstg_verde"
+        android:layout_width="match_parent"
+        android:background="@color/preto"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/verde"
+            android:text="@string/produto"
+            android:id="@+id/txt_produto" />
+    </LinearLayout>
+
+    <br.com.brosource.hstgbrasil.widgets.MultiViewPager
+        android:layout_below="@+id/produto_black"
+        android:id="@+id/produto_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:matchChildWidth="@+id/vg_cover" />
+
+    <LinearLayout
+        android:id="@+id/produto_banner"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:background="@color/cinza"
+        android:layout_height="60dp">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/branco"
+            android:id="@+id/txt_banner"
+            android:text="BANNER" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,11 +1,13 @@
 package br.com.brosource.hstgbrasil.model;
 
+import java.io.Serializable;
+
 import br.com.brosource.hstgbrasil.util.HstgUtil;
 
 /**
  * Created by rodrigohenriques on 11/12/14.
  */
-public class Produto {
+public class Produto implements Serializable {
     private int produto_id;
     private String titulo;
     private String descricao;

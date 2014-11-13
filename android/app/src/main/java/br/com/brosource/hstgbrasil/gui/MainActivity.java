@@ -113,6 +113,18 @@ public class MainActivity extends HstgActivity {
         startActivity(itt);
     }
 
+    @OnClick(R.id.main_agenda)
+    public void openEvents() {
+        Intent itt = new Intent(this, AgendaActivity.class);
+        startActivity(itt);
+    }
+
+    @OnClick(R.id.main_produtos)
+    public void openProducts() {
+        Intent itt = new Intent(this, ProdutoActivity.class);
+        startActivity(itt);
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
