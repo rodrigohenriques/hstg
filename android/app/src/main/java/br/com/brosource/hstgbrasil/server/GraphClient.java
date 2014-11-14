@@ -30,11 +30,11 @@ public class GraphClient {
 
     public static void getPhotoFacebook(final String id, final ImageView imageView) {
 
-        Bitmap bitmap = null;
+        File f = new File(C.App.Files.PROFILE_PIC);
 
-        File f = new File(Environment.getExternalStorageDirectory() + "/profile.png");
+        f.getParentFile().mkdirs();
 
-        client.get("https://graph.facebook.com/"+id+"/picture?type=normal", new FileAsyncHttpResponseHandler(f) {
+        client.get("https://graph.facebook.com/"+id+"/picture?type=large", new FileAsyncHttpResponseHandler(f) {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
                 Log.e(C.App.LOG_TAG, "Carregamento da imagem do perfil", throwable);

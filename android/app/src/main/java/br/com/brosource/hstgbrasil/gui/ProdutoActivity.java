@@ -34,8 +34,6 @@ public class ProdutoActivity extends FragmentActivity {
     private MultiViewPager mPager;
     private FragmentStatePagerAdapter mAdapter;
 
-    @InjectView(R.id.btn_back)
-    ImageView btnBack;
     @InjectView(R.id.txt_produto)
     TextView labelProduto;
 

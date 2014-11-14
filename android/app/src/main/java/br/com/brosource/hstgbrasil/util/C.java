@@ -1,15 +1,21 @@
 package br.com.brosource.hstgbrasil.util;
 
+import android.os.Environment;
+
 /**
  * Created by rodrigohenriques on 11/9/14.
  */
 public class C {
-    public class App {
+    public static class App {
         public static final String LOG_TAG = "HSTG-APP";
-        public static final String NEWS = "HSTG-APP";
-        public static final String AGENDA = "HSTG-APP";
-        public static final String GALERIA = "HSTG-APP";
-        public static final String PRODUTOS = "HSTG-APP";
 
+        public static class Path {
+            public static final String MAIN = Environment.getExternalStorageDirectory() + "/hstg";
+            public static final String USER = MAIN + "/user";
+        }
+
+        public static class Files {
+            public static final String PROFILE_PIC = Path.USER + "/profile_pic.png";
+        }
     }
 }

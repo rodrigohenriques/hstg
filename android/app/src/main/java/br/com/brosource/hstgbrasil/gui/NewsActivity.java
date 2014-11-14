@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.Session;
+import com.facebook.SessionState;
+
 import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.R;
@@ -19,12 +22,13 @@ import br.com.brosource.hstgbrasil.model.Noticia;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.util.CustomFont;
+import br.com.brosource.hstgbrasil.util.HstgUtil;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class NewsActivity extends Activity {
+public class NewsActivity extends HstgActivity {
 
     NewsAdapter newsAdapter;
     @InjectView(R.id.list_news)
@@ -37,6 +41,14 @@ public class NewsActivity extends Activity {
     TextView btnTopo;
 
     ButteryProgressBar progressBar;
+
+    @Override
+    public void onSessionStateChange(Session session, SessionState state, Exception exception) {
+        if (state.isClosed()) {
+            // TODO retorna pra tela de login do aplicativo
+            HstgUtil.logout(this);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

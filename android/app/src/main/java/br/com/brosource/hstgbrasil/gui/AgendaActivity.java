@@ -25,12 +25,13 @@ import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.util.CustomFont;
+import br.com.brosource.hstgbrasil.util.HstgUtil;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class AgendaActivity extends Activity {
+public class AgendaActivity extends HstgActivity {
 
     AgendaAdapter agendaAdapter;
 
@@ -44,6 +45,13 @@ public class AgendaActivity extends Activity {
     TextView btnTopo;
 
     ButteryProgressBar progressBar;
+
+    @Override
+    public void onSessionStateChange(Session session, SessionState state, Exception exception) {
+        if (state.isClosed()) {
+            HstgUtil.logout(this);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

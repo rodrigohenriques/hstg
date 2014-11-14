@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/preto"
-        android:padding="12dp">
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:padding="0dp"
@@ -23,66 +23,67 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_below="@+id/main_header"
         android:id="@+id/hstg_azul"
         android:layout_width="match_parent"
-        android:background="@color/azul"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_below="@+id/main_header"
+        android:background="@color/azul">
 
         <ImageView
             android:id="@+id/img_icon"
-            android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_hstg" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/agenda_black"
-        android:layout_below="@+id/hstg_azul"
         android:layout_width="match_parent"
-        android:background="@color/preto"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        android:layout_below="@+id/hstg_azul"
+        android:background="@color/preto">
 
         <TextView
-            android:layout_marginLeft="16dp"
+            android:id="@+id/txt_agenda"
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/azul"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
             android:text="@string/agenda"
-            android:id="@+id/txt_agenda" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/azul" />
     </LinearLayout>
 
     <ListView
-        android:layout_marginTop="2.5dp"
         android:id="@+id/list_agenda"
-        android:layout_below="@+id/agenda_black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/agenda_footer"
+        android:layout_below="@+id/agenda_black"
+        android:layout_marginTop="2.5dp" />
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:id="@+id/agenda_footer"
         android:layout_width="match_parent"
-        android:background="@color/preto"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/preto">
 
         <TextView
-            android:layout_marginRight="16dp"
-            android:layout_width="match_parent"
-            android:gravity="right"
-            android:layout_gravity="center|right"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/branco"
             android:id="@+id/txt_topo"
-            android:text="@string/topo"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="16dp"
+            android:gravity="right"
+            android:text="@string/topo"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/branco" />
 
     </LinearLayout>
 

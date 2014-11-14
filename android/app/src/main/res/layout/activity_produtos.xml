@@ -11,18 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/preto"
-        android:padding="12dp">
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:padding="0dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_back" />
     </RelativeLayout>
+
 
     <LinearLayout
         android:layout_below="@+id/main_header"
