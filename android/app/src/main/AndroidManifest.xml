@@ -26,10 +26,12 @@
         </activity>
         <activity
             android:name="com.facebook.LoginActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -37,6 +39,7 @@
         </activity>
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.NewsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_news" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,6 +47,7 @@
         </activity>
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.AgendaActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_news" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -51,6 +55,7 @@
         </activity>
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.ProdutoActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_news" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

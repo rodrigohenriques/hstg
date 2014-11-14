@@ -22,14 +22,14 @@
             <LinearLayout
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_width="190dp"
+                android:layout_width="150dp"
                 android:background="@color/verde"
-                android:layout_height="190dp">
+                android:layout_height="150dp">
 
                 <ImageView
                     android:id="@+id/img_produto"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
                     android:background="@drawable/ic_default_produto"
                     android:scaleType="centerCrop"
                     tools:ignore="ContentDescription" />
@@ -48,14 +48,14 @@
                 android:textColor="@color/preto"
                 android:id="@+id/txt_nome_produto"
                 android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_gravity="center" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/preto"
-                android:paddingTop="5dp"
+                android:paddingTop="3dp"
                 android:maxLines="2"
                 android:minLines="2"
                 android:ellipsize="marquee"
