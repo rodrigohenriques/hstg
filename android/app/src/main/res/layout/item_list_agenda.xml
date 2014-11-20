@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:background="@color/branco"
-    android:layout_marginTop="2.5dp"
-    android:layout_marginBottom="2.5dp"
+    android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:layout_width="match_parent">
+    android:layout_marginBottom="2.5dp"
+    android:layout_marginTop="2.5dp"
+    android:background="@color/branco"
+    android:orientation="horizontal">
 
 
     <TableLayout
@@ -16,106 +16,106 @@
 
 
             <FrameLayout
-                android:layout_weight="5"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_weight="5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:background="@color/azul"
                     android:layout_height="match_parent"
+                    android:background="@color/azul"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:scaleType="centerCrop"
                         android:id="@+id/item_img_evento"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
 
                     <TextView
+                        android:id="@+id/item_dia_evento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="10"
-                        android:textColor="@color/preto"
-                        android:gravity="center"
-                        android:textAllCaps="true"
-                        android:singleLine="true"
                         android:ellipsize="marquee"
-                        android:id="@+id/item_dia_evento" />
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="10"
+                        android:textAllCaps="true"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/preto" />
 
                     <TextView
-                        android:layout_below="@+id/item_txt_data_evento"
-                        android:paddingTop="10dp"
-                        android:gravity="center"
-                        android:textColor="@color/preto"
+                        android:id="@+id/item_mes_evento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_below="@+id/item_txt_data_evento"
+                        android:ellipsize="marquee"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:singleLine="true"
                         android:text="out"
                         android:textAllCaps="true"
-                        android:singleLine="true"
-                        android:ellipsize="marquee"
-                        android:id="@+id/item_mes_evento" />
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/preto" />
                 </LinearLayout>
             </FrameLayout>
 
             <RelativeLayout
-                android:layout_weight="0"
-                android:layout_marginLeft="5dp"
-                android:background="@color/cinza"
+                android:id="@+id/item_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/item_content">
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0"
+                android:background="@color/cinza">
 
 
                 <TextView
+                    android:id="@+id/item_txt_data_evento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
                     android:layout_margin="10dp"
-                    android:textColor="@color/preto"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
                     android:text="10 out - 22h"
                     android:textAllCaps="true"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:id="@+id/item_txt_data_evento"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/preto" />
 
                 <TextView
-                    android:layout_below="@id/item_txt_data_evento"
-                    android:paddingTop="20dp"
+                    android:id="@+id/item_txt_titulo_evento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/preto"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_below="@id/item_txt_data_evento"
                     android:layout_margin="10dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:ellipsize="marquee"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
                     android:text="Titulo da Noticia"
                     android:textAllCaps="true"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:id="@+id/item_txt_titulo_evento"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/preto" />
 
                 <TextView
-                    android:layout_below="@+id/item_txt_titulo_evento"
-                    android:paddingTop="45dp"
+                    android:id="@+id/item_txt_descricao_evento"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:maxLines="2"
-                    android:ellipsize="marquee"
-                    android:textColor="@color/preto"
-                    android:maxWidth="200dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Descrição breve da notícia.Máximo de 3 linhasmnam,snam,snam,nsam,, s,amn"
-                    android:id="@+id/item_txt_descricao_evento"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true" />
+                    android:layout_below="@+id/item_txt_titulo_evento"
+                    android:layout_margin="10dp"
+                    android:ellipsize="marquee"
+                    android:maxLines="2"
+                    android:maxWidth="200dp"
+                    android:paddingTop="45dp"
+                    android:text="Descrição breve da notícia.Máximo de 3 linhasmnam,snam,snam,nsam,, s,amn"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/preto" />
             </RelativeLayout>
         </TableRow>
     </TableLayout>

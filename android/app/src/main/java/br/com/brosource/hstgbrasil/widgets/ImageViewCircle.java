@@ -53,7 +53,7 @@ public class ImageViewCircle extends ImageView {
 
     }
 
-    private Bitmap getRoundedCornerBitmap(Context context, Bitmap input, int pixels , int w , int h) {
+    private Bitmap getRoundedCornerBitmap(Context context, Bitmap input, int pixels, int w, int h) {
 
         Bitmap output = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
@@ -68,7 +68,7 @@ public class ImageViewCircle extends ImageView {
         canvas.drawCircle(input.getWidth() / 2, getHeight() / 2, input.getWidth() / 2, paint);
 
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(input, 0,0, paint);
+        canvas.drawBitmap(input, 0, 0, paint);
 
         return output;
     }

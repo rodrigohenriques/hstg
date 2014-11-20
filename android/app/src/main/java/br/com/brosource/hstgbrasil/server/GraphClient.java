@@ -34,7 +34,7 @@ public class GraphClient {
 
         f.getParentFile().mkdirs();
 
-        client.get("https://graph.facebook.com/"+id+"/picture?type=large", new FileAsyncHttpResponseHandler(f) {
+        client.get("https://graph.facebook.com/" + id + "/picture?type=large", new FileAsyncHttpResponseHandler(f) {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
                 Log.e(C.App.LOG_TAG, "Carregamento da imagem do perfil", throwable);

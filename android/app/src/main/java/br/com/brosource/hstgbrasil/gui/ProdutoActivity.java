@@ -31,13 +31,11 @@ import butterknife.OnClick;
 
 public class ProdutoActivity extends FragmentActivity {
 
-    private MultiViewPager mPager;
-    private FragmentStatePagerAdapter mAdapter;
-
     @InjectView(R.id.txt_produto)
     TextView labelProduto;
-
     ButteryProgressBar progressBar;
+    private MultiViewPager mPager;
+    private FragmentStatePagerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +91,7 @@ public class ProdutoActivity extends FragmentActivity {
 
     @OnClick(R.id.btn_back)
     public void back() {
-        finish();
+        onBackPressed();
     }
 
 }

@@ -13,6 +13,10 @@ public class Evento {
     public String texto;
     public String imagem;
 
+    public static Evento load(String json) {
+        return HstgUtil.GSON.fromJson(json, Evento.class);
+    }
+
     public int getEvent_id() {
         return event_id;
     }
@@ -47,9 +51,5 @@ public class Evento {
                 ", texto='" + texto + '\'' +
                 ", imagem='" + imagem + '\'' +
                 '}';
-    }
-
-    public static Evento load(String json) {
-        return HstgUtil.GSON.fromJson(json, Evento.class);
     }
 }

@@ -59,8 +59,8 @@ public class NewsAdapter extends ArrayAdapter<Noticia> {
         }
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-        .showImageOnLoading(R.drawable.ic_news_default)
-        .build();
+                .showImageOnLoading(R.drawable.ic_news_default)
+                .build();
 
         imageLoader.displayImage(noticias.get(position).getImagem(), holder.image, options);
         holder.txtTitulo.setText(noticias.get(position).getTitulo());

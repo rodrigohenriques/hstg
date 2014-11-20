@@ -14,6 +14,9 @@ public class Produto implements Serializable {
     private String preco;
     private String imagem;
 
+    public static Produto load(String json) {
+        return HstgUtil.GSON.fromJson(json, Produto.class);
+    }
 
     public int getProduto_id() {
         return produto_id;
@@ -44,9 +47,5 @@ public class Produto implements Serializable {
                 ", preco='" + preco + '\'' +
                 ", imagem='" + imagem + '\'' +
                 '}';
-    }
-
-    public static Produto load(String json) {
-        return HstgUtil.GSON.fromJson(json, Produto.class);
     }
 }

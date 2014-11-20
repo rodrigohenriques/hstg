@@ -12,6 +12,10 @@ public class Noticia {
     private String data;
     private String imagem;
 
+    public static Noticia load(String json) {
+        return HstgUtil.GSON.fromJson(json, Noticia.class);
+    }
+
     public int getPost_id() {
         return post_id;
     }
@@ -41,9 +45,5 @@ public class Noticia {
                 ", data='" + data + '\'' +
                 ", imagem='" + imagem + '\'' +
                 '}';
-    }
-
-    public static Noticia load(String json) {
-        return HstgUtil.GSON.fromJson(json, Noticia.class);
     }
 }

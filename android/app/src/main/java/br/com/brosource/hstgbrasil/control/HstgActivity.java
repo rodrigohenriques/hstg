@@ -20,14 +20,13 @@ import butterknife.ButterKnife;
  * Created by rodrigohenriques on 11/10/14.
  */
 public abstract class HstgActivity extends Activity {
-    private UiLifecycleHelper uiHelper;
-
     protected Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
             onSessionStateChange(session, state, exception);
         }
     };
+    private UiLifecycleHelper uiHelper;
 
     public abstract void onSessionStateChange(final Session session, SessionState state, Exception exception);
 
@@ -47,7 +46,7 @@ public abstract class HstgActivity extends Activity {
         // session is not null, the session state change notification
         // may not be triggered. Trigger it if it's open/closed.
         Session session = Session.getActiveSession();
-        if ( session != null && (session.isOpened() || session.isClosed()) ) {
+        if (session != null && (session.isOpened() || session.isClosed())) {
             onSessionStateChange(session, session.getState(), null);
         }
 

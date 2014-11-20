@@ -30,6 +30,7 @@ import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.util.C;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
+import br.com.brosource.hstgbrasil.util.Instagram;
 import br.com.brosource.hstgbrasil.widgets.ImageViewCircle;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -56,6 +57,55 @@ public class MainActivity extends HstgActivity {
 
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ButterKnife.inject(this);
+
+        mTxtSaudacao.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
+
+        checkProfilePicture();
+
+        mNews.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mAgenda.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mGaleria.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mProdutos.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mWiFi.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+    }
+
+    @OnClick(R.id.main_news)
+    public void openNews() {
+        Intent itt = new Intent(this, NewsActivity.class);
+        startActivity(itt);
+    }
+
+    @OnClick(R.id.main_agenda)
+    public void openEvents() {
+        Intent itt = new Intent(this, AgendaActivity.class);
+        startActivity(itt);
+    }
+
+    @OnClick(R.id.main_produtos)
+    public void openProducts() {
+        Intent itt = new Intent(this, ProdutoActivity.class);
+        startActivity(itt);
+    }
+
+    @OnClick(R.id.main_galeria)
+    public void openGaleria() {
+        Instagram.oAuth(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        HstgUtil.logout(this);
+
+    }
+
+    @Override
     public void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state.isOpened()) {
             // Carrega imagem e saudacao
@@ -64,7 +114,7 @@ public class MainActivity extends HstgActivity {
                 makeMeRequest(session);
             }
         } else {
-            // TODO retorna pra tela de login do aplicativo
+            // retorna pra tela de login do aplicativo
             HstgUtil.logout(this);
         }
     }
@@ -94,15 +144,7 @@ public class MainActivity extends HstgActivity {
         request.executeAsync();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        ButterKnife.inject(this);
-
-        mTxtSaudacao.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
-
+    private void checkProfilePicture() {
         File f = new File(C.App.Files.PROFILE_PIC);
 
         if (f != null && f.exists() && f.length() > 0) {
@@ -124,37 +166,5 @@ public class MainActivity extends HstgActivity {
             mProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_picture_holo_light));
 
         }
-
-        mNews.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mAgenda.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mGaleria.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mProdutos.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mWiFi.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-    }
-
-    @OnClick(R.id.main_news)
-    public void openNews() {
-        Intent itt = new Intent(this, NewsActivity.class);
-        startActivity(itt);
-    }
-
-    @OnClick(R.id.main_agenda)
-    public void openEvents() {
-        Intent itt = new Intent(this, AgendaActivity.class);
-        startActivity(itt);
-    }
-
-    @OnClick(R.id.main_produtos)
-    public void openProducts() {
-        Intent itt = new Intent(this, ProdutoActivity.class);
-        startActivity(itt);
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        HstgUtil.logout(this);
-
     }
 }

@@ -26,16 +26,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:textColor="@drawable/text_button_preto"
-            android:text="Ao Vivo"
             android:background="@color/branco"
-            android:gravity="center_vertical"
-            android:textSize="14sp"
-            android:visibility="gone"
-            android:padding="8dp"
             android:clickable="true"
-            android:layout_alignParentRight="true" />
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="Ao Vivo"
+            android:textColor="@drawable/text_button_preto"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
     </RelativeLayout>
 
@@ -43,9 +43,9 @@
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/main_topbar"
         android:background="@color/preto"
-        android:padding="10dp"
-        android:layout_below="@+id/main_topbar">
+        android:padding="10dp">
 
         <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
             android:id="@+id/main_profile_pic"
@@ -56,26 +56,26 @@
             android:id="@+id/main_text_saudacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="2"
+            android:layout_alignBottom="@+id/main_profile_pic"
+            android:layout_alignTop="@+id/main_profile_pic"
+            android:layout_toRightOf="@+id/main_profile_pic"
             android:ellipsize="marquee"
+            android:gravity="center_vertical"
+            android:maxLines="2"
             android:paddingLeft="16dp"
             android:text="Olá, "
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/branco"
-            android:textSize="@dimen/txt_saudacao_size"
-            android:gravity="center_vertical"
-            android:layout_alignTop="@+id/main_profile_pic"
-            android:layout_alignBottom="@+id/main_profile_pic"
-            android:layout_toRightOf="@+id/main_profile_pic" />
+            android:textSize="@dimen/txt_saudacao_size" />
 
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/main_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/main_header"
-        android:background="@color/preto"
-        android:id="@+id/main_scroll">
+        android:background="@color/preto">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -86,68 +86,54 @@
                 android:id="@+id/main_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/amarelo"
-                android:padding="16dp"
-                android:layout_marginTop="@dimen/main_espaco_itens"
-                android:textSize="@dimen/menu_font_size"
                 android:layout_alignParentTop="true"
-                android:text="#NEWS"
+                android:layout_marginTop="@dimen/main_espaco_itens"
+                android:background="@color/amarelo"
                 android:clickable="true"
-                android:textColor="@drawable/text_button_preto" />
+                android:padding="16dp"
+                android:text="@string/news"
+                android:textColor="@drawable/text_button_preto"
+                android:textSize="@dimen/menu_font_size" />
 
             <TextView
                 android:id="@+id/main_agenda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/azul"
-                android:padding="12dp"
+                android:layout_below="@+id/main_news"
                 android:layout_marginTop="@dimen/main_espaco_itens"
-                android:textSize="@dimen/menu_font_size"
-                android:text="#AGENDA"
+                android:background="@color/azul"
                 android:clickable="true"
+                android:padding="12dp"
+                android:text="@string/agenda"
                 android:textColor="@drawable/text_button_preto"
-                android:layout_below="@+id/main_news" />
+                android:textSize="@dimen/menu_font_size" />
 
-            <FrameLayout
+            <TextView
+                android:id="@+id/main_galeria"
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:id="@+id/content_galeria"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/main_agenda"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/main_galeria"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/rosa"
-                    android:padding="16dp"
-                    android:layout_marginTop="@dimen/main_espaco_itens"
-                    android:textSize="@dimen/menu_font_size"
-                    android:text="#GALERIA"
-                    android:clickable="false"
-                    android:textColor="@drawable/text_button_preto" />
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_gravity="center|right"
-                    android:layout_height="40dp"
-                    android:background="@drawable/soon_branco" />
-            </FrameLayout>
+                android:layout_marginTop="@dimen/main_espaco_itens"
+                android:background="@color/rosa"
+                android:clickable="true"
+                android:padding="16dp"
+                android:text="@string/galeria"
+                android:textColor="@drawable/text_button_preto"
+                android:textSize="@dimen/menu_font_size" />
 
 
             <TextView
                 android:id="@+id/main_produtos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/verde"
-                android:padding="16dp"
+                android:layout_below="@+id/main_galeria"
                 android:layout_marginTop="@dimen/main_espaco_itens"
-                android:textSize="@dimen/menu_font_size"
-                android:text="#PRODUTOS"
+                android:background="@color/verde"
                 android:clickable="true"
+                android:padding="16dp"
+                android:text="@string/produto"
                 android:textColor="@drawable/text_button_preto"
-                android:layout_below="@+id/content_galeria" />
+                android:textSize="@dimen/menu_font_size" />
 
         </RelativeLayout>
 
@@ -155,20 +141,20 @@
 
     <LinearLayout
         android:id="@+id/main_footer"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:weightSum="2"
         android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
         android:layout_below="@+id/main_scroll"
         android:layout_marginTop="@dimen/main_espaco_itens"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <FrameLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:id="@+id/content_meus_dados"
-            android:background="@color/cinza"
-            android:layout_height="match_parent">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cinza">
 
             <TextView
                 android:id="@+id/main_meus_dados"
@@ -176,43 +162,43 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/preto"
+                android:clickable="true"
                 android:gravity="center"
                 android:minLines="2"
-                android:textSize="@dimen/menu_font_size"
-                android:clickable="true"
+                android:text="Meus\nDados"
                 android:textColor="@drawable/text_button_branco"
-                android:text="Meus\nDados" />
+                android:textSize="@dimen/menu_font_size" />
 
             <ImageView
                 android:layout_width="135dp"
-                android:layout_gravity="center"
                 android:layout_height="54dp"
+                android:layout_gravity="center"
                 android:background="@drawable/soon_sombra" />
 
 
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:id="@+id/content_wifi"
-            android:background="@color/cinza"
-            android:layout_height="match_parent">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cinza">
 
             <TextView
                 android:id="@+id/main_wifi_party"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:textSize="@dimen/menu_font_size"
                 android:clickable="false"
+                android:gravity="center"
+                android:text="WiFi\nParty"
                 android:textColor="@drawable/text_button_branco"
-                android:text="WiFi\nParty" />
+                android:textSize="@dimen/menu_font_size" />
 
             <ImageView
                 android:layout_width="135dp"
-                android:layout_gravity="center"
                 android:layout_height="54dp"
+                android:layout_gravity="center"
                 android:background="@drawable/soon_preto" />
         </FrameLayout>
 

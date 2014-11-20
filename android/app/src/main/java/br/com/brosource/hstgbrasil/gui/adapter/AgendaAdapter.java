@@ -71,7 +71,7 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        SimpleDateFormat  format = new SimpleDateFormat(HOUR_PATTERN);
+        SimpleDateFormat format = new SimpleDateFormat(HOUR_PATTERN);
         try {
 
             //String to date
@@ -86,7 +86,7 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
             String dia = formatDia.format(date);
             String mes = formatMes.format(date);
 
-            holder.txtData.setText(dia + " " +  mes + " - " + horas + "H");
+            holder.txtData.setText(dia + " " + mes + " - " + horas + "H");
             holder.txtDia.setText(dia);
             holder.txtMes.setText(mes);
 
@@ -101,15 +101,15 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
 
         String imagem = eventos.get(position).getImagem();
 
-        if ( imagem != null && imagem.length() > 0){
+        if (imagem != null && imagem.length() > 0) {
             imageLoader.displayImage(eventos.get(position).getImagem(), holder.image, options);
             holder.txtDia.setVisibility(View.INVISIBLE);
             holder.txtMes.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             holder.image.setVisibility(View.GONE);
             holder.txtDia.setVisibility(View.VISIBLE);
             holder.txtMes.setVisibility(View.VISIBLE);
-       }
+        }
 
         holder.txtTitulo.setText(eventos.get(position).getTitulo());
         holder.txtDescricao.setText(eventos.get(position).getTexto());

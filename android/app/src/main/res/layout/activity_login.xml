@@ -28,27 +28,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:foreground="?android:attr/selectableItemBackground"
             android:background="@color/azul_facebook"
-            android:padding="18dp"
-            android:clickable="true">
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="18dp">
 
             <ImageView
                 android:id="@+id/inicial_image_fb"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="fitStart"
-                android:src="@drawable/ic_login_fb"/>
+                android:src="@drawable/ic_login_fb" />
 
             <TextView
                 android:id="@+id/inicial_textview_entrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/action_entrar"
-                android:textSize="35sp"
                 android:layout_gravity="right|bottom"
+                android:padding="0dp"
+                android:text="@string/action_entrar"
                 android:textColor="@color/branco"
-                android:padding="0dp" />
+                android:textSize="35sp" />
         </FrameLayout>
     </RelativeLayout>
 

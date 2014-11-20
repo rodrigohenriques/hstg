@@ -33,6 +33,16 @@ public class MultiViewPager extends ViewPager {
     private boolean mNeedsMeasurePage;
 
 
+    public MultiViewPager(Context context) {
+        super(context);
+    }
+
+
+    public MultiViewPager(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context, attrs);
+    }
+
     private static void constrainTo(Point size, Point maxSize) {
         if (maxSize.x >= 0) {
             if (size.x > maxSize.x) {
@@ -45,18 +55,6 @@ public class MultiViewPager extends ViewPager {
             }
         }
     }
-
-
-    public MultiViewPager(Context context) {
-        super(context);
-    }
-
-
-    public MultiViewPager(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
-    }
-
 
     private void init(Context context, AttributeSet attrs) {
         setClipChildren(false);

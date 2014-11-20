@@ -26,58 +26,58 @@
 
 
     <LinearLayout
-        android:layout_below="@+id/main_header"
         android:id="@+id/hstg_verde"
         android:layout_width="match_parent"
-        android:background="@color/verde"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_below="@+id/main_header"
+        android:background="@color/verde">
 
         <ImageView
             android:id="@+id/img_icon"
-            android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_hstg" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/produto_black"
-        android:layout_below="@+id/hstg_verde"
         android:layout_width="match_parent"
-        android:background="@color/preto"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        android:layout_below="@+id/hstg_verde"
+        android:background="@color/preto">
 
         <TextView
-            android:layout_marginLeft="16dp"
+            android:id="@+id/txt_produto"
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/verde"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
             android:text="@string/produto"
-            android:id="@+id/txt_produto" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/verde" />
     </LinearLayout>
 
     <br.com.brosource.hstgbrasil.widgets.MultiViewPager
-        android:layout_below="@+id/produto_black"
         android:id="@+id/produto_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/produto_black"
+        android:layout_above="@+id/produto_banner"
         app:matchChildWidth="@+id/vg_cover" />
 
     <LinearLayout
         android:id="@+id/produto_banner"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:background="@color/branco"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/branco"
+        android:gravity="center"
+        android:orientation="vertical">
 
 
         <View
@@ -88,9 +88,9 @@
 
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/banner"
-            android:scaleType="centerCrop"
-            android:layout_height="wrap_content" />
+            android:scaleType="centerCrop" />
 
     </LinearLayout>
 
