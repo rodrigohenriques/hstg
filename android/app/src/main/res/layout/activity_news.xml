@@ -7,17 +7,15 @@
     <RelativeLayout
         android:id="@+id/main_header"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        style="@style/ImageViewSize"
         android:background="@color/preto"
         android:padding="20dp">
 
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
+            style="@style/ImageViewMinSize"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:padding="0dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_back" />
     </RelativeLayout>
@@ -25,7 +23,7 @@
     <LinearLayout
         android:id="@+id/hstg_amarelo"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        style="@style/ImageViewBigSize"
         android:layout_below="@+id/main_header"
         android:background="@color/amarelo">
 
@@ -44,7 +42,7 @@
     <LinearLayout
         android:id="@+id/news_black"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        style="@style/ImageViewLowSize"
         android:layout_below="@+id/hstg_amarelo"
         android:background="@color/preto">
 
@@ -70,7 +68,7 @@
     <LinearLayout
         android:id="@+id/news_footer"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        style="@style/ImageViewMediumSize"
         android:layout_alignParentBottom="true"
         android:background="@color/preto">
 

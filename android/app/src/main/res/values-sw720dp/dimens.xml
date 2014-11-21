@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LogoViva">
+        <item name="android:layout_width">195dp</item>
+        <item name="android:layout_height">195dp</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">115dp</item>
+    </style>
+
+    <style name="listMain">
+        <item name="android:layout_width">700dp</item>
+        <item name="android:layout_height">650dp</item>
+    </style>
+
+    <style name="arrowNavigation">
+        <item name="android:layout_width">750dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="contentPerguntas">
+        <item name="android:layout_width">700dp</item>
+        <item name="android:layout_height">700dp</item>
+    </style>
+    
+    <style name="TextViewPergunta">
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_width">500dp</item>
+        <item name="android:layout_height">210dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
+    <style name="TextViewResposta">
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_width">580dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewMinimumSize">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewLowerSize">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewLowSize">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewSize">
+        <item name="android:textSize">65sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewBigSize">
+        <item name="android:textSize">85sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="ImageViewLowSize">
+        <item name="android:layout_width">110dp</item>
+        <item name="android:layout_height">110dp</item>
+    </style>
+    
+    <style name="ImageViewLittleSize">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+    
+    <style name="ImageViewBiggerSize">
+        <item name="android:layout_width">500dp</item>
+        <item name="android:layout_height">500dp</item>
+    </style>
+
+    <style name="ImageViewMinSize">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="ImageViewSize">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+    </style>
+
+    <style name="ImageViewMediumSize">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">200dp</item>
+    </style>
+
+    <style name="ImageViewBigSize">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">300dp</item>
+    </style>
+
+    <style name="EditTextSize">
+        <item name="android:textSize">45sp</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">90dp</item>
+    </style>
+
+    <style name="EditTextLowSize">
+        <item name="android:textSize">38sp</item>
+        <item name="android:layout_width">260dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="ButtonSize">
+        <item name="android:textSize">45sp</item>
+        <item name="android:layout_width">180dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+
+</resources>

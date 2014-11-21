@@ -15,4 +15,12 @@
     <string name="title_activity_galeria">GaleriaActivity</string>
     <string name="galeria">#GALERIA</string>
 
+
+    <string-array name="main_list">
+        <item>#NEWS</item>
+        <item>#AGENDA</item>
+        <item>#GALERIA</item>
+        <item>#PRODUTO</item>
+    </string-array>
+
 </resources>

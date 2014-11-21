@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.facebook.Request;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
+import br.com.brosource.hstgbrasil.gui.adapter.MainAdapter;
 import br.com.brosource.hstgbrasil.model.Noticia;
 import br.com.brosource.hstgbrasil.server.GraphClient;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
@@ -42,14 +46,8 @@ public class MainActivity extends HstgActivity {
     ImageViewCircle mProfilePic;
     @InjectView(R.id.main_text_saudacao)
     TextView mTxtSaudacao;
-    @InjectView(R.id.main_news)
-    TextView mNews;
-    @InjectView(R.id.main_agenda)
-    TextView mAgenda;
-    @InjectView(R.id.main_galeria)
-    TextView mGaleria;
-    @InjectView(R.id.main_produtos)
-    TextView mProdutos;
+    @InjectView(R.id.main_list)
+    ListView listView;
     @InjectView(R.id.main_meus_dados)
     TextView mDados;
     @InjectView(R.id.main_wifi_party)
@@ -66,36 +64,39 @@ public class MainActivity extends HstgActivity {
         mTxtSaudacao.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
 
         checkProfilePicture();
+        String[] objects = getResources().getStringArray(R.array.main_list);
+        listView.setAdapter(new MainAdapter(getApplicationContext(), objects));
 
-        mNews.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mAgenda.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mGaleria.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        mProdutos.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mWiFi.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-    }
 
-    @OnClick(R.id.main_news)
-    public void openNews() {
-        Intent itt = new Intent(this, NewsActivity.class);
-        startActivity(itt);
-    }
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-    @OnClick(R.id.main_agenda)
-    public void openEvents() {
-        Intent itt = new Intent(this, AgendaActivity.class);
-        startActivity(itt);
-    }
+                Intent itt = null;
 
-    @OnClick(R.id.main_produtos)
-    public void openProducts() {
-        Intent itt = new Intent(this, ProdutoActivity.class);
-        startActivity(itt);
-    }
-
-    @OnClick(R.id.main_galeria)
-    public void openGaleria() {
-        Instagram.oAuth(this);
+                switch (position) {
+                    case 0:
+                        itt = new Intent(MainActivity.this, NewsActivity.class);
+                        startActivity(itt);
+                        break;
+                    case 1:
+                        itt = new Intent(MainActivity.this, AgendaActivity.class);
+                        startActivity(itt);
+                        break;
+                    case 2:
+                        Instagram.oAuth(MainActivity.this);
+                        break;
+                    case 3:
+                        itt = new Intent(MainActivity.this, ProdutoActivity.class);
+                        startActivity(itt);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
     @Override

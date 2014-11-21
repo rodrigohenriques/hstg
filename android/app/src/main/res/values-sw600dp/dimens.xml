@@ -1,9 +1,118 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="main_espaco_itens">5dp</dimen>
-    <dimen name="menu_font_size">32sp</dimen>
-    <dimen name="fake_action_bar_height">64dp</dimen>
-    <dimen name="txt_saudacao_size">28sp</dimen>
+
+    <style name="LogoViva">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">80dp</item>
+    </style>
+
+    <style name="listMain">
+        <item name="android:layout_width">500dp</item>
+        <item name="android:layout_height">500dp</item>
+    </style>
+
+    <style name="arrowNavigation">
+        <item name="android:layout_width">550dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="contentPerguntas">
+        <item name="android:layout_width">530dp</item>
+        <item name="android:layout_height">520dp</item>
+    </style>
+    
+    <style name="TextViewPergunta">
+        <item name="android:textSize">23sp</item>
+        <item name="android:layout_width">390dp</item>
+        <item name="android:layout_height">170dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
+    <style name="TextViewResposta">
+        <item name="android:textSize">23sp</item>
+        <item name="android:layout_width">430dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
+
+    <style name="TextViewMinimumSize">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewLowerSize">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewLowSize">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewSize">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextViewBigSize">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="ImageViewLowSize">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+
+     <style name="ImageViewLittleSize">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+    
+    <style name="ImageViewBiggerSize">
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_height">350dp</item>
+    </style>
+    
+    <style name="ImageViewMinSize">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="ImageViewSize">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">90dp</item>
+    </style>
+
+    <style name="ImageViewMediumSize">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">180dp</item>
+    </style>
+
+    <style name="ImageViewBigSize">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="EditTextLowSize">
+        <item name="android:textSize">28sp</item>
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="EditTextSize">
+        <item name="android:textSize">34sp</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+
+    <style name="ButtonSize">
+        <item name="android:textSize">34sp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">80dp</item>
+    </style>
+
 </resources>
