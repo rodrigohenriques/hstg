@@ -8,6 +8,7 @@
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         style="@style/ImageViewSize"
+        android:gravity="center_vertical"
         android:background="@color/preto"
         android:padding="20dp">
 
@@ -23,14 +24,16 @@
     <LinearLayout
         android:id="@+id/hstg_rosa"
         android:layout_width="match_parent"
-        style="@style/ImageViewBigSize"
+        style="@style/ImageViewMediumSize"
         android:layout_below="@+id/main_header"
         android:background="@color/rosa">
 
         <ImageView
             android:id="@+id/img_icon"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            style="@style/ImageViewSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:scaleType="fitStart"
@@ -51,7 +54,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:text="@string/galeria"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="@style/TextViewLowSize"
             android:textColor="@color/rosa" />
     </LinearLayout>
 
@@ -66,7 +69,7 @@
     <LinearLayout
         android:id="@+id/galeria_footer"
         android:layout_width="match_parent"
-        style="@style/ImageViewMediumSize"
+        style="@style/ImageViewSize"
         android:layout_alignParentBottom="true"
         android:background="@color/preto">
 

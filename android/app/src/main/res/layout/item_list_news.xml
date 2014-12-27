@@ -21,35 +21,43 @@
         android:layout_marginLeft="5dp"
         android:background="@color/cinza">
 
-        <TextView
-            android:id="@+id/item_txt_titulo_news"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="16dp"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:text="Titulo da Noticia"
-            android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/preto" />
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/item_txt_descricao_news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_below="@+id/item_txt_titulo_news"
-            android:layout_margin="16dp"
-            android:ellipsize="marquee"
-            android:maxLines="3"
-            android:maxWidth="200dp"
-            android:paddingTop="30dp"
-            android:text="Descrição breve da notícia.Máximo de 3 linhas..."
-            android:textAppearance="?android:attr/textAppearance"
-            android:textColor="@color/preto" />
+            <TextView
+                android:id="@+id/item_txt_titulo_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="Titulo da Noticia"
+                android:textAllCaps="true"
+                style="@style/TextViewLowSize"
+                android:textColor="@color/preto" />
+
+            <TextView
+                android:id="@+id/item_txt_descricao_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/item_txt_titulo_news"
+                android:ellipsize="marquee"
+                android:minLines="3"
+                android:maxLines="3"
+                android:layout_marginTop="10dp"
+                android:maxWidth="200dp"
+                android:text="Descrição breve da notícia."
+                style="@style/TextViewMinimumSize"
+                android:textColor="@color/preto" />
+
+        </LinearLayout>
     </RelativeLayout>
 
 

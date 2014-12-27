@@ -9,16 +9,17 @@
     <RelativeLayout
         android:id="@+id/main_topbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/fake_action_bar_height"
+        style="@style/ImageViewSize"
         android:background="@color/preto"
-        android:padding="12dp">
+        android:padding="10dp">
 
         <ImageView
-            android:id="@+id/imageView"
-            style="@style/ImageViewBigSize"
+            android:id="@+id/img_icon"
+            android:layout_width="wrap_content"
+            style="@style/ImageViewMediumSize"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:padding="0dp"
+            android:layout_gravity="center"
             android:scaleType="fitStart"
             android:src="@drawable/ic_hstg_topo" />
 
@@ -41,31 +42,34 @@
     <RelativeLayout
         android:id="@+id/main_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_topbar"
+        android:gravity="center_vertical"
+        style="@style/ImageViewMediumSize"
         android:background="@color/preto"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_below="@+id/main_topbar"
+        android:layout_alignParentLeft="true">
 
         <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
             android:id="@+id/main_profile_pic"
-            android:layout_width="?android:attr/listPreferredItemHeightLarge"
-            android:layout_height="?android:attr/listPreferredItemHeightLarge" />
+            android:gravity="center_vertical"
+            style="@style/ImageViewSize"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true" />
 
         <TextView
             android:id="@+id/main_text_saudacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/main_profile_pic"
-            android:layout_alignTop="@+id/main_profile_pic"
-            android:layout_toRightOf="@+id/main_profile_pic"
             android:ellipsize="marquee"
             style="@style/TextViewBigSize"
             android:gravity="center_vertical"
+            android:minLines="2"
             android:maxLines="2"
             android:paddingLeft="16dp"
             android:text="Olá, "
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/branco" />
+            android:textColor="@color/branco"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/main_profile_pic" />
 
     </RelativeLayout>
 
@@ -82,7 +86,7 @@
 
     <LinearLayout
         android:id="@+id/main_footer"
-        style="@style/ImageViewBigSize"
+        style="@style/ImageViewMediumSize"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"

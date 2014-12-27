@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:background="@color/amarelo"
-        android:layout_height="?android:attr/listPreferredItemHeight">
+        style="@style/ImageViewMediumSize2">
 
         <TextView
             android:id="@+id/item_main_txt"

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- From: file:/Users/rodrigohenriques/hstg/android/facebook/res/values-he/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/Users/haroldoolivieri/Desenvolvimento/Android/AndroidStudioProjetos/HSTG/hstg/android/facebook/res/values-he/strings.xml -->
+    <eat-comment/>
     <string name="com_facebook_choose_friends">בחר חברים</string>
     <string name="com_facebook_dialogloginactivity_ok_button">אישור</string>
     <string name="com_facebook_image_download_unknown_error">שגיאה בעת הורדת תמונה</string>
@@ -30,5 +28,4 @@
     <string name="com_facebook_usersettingsfragment_log_in_button">התחבר…</string>
     <string name="com_facebook_usersettingsfragment_logged_in">מחובר</string>
     <string name="com_facebook_usersettingsfragment_not_logged_in">לא מחובר</string>
-
 </resources>

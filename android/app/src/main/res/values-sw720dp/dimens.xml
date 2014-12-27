@@ -73,8 +73,8 @@
     </style>
     
     <style name="ImageViewBiggerSize">
-        <item name="android:layout_width">500dp</item>
-        <item name="android:layout_height">500dp</item>
+        <item name="android:layout_width">550dp</item>
+        <item name="android:layout_height">550dp</item>
     </style>
 
     <style name="ImageViewMinSize">
@@ -88,13 +88,23 @@
     </style>
 
     <style name="ImageViewMediumSize">
-        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">200dp</item>
     </style>
 
+    <style name="ImageViewMediumSize2">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">130dp</item>
+    </style>
+
     <style name="ImageViewBigSize">
-        <item name="android:layout_width">300dp</item>
-        <item name="android:layout_height">300dp</item>
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="ImageViewBigSize2">
+        <item name="android:layout_width">270dp</item>
+        <item name="android:layout_height">270dp</item>
     </style>
 
     <style name="EditTextSize">

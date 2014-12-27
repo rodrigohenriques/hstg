@@ -93,7 +93,6 @@ public class MainActivity extends HstgActivity {
                         startActivity(itt);
                         break;
                     case 2:
-                        if ()
                         Instagram.oAuth(MainActivity.this);
                         break;
                     case 3:

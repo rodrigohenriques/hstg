@@ -10,6 +10,7 @@
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         style="@style/ImageViewSize"
+        android:gravity="center_vertical"
         android:background="@color/preto"
         android:padding="20dp">
 
@@ -25,14 +26,14 @@
     <LinearLayout
         android:id="@+id/hstg_verde"
         android:layout_width="match_parent"
-        style="@style/ImageViewBigSize"
+        style="@style/ImageViewMediumSize"
         android:layout_below="@+id/main_header"
         android:background="@color/verde">
 
         <ImageView
             android:id="@+id/img_icon"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            style="@style/ImageViewSize"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
@@ -40,6 +41,7 @@
             android:scaleType="fitStart"
             android:src="@drawable/ic_hstg" />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/produto_black"
@@ -55,7 +57,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:text="@string/produto"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="@style/TextViewLowSize"
             android:textColor="@color/verde" />
     </LinearLayout>
 
@@ -67,21 +69,23 @@
         android:layout_above="@+id/produto_banner"
         app:matchChildWidth="@+id/vg_cover" />
 
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/produto_banner"
+        android:background="@drawable/line"></View>
+
     <LinearLayout
         android:id="@+id/produto_banner"
         android:layout_width="match_parent"
-        style="@style/ImageViewMediumSize"
+        style="@style/ImageViewSize"
         android:layout_alignParentBottom="true"
         android:background="@color/branco"
         android:gravity="center"
         android:orientation="vertical">
 
 
-        <View
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/line"></View>
 
         <ImageView
             android:layout_width="wrap_content"
