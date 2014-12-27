@@ -11,7 +11,7 @@ public class Prefs {
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
-    enum Keys {
+    public enum Keys {
         INSTAGRAM_TOKEN
     }
 

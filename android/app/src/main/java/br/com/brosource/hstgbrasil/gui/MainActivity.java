@@ -35,6 +35,7 @@ import br.com.brosource.hstgbrasil.util.C;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
 import br.com.brosource.hstgbrasil.util.Instagram;
+import br.com.brosource.hstgbrasil.util.Prefs;
 import br.com.brosource.hstgbrasil.widgets.ImageViewCircle;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -53,18 +54,24 @@ public class MainActivity extends HstgActivity {
     @InjectView(R.id.main_wifi_party)
     TextView mWiFi;
 
+    Prefs prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
 
         ButterKnife.inject(this);
 
+        prefs = new Prefs(this);
+
         mTxtSaudacao.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
 
         checkProfilePicture();
+
         String[] objects = getResources().getStringArray(R.array.main_list);
+
         listView.setAdapter(new MainAdapter(getApplicationContext(), objects));
 
         mDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
@@ -86,6 +93,7 @@ public class MainActivity extends HstgActivity {
                         startActivity(itt);
                         break;
                     case 2:
+                        if ()
                         Instagram.oAuth(MainActivity.this);
                         break;
                     case 3:

@@ -33,6 +33,8 @@ public class GaleriaActivity extends Activity {
             String token = data.getQueryParameter(Instagram.PARAM_ACCESS_TOKEN);
 
             prefs = new Prefs(this);
+
+            prefs.put(Prefs.Keys.INSTAGRAM_TOKEN, token);
         }
     }
 

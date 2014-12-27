@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.model.Produto;
+import br.com.brosource.hstgbrasil.util.C;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -38,7 +39,7 @@ public class ProdutoFragment extends Fragment {
         ProdutoFragment f = new ProdutoFragment();
 
         Bundle args = new Bundle();
-        args.putSerializable("produto", (java.io.Serializable) produto);
+        args.putSerializable(C.Params.PRODUTO, produto);
         f.setArguments(args);
 
         return f;
@@ -49,7 +50,7 @@ public class ProdutoFragment extends Fragment {
         View v = inflater.inflate(R.layout.item_carrousel_produto, container, false);
         ButterKnife.inject(this, v);
 
-        Produto produto = getArguments() != null ? (Produto) getArguments().getSerializable("produto") : null;
+        Produto produto = getArguments() != null ? (Produto) getArguments().getSerializable(C.Params.PRODUTO) : null;
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_default_produto)

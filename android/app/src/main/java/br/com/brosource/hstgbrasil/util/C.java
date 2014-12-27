@@ -18,4 +18,8 @@ public class C {
             public static final String PROFILE_PIC = Path.USER + "/profile_pic.png";
         }
     }
+
+    public class Params {
+        public static final String PRODUTO = "produto";
+    }
 }

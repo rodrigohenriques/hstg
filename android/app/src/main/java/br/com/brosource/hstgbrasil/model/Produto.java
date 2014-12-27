@@ -18,7 +18,7 @@ public class Produto implements Serializable {
         return HstgUtil.GSON.fromJson(json, Produto.class);
     }
 
-    public int getProduto_id() {
+    public int getId() {
         return produto_id;
     }
 
