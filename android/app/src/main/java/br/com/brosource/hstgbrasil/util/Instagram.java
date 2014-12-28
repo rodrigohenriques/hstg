@@ -11,7 +11,6 @@ public class Instagram {
     private final static String CLIENT_ID = "d7fddae81b9c4f8ea35323861c752c18";
     private final static String REDIRECT_URI = "hstg://insta-auth";
     private final static String IMPLICIT_AUTH_URL = "https://instagram.com/oauth/authorize/?client_id=%s&redirect_uri=%s&response_type=token";
-
     public static final String PARAM_ACCESS_TOKEN = "access_token";
 
     public static void oAuth(Context context) {
@@ -21,5 +20,4 @@ public class Instagram {
         i.setData(Uri.parse(url));
         context.startActivity(i);
     }
-
 }

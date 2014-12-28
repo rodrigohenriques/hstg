@@ -8,6 +8,8 @@ import android.os.Environment;
 public class C {
     public static class App {
         public static final String LOG_TAG = "HSTG-APP";
+        public static final String HASHTAG = "hstgbrazil";
+
 
         public static class Path {
             public static final String MAIN = Environment.getExternalStorageDirectory() + "/hstg";
