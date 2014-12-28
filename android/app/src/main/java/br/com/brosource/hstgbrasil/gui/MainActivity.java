@@ -93,18 +93,14 @@ public class MainActivity extends HstgActivity {
                         startActivity(itt);
                         break;
                     case 2:
-<<<<<<< Updated upstream
-                        Instagram.oAuth(MainActivity.this);
-=======
-//                        if (prefs.get(Prefs.Keys.INSTAGRAM_TOKEN) == null) {
+                        if (prefs.get(Prefs.Keys.INSTAGRAM_TOKEN) == null) {
 
                             Instagram.oAuth(MainActivity.this);
-//                        } else {
-//
-//                            itt = new Intent(MainActivity.this, GaleriaActivity.class);
-//                            startActivity(itt);
-//                        }
->>>>>>> Stashed changes
+                        } else {
+
+                            itt = new Intent(MainActivity.this, GaleriaActivity.class);
+                            startActivity(itt);
+                        }
                         break;
                     case 3:
                         itt = new Intent(MainActivity.this, ProdutoActivity.class);
