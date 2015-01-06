@@ -7,7 +7,7 @@ public class InstagramPicture {
     private String url;
     private InstagramImage thumbnail, lowResolution, standardResolution;
 
-    private class InstagramImage {
+    public class InstagramImage {
         private String url;
         private int width, heigth;
 

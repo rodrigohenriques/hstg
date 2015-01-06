@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -14,6 +19,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.R;
+import br.com.brosource.hstgbrasil.gui.adapter.InstagramPictureAdapter;
+import br.com.brosource.hstgbrasil.gui.adapter.NewsAdapter;
 import br.com.brosource.hstgbrasil.model.InstagramPicture;
 import br.com.brosource.hstgbrasil.model.Produto;
 import br.com.brosource.hstgbrasil.server.InstagramClient;
@@ -21,6 +28,7 @@ import br.com.brosource.hstgbrasil.server.handler.InstagramPictureListHandler;
 import br.com.brosource.hstgbrasil.util.C;
 import br.com.brosource.hstgbrasil.util.Instagram;
 import br.com.brosource.hstgbrasil.util.Prefs;
+import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -28,12 +36,37 @@ import butterknife.OnClick;
 public class GaleriaActivity extends Activity {
     Prefs prefs;
 
+    @InjectView(R.id.galeria_grid)
+    GridView gridView;
+
+    ButteryProgressBar progressBar;
+
+    InstagramPictureAdapter instagramPictureAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_galeria);
 
         ButterKnife.inject(this);
+
+        progressBar = new ButteryProgressBar(this);
+        progressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24));
+
+        final FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
+        decorView.addView(progressBar);
+
+        ViewTreeObserver observer = progressBar.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                View contentView = decorView.findViewById(android.R.id.content);
+                progressBar.setY(contentView.getY());
+
+                ViewTreeObserver observer = progressBar.getViewTreeObserver();
+                observer.removeGlobalOnLayoutListener(this);
+            }
+        });
 
         Uri data = getIntent().getData();
 
@@ -48,11 +81,15 @@ public class GaleriaActivity extends Activity {
                 @Override
                 public void onSuccess(ArrayList<InstagramPicture> list) {
                     Log.e(C.App.LOG_TAG, list.toString());
+
+                    progressBar.setVisibility(View.INVISIBLE);
+
+                    instagramPictureAdapter = new InstagramPictureAdapter(GaleriaActivity.this, list);
+                    gridView.setAdapter(instagramPictureAdapter);
                 }
             });
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
