@@ -58,7 +58,6 @@ public class InstagramPictureAdapter extends ArrayAdapter<InstagramPicture> {
         }
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.ic_news_default)
                 .build();
 
         String imagem = instagramPictures.get(position).getThumbnail().getUrl();

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/haroldoolivieri/Desenvolvimento/Android/AndroidStudioProjetos/HSTG/hstg/android/facebook/src/main/assets"/></dataSet><dataSet config="release"><source path="/Users/haroldoolivieri/Desenvolvimento/Android/AndroidStudioProjetos/HSTG/hstg/android/facebook/src/release/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/rodrigohenriques/hstg/android/facebook/src/main/assets"/></dataSet><dataSet config="release"><source path="/Users/rodrigohenriques/hstg/android/facebook/src/release/assets"/></dataSet></merger>

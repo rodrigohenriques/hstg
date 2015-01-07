@@ -62,8 +62,8 @@ public abstract class InstagramPictureListHandler extends TextHttpResponseHandle
                 JSONObject standardResolution = images.getJSONObject(STANDARD_RESOLUTION);
 
                 picture.setLowResolution(lowResolution.getString(URL), lowResolution.getInt(WIDTH), lowResolution.getInt(HEIGHT));
-                picture.setLowResolution(thumbnail.getString(URL), thumbnail.getInt(WIDTH), thumbnail.getInt(HEIGHT));
-                picture.setLowResolution(standardResolution.getString(URL), standardResolution.getInt(WIDTH), standardResolution.getInt(HEIGHT));
+                picture.setThumbnail(thumbnail.getString(URL), thumbnail.getInt(WIDTH), thumbnail.getInt(HEIGHT));
+                picture.setStandardResolution(standardResolution.getString(URL), standardResolution.getInt(WIDTH), standardResolution.getInt(HEIGHT));
 
                 list.add(picture);
 

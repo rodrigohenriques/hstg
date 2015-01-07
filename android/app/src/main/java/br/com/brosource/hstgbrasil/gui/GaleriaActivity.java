@@ -68,27 +68,27 @@ public class GaleriaActivity extends Activity {
             }
         });
 
+        prefs = new Prefs(this);
+
         Uri data = getIntent().getData();
 
         if (data != null) {
             String token = data.toString().split(Instagram.PARAM_ACCESS_TOKEN + "=")[1];
 
-            prefs = new Prefs(this);
-
             prefs.put(Prefs.Keys.INSTAGRAM_TOKEN, token);
-
-            InstagramClient.searchPostByHashtag(token, C.App.HASHTAG, new InstagramPictureListHandler() {
-                @Override
-                public void onSuccess(ArrayList<InstagramPicture> list) {
-                    Log.e(C.App.LOG_TAG, list.toString());
-
-                    progressBar.setVisibility(View.INVISIBLE);
-
-                    instagramPictureAdapter = new InstagramPictureAdapter(GaleriaActivity.this, list);
-                    gridView.setAdapter(instagramPictureAdapter);
-                }
-            });
         }
+
+        InstagramClient.searchPostByHashtag(prefs.get(Prefs.Keys.INSTAGRAM_TOKEN), C.App.HASHTAG, new InstagramPictureListHandler() {
+            @Override
+            public void onSuccess(ArrayList<InstagramPicture> list) {
+                Log.e(C.App.LOG_TAG, list.toString());
+
+                progressBar.setVisibility(View.INVISIBLE);
+
+                instagramPictureAdapter = new InstagramPictureAdapter(GaleriaActivity.this, list);
+                gridView.setAdapter(instagramPictureAdapter);
+            }
+        });
     }
 
     @Override
