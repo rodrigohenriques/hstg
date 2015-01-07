@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingTop="20dp"
+    android:minHeight="300dp"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_new"
+                android:scaleType="centerCrop"
+                style="@style/ImageViewBigSize2"
+                android:src="@drawable/ic_facebook" />
+
+            <LinearLayout android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:paddingLeft="16dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tit_new"
+                    android:textAllCaps="true"
+                    style="@style/TextViewLowSize"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical"
+                    android:minLines="2"
+                    android:maxLines="2"
+                    android:textColor="@color/preto"
+                    android:text="TITULO DA NOTICIA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/data_new"
+                    android:layout_gravity="right"
+                    android:text="data"
+                    android:textColor="@color/preto"
+                    style="@style/TextViewMinimumSize"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:id="@+id/text_new"
+        style="@style/TextViewMinimumSize"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/preto"
+        android:text="texto da notícia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

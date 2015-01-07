@@ -24,7 +24,7 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.5'
     compile 'com.jakewharton:butterknife:6.0.0'
     compile 'com.google.code.gson:gson:1.7.2'
-    compile 'com.pkmmte.view:circularimageview:1.1'
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
     compile project(':facebook')
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }

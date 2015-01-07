@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Hashtag Brazil</string>
+    <string name="news_tit">Notícia</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">301196450079640</string>

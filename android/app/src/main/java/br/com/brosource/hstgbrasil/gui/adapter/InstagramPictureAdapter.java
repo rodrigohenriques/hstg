@@ -57,7 +57,14 @@ public class InstagramPictureAdapter extends ArrayAdapter<InstagramPicture> {
             imageView = (ImageView) convertView.getTag();
         }
 
+        int size = context.getResources().getDisplayMetrics().widthPixels / 3;
+
+        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+        layoutParams.height = layoutParams.width = size;
+        imageView.setLayoutParams(layoutParams);
+
         DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.ic_galeria_default)
                 .build();
 
         String imagem = instagramPictures.get(position).getThumbnail().getUrl();

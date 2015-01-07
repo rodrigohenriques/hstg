@@ -1,13 +1,16 @@
 package br.com.brosource.hstgbrasil.model;
 
+import java.io.Serializable;
+
 /**
  * Created by rodrigohenriques on 12/27/14.
  */
-public class InstagramPicture {
+public class InstagramPicture implements Serializable{
+
     private String url;
     private InstagramImage thumbnail, lowResolution, standardResolution;
 
-    public class InstagramImage {
+    public class InstagramImage implements Serializable{
         private String url;
         private int width, heigth;
 

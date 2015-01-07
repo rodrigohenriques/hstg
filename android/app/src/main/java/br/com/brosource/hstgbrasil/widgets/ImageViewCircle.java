@@ -38,19 +38,20 @@ public class ImageViewCircle extends ImageView {
 
         Bitmap fullSizeBitmap = drawable.getBitmap();
 
-        int scaledWidth = getMeasuredWidth();
-        int scaledHeight = getMeasuredHeight();
+        if (fullSizeBitmap != null){
+            int scaledWidth = getMeasuredWidth();
+            int scaledHeight = getMeasuredHeight();
 
-        Bitmap mScaledBitmap;
-        if (scaledWidth == fullSizeBitmap.getWidth() && scaledHeight == fullSizeBitmap.getHeight()) {
-            mScaledBitmap = fullSizeBitmap;
-        } else {
-            mScaledBitmap = Bitmap.createScaledBitmap(fullSizeBitmap, scaledWidth, scaledHeight, true /* filter */);
+            Bitmap mScaledBitmap;
+            if (scaledWidth == fullSizeBitmap.getWidth() && scaledHeight == fullSizeBitmap.getHeight()) {
+                mScaledBitmap = fullSizeBitmap;
+            } else {
+                mScaledBitmap = Bitmap.createScaledBitmap(fullSizeBitmap, scaledWidth, scaledHeight, true /* filter */);
+            }
+
+            Bitmap roundBitmap = getRoundedCornerBitmap(getContext(), mScaledBitmap, 5, scaledWidth, scaledHeight);
+            canvas.drawBitmap(roundBitmap, 0, 0, null);
         }
-
-        Bitmap roundBitmap = getRoundedCornerBitmap(getContext(), mScaledBitmap, 5, scaledWidth, scaledHeight);
-        canvas.drawBitmap(roundBitmap, 0, 0, null);
-
     }
 
     private Bitmap getRoundedCornerBitmap(Context context, Bitmap input, int pixels, int w, int h) {

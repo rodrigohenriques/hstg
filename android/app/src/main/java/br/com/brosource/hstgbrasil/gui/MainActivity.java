@@ -167,12 +167,12 @@ public class MainActivity extends HstgActivity {
             try {
 
                 Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(f));
-
                 mProfilePic.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
 
                 Log.e(C.App.LOG_TAG, "Erro durante conversao de bitmap: " + f, e);
+                mProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_picture_holo_light));
 
             }
 

@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}">
+
+    <RelativeLayout
+        android:id="@+id/main_header"
+        android:layout_width="match_parent"
+        style="@style/ImageViewSize"
+        android:gravity="center_vertical"
+        android:background="@color/preto"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            style="@style/ImageViewMinSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/hstg_cinza"
+        android:layout_width="match_parent"
+        style="@style/ImageViewMediumSize"
+        android:layout_below="@+id/main_header"
+        android:background="@color/cinza">
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="wrap_content"
+            style="@style/ImageViewSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_hstg" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/nome"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        style="@style/ImageViewMediumSize"
+        android:padding="10dp"
+        android:layout_below="@+id/hstg_cinza"
+        android:layout_alignParentLeft="true">
+
+        <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
+            android:id="@+id/main_profile_pic"
+            android:gravity="center_vertical"
+            style="@style/ImageViewSize"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/main_text_saudacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            style="@style/TextViewBigSize"
+            android:gravity="center_vertical"
+            android:minLines="2"
+            android:maxLines="2"
+            android:paddingLeft="16dp"
+            android:text="Olá, "
+            android:textColor="@color/preto"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/main_profile_pic" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

@@ -77,6 +77,15 @@
                     android:scheme="hstg" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="br.com.brosource.hstgbrasil.gui.GalleryInsta"
+            android:label="@string/title_activity_news"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.brosource.hstgbrasil.gui.GaleriaActivity" />
+        </activity>
     </application>
 
 </manifest>

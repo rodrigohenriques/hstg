@@ -1,17 +1,32 @@
 package br.com.brosource.hstgbrasil.gui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -41,6 +56,7 @@ public class NewsActivity extends HstgActivity {
     TextView btnTopo;
 
     ButteryProgressBar progressBar;
+    ArrayList<Noticia> listNoticia;
 
     @Override
     public void onSessionStateChange(Session session, SessionState state, Exception exception) {
@@ -83,11 +99,19 @@ public class NewsActivity extends HstgActivity {
             @Override
             public void onSuccess(ArrayList<Noticia> list) {
 
+                listNoticia = list;
                 progressBar.setVisibility(View.INVISIBLE);
 
                 newsAdapter = new NewsAdapter(getApplicationContext(), list);
                 listView.setAdapter(newsAdapter);
 
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showNewsDialog(position);
             }
         });
     }
@@ -102,4 +126,42 @@ public class NewsActivity extends HstgActivity {
         listView.setSelection(0);
     }
 
+
+    private void showNewsDialog(int position) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(NewsActivity.this);
+        builder.setTitle(getResources().getText(R.string.news_tit));
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("AppCi");
+        View v = getLayoutInflater().inflate(R.layout.layout_dialog_news, null);
+
+        ImageView imageView = (ImageView) v.findViewById(R.id.img_new);
+        TextView txtTitulo = (TextView) v.findViewById(R.id.tit_new);
+        TextView txtNoticia = (TextView) v.findViewById(R.id.text_new);
+        TextView txtData = (TextView) v.findViewById(R.id.data_new);
+
+        txtTitulo.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        txtNoticia.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
+        txtData.setTypeface(CustomFont.getHumeGeometricSans3Thin(this));
+
+        ImageLoader imageLoader = ImageLoader.getInstance();
+
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.ic_news_default)
+                .build();
+
+        imageLoader.displayImage(listNoticia.get(position).getImagem(), imageView, options);
+        txtTitulo.setText(listNoticia.get(position).getTitulo());
+        txtNoticia.setText(listNoticia.get(position).getTexto());
+        txtData.setText(listNoticia.get(position).getData());
+
+        builder.setView(v);
+        builder.setPositiveButton(android.R.string.ok, null);
+
+        final AlertDialog dialog = builder.create();
+
+        dialog.show();
+        //dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+    }
 }

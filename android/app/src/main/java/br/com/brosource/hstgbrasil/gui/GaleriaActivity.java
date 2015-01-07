@@ -10,13 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.gui.adapter.InstagramPictureAdapter;
@@ -26,6 +29,7 @@ import br.com.brosource.hstgbrasil.model.Produto;
 import br.com.brosource.hstgbrasil.server.InstagramClient;
 import br.com.brosource.hstgbrasil.server.handler.InstagramPictureListHandler;
 import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.Instagram;
 import br.com.brosource.hstgbrasil.util.Prefs;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
@@ -39,9 +43,17 @@ public class GaleriaActivity extends Activity {
     @InjectView(R.id.galeria_grid)
     GridView gridView;
 
+    @InjectView(R.id.btn_back)
+    ImageView btnBack;
+    @InjectView(R.id.txt_galeria)
+    TextView labelGaleria;
+    @InjectView(R.id.txt_topo)
+    TextView btnTopo;
+
     ButteryProgressBar progressBar;
 
     InstagramPictureAdapter instagramPictureAdapter;
+    ArrayList<InstagramPicture> instagramPictures;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +61,9 @@ public class GaleriaActivity extends Activity {
         setContentView(R.layout.activity_galeria);
 
         ButterKnife.inject(this);
+
+        labelGaleria.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        btnTopo.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
 
         progressBar = new ButteryProgressBar(this);
         progressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24));
@@ -83,29 +98,40 @@ public class GaleriaActivity extends Activity {
             public void onSuccess(ArrayList<InstagramPicture> list) {
                 Log.e(C.App.LOG_TAG, list.toString());
 
+                instagramPictures = new ArrayList<InstagramPicture>(list);
                 progressBar.setVisibility(View.INVISIBLE);
 
                 instagramPictureAdapter = new InstagramPictureAdapter(GaleriaActivity.this, list);
                 gridView.setAdapter(instagramPictureAdapter);
             }
         });
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent itt = new Intent(GaleriaActivity.this, GalleryInsta.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("list_instagram", instagramPictures);
+                bundle.putInt("position", position);
+
+                itt.putExtras(bundle);
+
+                startActivity(itt);
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_galeria, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -115,7 +141,6 @@ public class GaleriaActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         Intent intent = new Intent(this, MainActivity.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -128,5 +153,10 @@ public class GaleriaActivity extends Activity {
     @OnClick(R.id.btn_back)
     public void back() {
         onBackPressed();
+    }
+
+    @OnClick(R.id.txt_topo)
+    public void toTop() {
+        gridView.setSelection(0);
     }
 }
