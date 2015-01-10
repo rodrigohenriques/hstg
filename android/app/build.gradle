@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 15
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.0.0"
 
     defaultConfig {
         applicationId "br.com.brosource.hstgbrasil"
         minSdkVersion 15
-        targetSdkVersion 15
+        targetSdkVersion 21
         versionCode 6
         versionName "0.2.4"
     }
@@ -27,4 +27,5 @@ dependencies {
     compile 'com.viewpagerindicator:library:2.4.1@aar'
     compile project(':facebook')
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    compile 'cn.pedant.sweetalert:library:1.3'
 }

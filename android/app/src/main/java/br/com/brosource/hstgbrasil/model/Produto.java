@@ -13,6 +13,7 @@ public class Produto implements Serializable {
     private String descricao;
     private String preco;
     private String imagem;
+    private String link;
 
     public static Produto load(String json) {
         return HstgUtil.GSON.fromJson(json, Produto.class);
@@ -38,6 +39,10 @@ public class Produto implements Serializable {
         return imagem;
     }
 
+    public String getLink() {
+        return link;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -46,6 +51,7 @@ public class Produto implements Serializable {
                 ", descricao='" + descricao + '\'' +
                 ", preco='" + preco + '\'' +
                 ", imagem='" + imagem + '\'' +
+                ", link='" + link + '\'' +
                 '}';
     }
 }

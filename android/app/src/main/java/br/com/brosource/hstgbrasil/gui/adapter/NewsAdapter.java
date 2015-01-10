@@ -1,6 +1,9 @@
 package br.com.brosource.hstgbrasil.gui.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +13,10 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.brosource.hstgbrasil.R;
@@ -25,6 +31,8 @@ public class NewsAdapter extends ArrayAdapter<Noticia> {
     Context context;
     List<Noticia> noticias;
     ImageLoader imageLoader;
+    List<Bitmap> images;
+
 
     public NewsAdapter(Context context, List<Noticia> noticias) {
         super(context, 0, noticias);
@@ -33,9 +41,11 @@ public class NewsAdapter extends ArrayAdapter<Noticia> {
         this.context = context;
 
         imageLoader = ImageLoader.getInstance();
+
+        images = new ArrayList<Bitmap>();
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
 
@@ -62,12 +72,38 @@ public class NewsAdapter extends ArrayAdapter<Noticia> {
                 .showImageOnLoading(R.drawable.ic_news_default)
                 .build();
 
-        imageLoader.displayImage(noticias.get(position).getImagem(), holder.image, options);
+        imageLoader.displayImage(noticias.get(position).getImagem(), holder.image, options, new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                images.add(position, loadedImage);
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+
         holder.txtTitulo.setText(noticias.get(position).getTitulo());
         holder.txtDescricao.setText(noticias.get(position).getTexto());
 
         return convertView;
 
+    }
+
+    public Drawable getImage(int position) {
+
+        return new BitmapDrawable(getContext().getResources(), images.get(position));
     }
 
     private class ViewHolder {

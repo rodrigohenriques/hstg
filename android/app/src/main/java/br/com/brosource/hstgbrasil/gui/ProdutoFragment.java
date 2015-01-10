@@ -1,8 +1,11 @@
 package br.com.brosource.hstgbrasil.gui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.method.CharacterPickerDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +38,8 @@ public class ProdutoFragment extends Fragment {
 
     ImageLoader imageLoader;
 
+    Produto produto;
+
     public static ProdutoFragment newInstance(Produto produto) {
         ProdutoFragment f = new ProdutoFragment();
 
@@ -50,7 +55,7 @@ public class ProdutoFragment extends Fragment {
         View v = inflater.inflate(R.layout.item_carrousel_produto, container, false);
         ButterKnife.inject(this, v);
 
-        Produto produto = getArguments() != null ? (Produto) getArguments().getSerializable(C.Params.PRODUTO) : null;
+        produto = getArguments() != null ? (Produto) getArguments().getSerializable(C.Params.PRODUTO) : null;
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_default_produto)
@@ -67,6 +72,15 @@ public class ProdutoFragment extends Fragment {
         txtNomeProduto.setText(produto.getTitulo());
         txtDescProduto.setText(produto.getDescricao());
         txtPreco.setText("R$" + produto.getPreco());
+
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(produto.getLink());
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }

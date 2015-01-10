@@ -42,6 +42,7 @@ import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class NewsActivity extends HstgActivity {
 
@@ -129,39 +130,47 @@ public class NewsActivity extends HstgActivity {
 
     private void showNewsDialog(int position) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(NewsActivity.this);
-        builder.setTitle(getResources().getText(R.string.news_tit));
+//        final AlertDialog.Builder builder = new AlertDialog.Builder(NewsActivity.this);
+//        builder.setTitle(getResources().getText(R.string.news_tit));
+//
+//        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+//        alert.setTitle("AppCi");
+//        View v = getLayoutInflater().inflate(R.layout.layout_dialog_news, null);
+//
+//        ImageView imageView = (ImageView) v.findViewById(R.id.img_new);
+//        TextView txtTitulo = (TextView) v.findViewById(R.id.tit_new);
+//        TextView txtNoticia = (TextView) v.findViewById(R.id.text_new);
+//        TextView txtData = (TextView) v.findViewById(R.id.data_new);
+//
+//        txtTitulo.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+//        txtNoticia.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
+//        txtData.setTypeface(CustomFont.getHumeGeometricSans3Thin(this));
+//
+//        ImageLoader imageLoader = ImageLoader.getInstance();
+//
+//        DisplayImageOptions options = new DisplayImageOptions.Builder()
+//                .showImageOnLoading(R.drawable.ic_news_default)
+//                .build();
+//
+//        imageLoader.displayImage(listNoticia.get(position).getImagem(), imageView, options);
+//        txtTitulo.setText(listNoticia.get(position).getTitulo());
+//        txtNoticia.setText(listNoticia.get(position).getTexto());
+//        txtData.setText(listNoticia.get(position).getData());
+//
+//        builder.setView(v);
+//        builder.setPositiveButton(android.R.string.ok, null);
+//
+//        final AlertDialog dialog = builder.create();
+//
+//        dialog.show();
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("AppCi");
-        View v = getLayoutInflater().inflate(R.layout.layout_dialog_news, null);
+        SweetAlertDialog d = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
 
-        ImageView imageView = (ImageView) v.findViewById(R.id.img_new);
-        TextView txtTitulo = (TextView) v.findViewById(R.id.tit_new);
-        TextView txtNoticia = (TextView) v.findViewById(R.id.text_new);
-        TextView txtData = (TextView) v.findViewById(R.id.data_new);
+        d.setTitleText(listNoticia.get(position).getTitulo());
+        d.setContentText(listNoticia.get(position).getTexto());
+        d.setCustomImage(newsAdapter.getImage(position));
 
-        txtTitulo.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        txtNoticia.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
-        txtData.setTypeface(CustomFont.getHumeGeometricSans3Thin(this));
 
-        ImageLoader imageLoader = ImageLoader.getInstance();
-
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.ic_news_default)
-                .build();
-
-        imageLoader.displayImage(listNoticia.get(position).getImagem(), imageView, options);
-        txtTitulo.setText(listNoticia.get(position).getTitulo());
-        txtNoticia.setText(listNoticia.get(position).getTexto());
-        txtData.setText(listNoticia.get(position).getData());
-
-        builder.setView(v);
-        builder.setPositiveButton(android.R.string.ok, null);
-
-        final AlertDialog dialog = builder.create();
-
-        dialog.show();
-        //dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+        d.show();
     }
 }
