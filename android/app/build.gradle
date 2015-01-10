@@ -8,8 +8,8 @@ android {
         applicationId "br.com.brosource.hstgbrasil"
         minSdkVersion 15
         targetSdkVersion 15
-        versionCode 5
-        versionName "0.2.3"
+        versionCode 6
+        versionName "0.2.4"
     }
     buildTypes {
         release {
