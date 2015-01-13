@@ -103,7 +103,8 @@ public class NewsAdapter extends ArrayAdapter<Noticia> {
 
     public Drawable getImage(int position) {
 
-        return new BitmapDrawable(getContext().getResources(), images.get(position));
+        Bitmap bitmap = images.get(position);
+        return new BitmapDrawable(getContext().getResources(), bitmap);
     }
 
     private class ViewHolder {

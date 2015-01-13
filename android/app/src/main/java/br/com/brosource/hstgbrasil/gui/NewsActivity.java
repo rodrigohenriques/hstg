@@ -170,7 +170,6 @@ public class NewsActivity extends HstgActivity {
         d.setContentText(listNoticia.get(position).getTexto());
         d.setCustomImage(newsAdapter.getImage(position));
 
-
         d.show();
     }
 }
