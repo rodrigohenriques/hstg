@@ -16,7 +16,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.LoginActivity"
+            android:name="br.com.brosource.hstgbrasil.gui.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,14 +29,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="br.com.brosource.hstgbrasil.gui.MainActivity"
-            android:label="@string/title_activity_main"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.brosource.hstgbrasil.gui.LoginActivity" />
-        </activity>
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.NewsActivity"
             android:label="@string/title_activity_news"
@@ -79,12 +71,21 @@
         </activity>
 
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.GalleryInsta"
+            android:name=".gui.InstagramPagerActivity"
             android:label="@string/title_activity_news"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.GaleriaActivity" />
+        </activity>
+
+        <activity
+            android:name="br.com.brosource.hstgbrasil.gui.MeusDadosActivity"
+            android:label="@string/title_meus_dados"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
         </activity>
     </application>
 

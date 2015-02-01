@@ -1,6 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,15 +6,15 @@
 
     <RelativeLayout
         android:id="@+id/main_topbar"
-        android:layout_width="match_parent"
         style="@style/ImageViewSize"
+        android:layout_width="match_parent"
         android:background="@color/preto"
         android:padding="10dp">
 
         <ImageView
             android:id="@+id/img_icon"
-            android:layout_width="wrap_content"
             style="@style/ImageViewMediumSize"
+            android:layout_width="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
@@ -39,110 +37,101 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/main_header"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        style="@style/ImageViewMediumSize"
-        android:background="@color/preto"
-        android:padding="10dp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/main_topbar"
-        android:layout_alignParentLeft="true">
-
-        <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
-            android:id="@+id/main_profile_pic"
-            android:gravity="center_vertical"
-            style="@style/ImageViewSize"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true" />
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/main_text_saudacao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            style="@style/TextViewBigSize"
-            android:gravity="center_vertical"
-            android:minLines="2"
-            android:maxLines="2"
-            android:paddingLeft="16dp"
-            android:text="Olá, "
-            android:textColor="@color/branco"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/main_profile_pic" />
-
-    </RelativeLayout>
-
-    <ListView
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@id/main_header"
-        android:id="@+id/main_list"
-        android:divider="@color/branco"
-        android:dividerHeight="5dp"
-        android:layout_above="@+id/main_footer"
-        style="@style/listMain"
-        android:layout_width="match_parent"></ListView>
-
-    <LinearLayout
-        android:id="@+id/main_footer"
-        style="@style/ImageViewMediumSize"
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <FrameLayout
+            android:id="@+id/main_news"
+            style="@style/main_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/main_header"
             android:layout_weight="1"
-            android:id="@+id/content_meus_dados"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/cinza">
+            android:background="@drawable/amarelo_button"
+            android:text="#NEWS" />
+
+        <TextView
+            android:id="@+id/main_agenda"
+            style="@style/main_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/main_news"
+            android:layout_weight="1"
+            android:background="@drawable/azul_button"
+            android:text="#AGENDA" />
+
+        <TextView
+            android:id="@+id/main_galeria"
+            style="@style/main_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/main_agenda"
+            android:layout_weight="1"
+            android:background="@drawable/rosa_button"
+            android:text="#GALERIA" />
+
+        <TextView
+            android:id="@+id/main_produtos"
+            style="@style/main_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/main_galeria"
+            android:layout_marginBottom="@dimen/main_espaco_itens"
+            android:layout_weight="1"
+            android:background="@drawable/verde_button"
+            android:text="#PRODUTOS" />
+
+        <LinearLayout
+            android:id="@+id/main_footer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1.5"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <TextView
                 android:id="@+id/main_meus_dados"
                 style="@style/TextViewBigSize"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/preto"
+                android:background="@drawable/preto_button"
                 android:clickable="true"
                 android:gravity="center"
                 android:minLines="2"
                 android:text="Meus\nDados" />
 
-            <ImageView
-                android:layout_width="135dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center"
-                android:background="@drawable/soon_sombra" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_weight="1"
-            android:id="@+id/content_wifi"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/cinza">
-
-            <TextView
-                android:id="@+id/main_wifi_party"
-                style="@style/TextViewBigSize"
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/content_wifi"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:clickable="false"
-                android:gravity="center"
-                android:text="WiFi\nParty"
-                android:textColor="@drawable/text_button_branco" />
+                android:layout_weight="1"
+                android:background="@color/cinza">
 
-            <ImageView
-                android:layout_width="135dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center"
-                android:background="@drawable/soon_preto" />
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/main_wifi_party"
+                    style="@style/TextViewBigSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="WiFi\nParty"
+                    android:textColor="@drawable/text_button_branco" />
+
+                <ImageView
+                    android:layout_width="135dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/soon_preto" />
+            </FrameLayout>
 
 
+        </LinearLayout>
     </LinearLayout>
+
 
 </RelativeLayout>
