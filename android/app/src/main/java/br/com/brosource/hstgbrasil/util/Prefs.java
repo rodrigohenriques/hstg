@@ -19,7 +19,9 @@ public class Prefs {
         CEP,
         CIDADE,
         ESTADO,
-        LOCATION, PHONE
+        LOCATION,
+        SAVED,
+        PHONE
     }
 
     public Prefs(Context context) {
@@ -33,5 +35,9 @@ public class Prefs {
 
     public void put(Keys key, String value) {
         pref.edit().putString(key.toString(), value).apply();
+    }
+
+    public void put(Keys key, boolean value) {
+        pref.edit().putBoolean(key.toString(), value).apply();
     }
  }

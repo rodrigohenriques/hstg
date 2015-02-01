@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.facebook.Request;
@@ -44,15 +46,24 @@ public class MeusDadosActivity extends HstgActivity {
     @InjectView(R.id.txt_meus_dados)
     TextView mTxtMeusDados;
 
-    @InjectView(R.id.form)
-    View form;
-
     @InjectView(R.id.nome)
-    View nome;
+    View mViewNome;
 
-    LoginButton authButton;
+    @InjectView(R.id.form)
+    View mViewForm;
 
-    Prefs prefs;
+    @InjectView(R.id.dados_nome)
+    EditText mEditNome;
+
+    @InjectView(R.id.dados_email)
+    EditText mEditEmail;
+
+    @InjectView(R.id.enviar_dados)
+    Button mButtonEnviarDados;
+
+    LoginButton mFacebookAuthButton;
+
+    Prefs mPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +72,14 @@ public class MeusDadosActivity extends HstgActivity {
 
         ButterKnife.inject(this);
 
-        authButton = (LoginButton) findViewById(R.id.authButton);
+        mFacebookAuthButton = (LoginButton) findViewById(R.id.authButton);
 
-        authButton.setReadPermissions(Arrays.asList("public_profile", "user_friends", "email"));
+        mFacebookAuthButton.setReadPermissions(Arrays.asList("public_profile", "user_friends", "email"));
 
-        prefs = new Prefs(this);
+        mPrefs = new Prefs(this);
 
         mTxtMeusDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mButtonEnviarDados.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
     }
 
     @OnClick(R.id.btn_back)
@@ -77,7 +89,10 @@ public class MeusDadosActivity extends HstgActivity {
 
     @OnClick(R.id.enviar_dados)
     public void enviarDados() {
+        mPrefs.put(Prefs.Keys.USERNAME, mEditNome.getText().toString());
+        mPrefs.put(Prefs.Keys.EMAIL, mEditEmail.getText().toString());
 
+        mPrefs.put(Prefs.Keys.SAVED, false);
     }
 
     @Override
@@ -89,11 +104,11 @@ public class MeusDadosActivity extends HstgActivity {
                 makeMeRequest(session);
             }
 
-            form.setVisibility(View.GONE);
-            nome.setVisibility(View.VISIBLE);
+            mViewForm.setVisibility(View.GONE);
+            mViewNome.setVisibility(View.VISIBLE);
         } else {
-            form.setVisibility(View.VISIBLE);
-            nome.setVisibility(View.GONE);
+            mViewForm.setVisibility(View.VISIBLE);
+            mViewNome.setVisibility(View.GONE);
         }
     }
 
@@ -112,9 +127,11 @@ public class MeusDadosActivity extends HstgActivity {
                                 GraphClient.getPhotoFacebook(user.getId(), mProfilePic);
                                 mTxtSaudacao.setText("Olá, " + user.getName());
 
-                                prefs.put(Prefs.Keys.USERNAME, user.getName());
-                                prefs.put(Prefs.Keys.BIRTHDAY, user.getBirthday());
-                                prefs.put(Prefs.Keys.EMAIL, user.asMap().get("email").toString());
+                                mPrefs.put(Prefs.Keys.USERNAME, user.getName());
+                                mPrefs.put(Prefs.Keys.BIRTHDAY, user.getBirthday());
+                                mPrefs.put(Prefs.Keys.EMAIL, user.asMap().get("email").toString());
+
+                                mPrefs.put(Prefs.Keys.SAVED, false);
 
 
                             }
