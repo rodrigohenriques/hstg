@@ -12,7 +12,14 @@ public class Prefs {
     private SharedPreferences.Editor editor;
 
     public enum Keys {
-        INSTAGRAM_TOKEN
+        INSTAGRAM_TOKEN,
+        USERNAME,
+        EMAIL,
+        BIRTHDAY,
+        CEP,
+        CIDADE,
+        ESTADO,
+        LOCATION, PHONE
     }
 
     public Prefs(Context context) {
