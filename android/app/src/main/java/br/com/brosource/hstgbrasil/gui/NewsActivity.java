@@ -1,34 +1,25 @@
 package br.com.brosource.hstgbrasil.gui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.FacebookException;
+import com.facebook.FacebookOperationCanceledException;
 import com.facebook.Session;
 import com.facebook.SessionState;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.facebook.widget.FacebookDialog;
+import com.facebook.widget.WebDialog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
@@ -36,6 +27,7 @@ import br.com.brosource.hstgbrasil.gui.adapter.NewsAdapter;
 import br.com.brosource.hstgbrasil.model.Noticia;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
+import br.com.brosource.hstgbrasil.util.C;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
@@ -59,11 +51,30 @@ public class NewsActivity extends HstgActivity {
     ButteryProgressBar progressBar;
     ArrayList<Noticia> listNoticia;
 
+    Noticia noticia;
+
     @Override
     public void onSessionStateChange(Session session, SessionState state, Exception exception) {
-        if (state.isClosed()) {
-            // TODO retorna pra tela de login do aplicativo
-            HstgUtil.logout(this);
+        if (state.isOpened()) {
+            if (noticia != null) {
+                if (FacebookDialog.canPresentShareDialog(getApplicationContext(),
+                        FacebookDialog.ShareDialogFeature.SHARE_DIALOG)) {
+                    // Publish the post using the Share Dialog
+                    FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(NewsActivity.this)
+                            .setName(C.App.NAME)
+                            .setCaption(noticia.getTitulo())
+                            .setDescription(noticia.getTexto())
+                            .setPicture(noticia.getImagem())
+                            .build();
+
+                    uiHelper.trackPendingDialogCall(shareDialog.present());
+                } else {
+                    // Fallback. For example, publish the post using the Feed Dialog
+                    publishFeedDialog(noticia);
+                }
+
+                noticia = null;
+            }
         }
     }
 
@@ -130,46 +141,82 @@ public class NewsActivity extends HstgActivity {
 
     private void showNewsDialog(int position) {
 
-//        final AlertDialog.Builder builder = new AlertDialog.Builder(NewsActivity.this);
-//        builder.setTitle(getResources().getText(R.string.news_tit));
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-//        alert.setTitle("AppCi");
-//        View v = getLayoutInflater().inflate(R.layout.layout_dialog_news, null);
-//
-//        ImageView imageView = (ImageView) v.findViewById(R.id.img_new);
-//        TextView txtTitulo = (TextView) v.findViewById(R.id.tit_new);
-//        TextView txtNoticia = (TextView) v.findViewById(R.id.text_new);
-//        TextView txtData = (TextView) v.findViewById(R.id.data_new);
-//
-//        txtTitulo.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-//        txtNoticia.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
-//        txtData.setTypeface(CustomFont.getHumeGeometricSans3Thin(this));
-//
-//        ImageLoader imageLoader = ImageLoader.getInstance();
-//
-//        DisplayImageOptions options = new DisplayImageOptions.Builder()
-//                .showImageOnLoading(R.drawable.ic_news_default)
-//                .build();
-//
-//        imageLoader.displayImage(listNoticia.get(position).getImagem(), imageView, options);
-//        txtTitulo.setText(listNoticia.get(position).getTitulo());
-//        txtNoticia.setText(listNoticia.get(position).getTexto());
-//        txtData.setText(listNoticia.get(position).getData());
-//
-//        builder.setView(v);
-//        builder.setPositiveButton(android.R.string.ok, null);
-//
-//        final AlertDialog dialog = builder.create();
-//
-//        dialog.show();
+        noticia = listNoticia.get(position);
 
         SweetAlertDialog d = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
 
-        d.setTitleText(listNoticia.get(position).getTitulo());
-        d.setContentText(listNoticia.get(position).getTexto());
+        d.setTitleText(noticia.getTitulo());
+        d.setContentText(noticia.getTexto());
         d.setCustomImage(newsAdapter.getImage(position));
+        d.setCancelText("Fechar");
+        d.setConfirmText("Compartilhar");
+        d.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                Session session = Session.getActiveSession();
+
+                if (!session.isOpened() && !session.isClosed()) {
+                    session.openForRead(new Session.OpenRequest(NewsActivity.this).setPermissions(Arrays.asList("public_profile","email")).setCallback(callback));
+                } else {
+                    Session.openActiveSession(NewsActivity.this, true, callback);
+                }
+
+                sweetAlertDialog.dismissWithAnimation();
+            }
+        });
 
         d.show();
     }
+
+    private void publishFeedDialog(Noticia noticia) {
+        Bundle params = new Bundle();
+
+        params.putString("name", C.App.NAME);
+        params.putString("caption", noticia.getTitulo());
+        params.putString("description", noticia.getTexto());
+        params.putString("link", noticia.getLink());
+        params.putString("picture", noticia.getImagem());
+
+        WebDialog feedDialog = (
+                new WebDialog.FeedDialogBuilder(NewsActivity.this,
+                        Session.getActiveSession(),
+                        params))
+                .setOnCompleteListener(new WebDialog.OnCompleteListener() {
+
+                    @Override
+                    public void onComplete(Bundle values,
+                                           FacebookException error) {
+                        if (error == null) {
+                            // When the story is posted, echo the success
+                            // and the post Id.
+                            final String postId = values.getString("post_id");
+
+                            if (postId != null) {
+                                Toast.makeText(NewsActivity.this,
+                                        "Posted story, id: " + postId,
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                // User clicked the Cancel button
+                                Toast.makeText(NewsActivity.this.getApplicationContext(),
+                                        "Publish cancelled",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        } else if (error instanceof FacebookOperationCanceledException) {
+                            // User clicked the "x" button
+                            Toast.makeText(NewsActivity.this.getApplicationContext(),
+                                    "Publish cancelled",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Generic, ex: network error
+                            Toast.makeText(NewsActivity.this.getApplicationContext(),
+                                    "Error posting story",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                })
+                .build();
+        feedDialog.show();
+    }
+
 }
