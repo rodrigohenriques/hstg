@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,21 +36,22 @@
 
             <TextView
                 android:id="@+id/txt_nome_produto"
+                style="@style/TextViewLowerSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:ellipsize="marquee"
                 android:gravity="center"
-                android:layout_marginTop="5dp"
                 android:singleLine="true"
                 android:text="NOME DO PRODUTO"
                 android:textAllCaps="true"
-                style="@style/TextViewLowerSize"
                 android:textColor="@color/preto"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_desc_produto"
+                style="@style/TextViewMinimumSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -60,19 +60,18 @@
                 android:maxLines="2"
                 android:minLines="2"
                 android:text="Descrição Produto"
-                style="@style/TextViewMinimumSize"
                 android:textColor="@color/preto"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_preco"
+                style="@style/TextViewLowerSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="R$ 50"
-                style="@style/TextViewLowerSize"
                 android:textColor="@color/preto"
                 android:textStyle="bold" />
 

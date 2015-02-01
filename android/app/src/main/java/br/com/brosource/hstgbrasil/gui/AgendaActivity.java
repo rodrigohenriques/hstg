@@ -48,9 +48,7 @@ public class AgendaActivity extends HstgActivity {
 
     @Override
     public void onSessionStateChange(Session session, SessionState state, Exception exception) {
-        if (state.isClosed()) {
-            HstgUtil.logout(this);
-        }
+
     }
 
     @Override

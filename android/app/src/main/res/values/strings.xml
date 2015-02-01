@@ -15,6 +15,9 @@
     <string name="produto">#PRODUTO</string>
     <string name="title_activity_galeria">GaleriaActivity</string>
     <string name="galeria">#GALERIA</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_nome">Nome</string>
+    <string name="title_meus_dados">Meus Dados</string>
 
 
     <string-array name="main_list">

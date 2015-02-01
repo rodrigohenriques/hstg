@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     style="@style/ImageViewBigSize"
+    android:layout_width="match_parent"
     android:layout_marginBottom="2.5dp"
     android:layout_marginTop="2.5dp"
     android:background="@color/branco"
@@ -54,36 +54,37 @@
 
     <RelativeLayout
         android:id="@+id/item_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="5dp"
-        android:background="@color/cinza">
+        android:background="@color/cinza"
+        android:gravity="center_vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
             android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/item_txt_data_evento"
+                style="@style/TextViewLowSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginRight="5dp"
                 android:ellipsize="marquee"
                 android:singleLine="true"
-                android:layout_marginRight="5dp"
                 android:text="10 out - 22h"
                 android:textAllCaps="true"
-                style="@style/TextViewLowSize"
                 android:textColor="@color/preto" />
 
             <TextView
                 android:id="@+id/item_txt_titulo_evento"
+                style="@style/TextViewMinimumSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/item_txt_data_evento"
@@ -92,22 +93,21 @@
                 android:singleLine="true"
                 android:text="Titulo da Noticia"
                 android:textAllCaps="true"
-                style="@style/TextViewMinimumSize"
                 android:textColor="@color/preto" />
 
             <TextView
                 android:id="@+id/item_txt_descricao_evento"
+                style="@style/TextViewMinimumSize"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/item_txt_titulo_evento"
                 android:layout_marginTop="10dp"
                 android:ellipsize="marquee"
                 android:gravity="center_vertical"
-                android:minLines="2"
                 android:maxLines="2"
                 android:maxWidth="200dp"
+                android:minLines="2"
                 android:text="Descrição breve da notícia."
-                style="@style/TextViewMinimumSize"
                 android:textColor="@color/preto" />
         </LinearLayout>
     </RelativeLayout>

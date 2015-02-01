@@ -12,6 +12,7 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
+import com.facebook.widget.FacebookDialog;
 
 import br.com.brosource.hstgbrasil.util.C;
 import butterknife.ButterKnife;
@@ -26,7 +27,7 @@ public abstract class HstgActivity extends Activity {
             onSessionStateChange(session, state, exception);
         }
     };
-    private UiLifecycleHelper uiHelper;
+    protected UiLifecycleHelper uiHelper;
 
     public abstract void onSessionStateChange(final Session session, SessionState state, Exception exception);
 
@@ -84,6 +85,17 @@ public abstract class HstgActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
+
+        uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+            @Override
+            public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+                Log.e("Activity", String.format("Error: %s", error.toString()));
+            }
+
+            @Override
+            public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+                Log.i("Activity", "Success!");
+            }
+        });
     }
 }

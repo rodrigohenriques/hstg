@@ -22,7 +22,7 @@ import br.com.brosource.hstgbrasil.model.InstagramPicture;
 /**
  * Created by haroldoolivieri on 5/29/14.
  */
-public class GalleryInsta extends Activity {
+public class InstagramPagerActivity extends Activity {
 
     private ViewPager viewPager;
     CirclePageIndicator circlePageIndicator;
