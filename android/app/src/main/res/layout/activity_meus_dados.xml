@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,32 +7,36 @@
 
     <RelativeLayout
         android:id="@+id/main_header"
-        android:layout_width="match_parent"
         style="@style/ImageViewSize"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
         android:background="@color/preto"
-        android:padding="20dp">
+        android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/btn_back"
             style="@style/ImageViewMinSize"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:background="@drawable/back_button"
+            android:padding="20dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_back" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/hstg_cinza"
-        android:layout_width="match_parent"
         style="@style/ImageViewMediumSize"
+        android:layout_width="match_parent"
         android:layout_below="@+id/main_header"
         android:background="@color/cinza">
 
         <ImageView
             android:id="@+id/img_icon"
-            android:layout_width="wrap_content"
             style="@style/ImageViewSize"
+            android:layout_width="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
@@ -42,38 +45,116 @@
             android:src="@drawable/ic_hstg" />
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/nome"
+    <LinearLayout
+        android:id="@+id/meus_dados_black"
+        style="@style/ImageViewLowSize"
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        style="@style/ImageViewMediumSize"
-        android:padding="10dp"
         android:layout_below="@+id/hstg_cinza"
-        android:layout_alignParentLeft="true">
-
-        <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
-            android:id="@+id/main_profile_pic"
-            android:gravity="center_vertical"
-            style="@style/ImageViewSize"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true" />
+        android:background="@color/preto">
 
         <TextView
-            android:id="@+id/main_text_saudacao"
+            android:id="@+id/txt_meus_dados"
+            style="@style/TextViewLowSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:text="@string/title_meus_dados"
+            android:textColor="@color/cinza" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/nome"
+        style="@style/ImageViewMediumSize"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/meus_dados_black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <br.com.brosource.hstgbrasil.widgets.ImageViewCircle
+            android:id="@+id/dados_profile_pic"
+            style="@style/ImageViewSize"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/dados_text_saudacao"
             style="@style/TextViewBigSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/dados_profile_pic"
+            android:ellipsize="marquee"
             android:gravity="center_vertical"
-            android:minLines="2"
             android:maxLines="2"
+            android:minLines="2"
             android:paddingLeft="16dp"
             android:text="Olá, "
-            android:textColor="@color/preto"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/main_profile_pic" />
+            android:textColor="@color/preto" />
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/dados_nome"
+            style="@style/TextViewSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nome"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/hint_nome"
+            android:inputType="text"
+            android:textColor="@color/preto" />
+
+        <EditText
+            android:id="@+id/dados_email"
+            style="@style/TextViewSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dados_nome"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/preto"/>
+
+        <Button
+            android:id="@+id/enviar_dados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextViewSize"
+            android:textColor="@color/preto"
+            android:layout_marginTop="5dp"
+            android:text="Enviar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ou"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/preto"
+            style="@style/TextViewSize"/>
+    </LinearLayout>
+
+    <com.facebook.widget.LoginButton
+        android:layout_below="@+id/form"
+        android:id="@+id/authButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_horizontal" />
 
 
 
