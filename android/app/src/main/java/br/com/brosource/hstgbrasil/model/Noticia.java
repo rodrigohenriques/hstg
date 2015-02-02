@@ -46,4 +46,8 @@ public class Noticia {
                 ", imagem='" + imagem + '\'' +
                 '}';
     }
+
+    public String getLink() {
+        return "http://blog.hstg.com.br/?p=" + post_id;
+    }
 }

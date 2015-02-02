@@ -8,32 +8,36 @@
 
     <RelativeLayout
         android:id="@+id/main_header"
-        android:layout_width="match_parent"
         style="@style/ImageViewSize"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
         android:background="@color/preto"
-        android:padding="20dp">
+        android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/btn_back"
             style="@style/ImageViewMinSize"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:background="@drawable/back_button"
+            android:padding="20dp"
             android:scaleType="fitStart"
             android:src="@drawable/ic_back" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/hstg_verde"
-        android:layout_width="match_parent"
         style="@style/ImageViewMediumSize"
+        android:layout_width="match_parent"
         android:layout_below="@+id/main_header"
         android:background="@color/verde">
 
         <ImageView
             android:id="@+id/img_icon"
-            android:layout_width="wrap_content"
             style="@style/ImageViewSize"
+            android:layout_width="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
@@ -45,19 +49,19 @@
 
     <LinearLayout
         android:id="@+id/produto_black"
-        android:layout_width="match_parent"
         style="@style/ImageViewLowSize"
+        android:layout_width="match_parent"
         android:layout_below="@+id/hstg_verde"
         android:background="@color/preto">
 
         <TextView
             android:id="@+id/txt_produto"
+            style="@style/TextViewLowSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:text="@string/produto"
-            style="@style/TextViewLowSize"
             android:textColor="@color/verde" />
     </LinearLayout>
 
@@ -65,8 +69,8 @@
         android:id="@+id/produto_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/produto_black"
         android:layout_above="@+id/produto_banner"
+        android:layout_below="@+id/produto_black"
         app:matchChildWidth="@+id/vg_cover" />
 
     <View
@@ -78,13 +82,12 @@
 
     <LinearLayout
         android:id="@+id/produto_banner"
-        android:layout_width="match_parent"
         style="@style/ImageViewSize"
+        android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:background="@color/branco"
         android:gravity="center"
         android:orientation="vertical">
-
 
 
         <ImageView

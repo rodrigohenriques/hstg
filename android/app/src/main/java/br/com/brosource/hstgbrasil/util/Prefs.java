@@ -12,7 +12,16 @@ public class Prefs {
     private SharedPreferences.Editor editor;
 
     public enum Keys {
-        INSTAGRAM_TOKEN
+        INSTAGRAM_TOKEN,
+        USERNAME,
+        EMAIL,
+        BIRTHDAY,
+        CEP,
+        CIDADE,
+        ESTADO,
+        LOCATION,
+        SAVED,
+        PHONE
     }
 
     public Prefs(Context context) {
@@ -26,5 +35,9 @@ public class Prefs {
 
     public void put(Keys key, String value) {
         pref.edit().putString(key.toString(), value).apply();
+    }
+
+    public void put(Keys key, boolean value) {
+        pref.edit().putBoolean(key.toString(), value).apply();
     }
  }

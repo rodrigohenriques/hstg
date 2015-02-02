@@ -27,15 +27,4 @@ public class HstgUtil {
     static {
 
     }
-
-    public static void logout(Activity activity) {
-        if (Session.getActiveSession().isOpened()) {
-            Session.getActiveSession().closeAndClearTokenInformation();
-        }
-
-        Intent itt = new Intent(activity, LoginActivity.class);
-        itt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        activity.startActivity(itt);
-        activity.finish();
-    }
 }

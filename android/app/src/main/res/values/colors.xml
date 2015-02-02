@@ -10,5 +10,11 @@
     <color name="branco">#ffffff</color>
 
     <!-- Cores clicadas -->
-    <color name="azul_click">#3c5a80</color>
+    <color name="azul_click">#CC2baae1</color>
+    <color name="amarelo_click">#CCf9ec23</color>
+    <color name="rosa_click">#CCd23793</color>
+    <color name="verde_click">#CC10a44a</color>
+    <color name="preto_click">#CC000000</color>
+    <color name="white_click">#20FFFFFF</color>
+
 </resources>

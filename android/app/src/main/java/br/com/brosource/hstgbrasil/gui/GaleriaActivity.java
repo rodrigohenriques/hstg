@@ -16,16 +16,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopj.android.http.JsonHttpResponseHandler;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.gui.adapter.InstagramPictureAdapter;
-import br.com.brosource.hstgbrasil.gui.adapter.NewsAdapter;
 import br.com.brosource.hstgbrasil.model.InstagramPicture;
-import br.com.brosource.hstgbrasil.model.Produto;
 import br.com.brosource.hstgbrasil.server.InstagramClient;
 import br.com.brosource.hstgbrasil.server.handler.InstagramPictureListHandler;
 import br.com.brosource.hstgbrasil.util.C;
@@ -110,7 +105,7 @@ public class GaleriaActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent itt = new Intent(GaleriaActivity.this, GalleryInsta.class);
+                Intent itt = new Intent(GaleriaActivity.this, InstagramPagerActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("list_instagram", instagramPictures);
                 bundle.putInt("position", position);

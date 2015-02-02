@@ -1,5 +1,6 @@
 package br.com.brosource.hstgbrasil.gui;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -41,14 +42,16 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class MainActivity extends HstgActivity {
+public class MainActivity extends Activity {
 
-    @InjectView(R.id.main_profile_pic)
-    ImageViewCircle mProfilePic;
-    @InjectView(R.id.main_text_saudacao)
-    TextView mTxtSaudacao;
-    @InjectView(R.id.main_list)
-    ListView listView;
+    @InjectView(R.id.main_news)
+    TextView mNews;
+    @InjectView(R.id.main_agenda)
+    TextView mAgenda;
+    @InjectView(R.id.main_galeria)
+    TextView mGaleria;
+    @InjectView(R.id.main_produtos)
+    TextView mProdutos;
     @InjectView(R.id.main_meus_dados)
     TextView mDados;
     @InjectView(R.id.main_wifi_party)
@@ -66,120 +69,52 @@ public class MainActivity extends HstgActivity {
 
         prefs = new Prefs(this);
 
-        mTxtSaudacao.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
-
-        checkProfilePicture();
-
-        String[] objects = getResources().getStringArray(R.array.main_list);
-
-        listView.setAdapter(new MainAdapter(getApplicationContext(), objects));
-
+        mNews.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mAgenda.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mGaleria.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mProdutos.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mDados.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
         mWiFi.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+    }
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    @OnClick(R.id.main_news)
+    public void openNews() {
+        Intent itt = new Intent(this, NewsActivity.class);
+        startActivity(itt);
+    }
 
-                Intent itt = null;
+    @OnClick(R.id.main_agenda)
+    public void openAgenda() {
+        Intent itt = new Intent(MainActivity.this, AgendaActivity.class);
+        startActivity(itt);
+    }
 
-                switch (position) {
-                    case 0:
-                        itt = new Intent(MainActivity.this, NewsActivity.class);
-                        startActivity(itt);
-                        break;
-                    case 1:
-                        itt = new Intent(MainActivity.this, AgendaActivity.class);
-                        startActivity(itt);
-                        break;
-                    case 2:
-                        if (prefs.get(Prefs.Keys.INSTAGRAM_TOKEN) == null) {
+    @OnClick(R.id.main_galeria)
+    public void openGaleria() {
+        if (prefs.get(Prefs.Keys.INSTAGRAM_TOKEN) == null) {
 
-                            Instagram.oAuth(MainActivity.this);
-                        } else {
+            Instagram.oAuth(MainActivity.this);
+        } else {
 
-                            itt = new Intent(MainActivity.this, GaleriaActivity.class);
-                            startActivity(itt);
-                        }
-                        break;
-                    case 3:
-                        itt = new Intent(MainActivity.this, ProdutoActivity.class);
-                        startActivity(itt);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
+            Intent itt = new Intent(MainActivity.this, GaleriaActivity.class);
+            startActivity(itt);
+        }
+    }
+
+    @OnClick(R.id.main_produtos)
+    public void openProdutos() {
+        Intent itt = new Intent(MainActivity.this, ProdutoActivity.class);
+        startActivity(itt);
     }
 
     @Override
     public void onBackPressed() {
 
-        HstgUtil.logout(this);
-
     }
 
-    @Override
-    public void onSessionStateChange(Session session, SessionState state, Exception exception) {
-        if (state.isOpened()) {
-            // Carrega imagem e saudacao
-            if (session != null && session.isOpened()) {
-                // Get the user's data.
-                makeMeRequest(session);
-            }
-        } else {
-            // retorna pra tela de login do aplicativo
-            HstgUtil.logout(this);
-        }
-    }
-
-    private void makeMeRequest(final Session session) {
-        // Make an API call to get user data and define a
-        // new callback to handle the response.
-        Request request = Request.newMeRequest(session,
-                new Request.GraphUserCallback() {
-                    @Override
-                    public void onCompleted(GraphUser user, Response response) {
-                        // If the response is successful
-                        if (session == Session.getActiveSession()) {
-                            if (user != null) {
-
-                                mProfilePic.invalidate();
-                                GraphClient.getPhotoFacebook(user.getId(), mProfilePic);
-                                //mProfilePic.setProfileId(user.getId());
-                                mTxtSaudacao.setText("Olá, " + user.getName());
-                            }
-                        }
-                        if (response.getError() != null) {
-                            // Handle errors, will do so later.
-                        }
-                    }
-                });
-        request.executeAsync();
-    }
-
-    private void checkProfilePicture() {
-        File f = new File(C.App.Files.PROFILE_PIC);
-
-        if (f != null && f.exists() && f.length() > 0) {
-
-            try {
-
-                Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(f));
-                mProfilePic.setImageBitmap(bitmap);
-
-            } catch (FileNotFoundException e) {
-
-                Log.e(C.App.LOG_TAG, "Erro durante conversao de bitmap: " + f, e);
-                mProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_picture_holo_light));
-
-            }
-
-        } else {
-
-            mProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_picture_holo_light));
-
-        }
+    @OnClick(R.id.main_meus_dados)
+    public void openMeusDados() {
+        Intent itt = new Intent(MainActivity.this, MeusDadosActivity.class);
+        startActivity(itt);
     }
 }
