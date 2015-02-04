@@ -129,7 +129,7 @@ public class MeusDadosActivity extends HstgActivity {
 
                                 mPrefs.put(Prefs.Keys.USERNAME, user.getName());
                                 mPrefs.put(Prefs.Keys.BIRTHDAY, user.getBirthday());
-                                mPrefs.put(Prefs.Keys.EMAIL, user.asMap().get("email").toString());
+                                mPrefs.put(Prefs.Keys.EMAIL, user.asMap().get("email") != null ? user.asMap().get("email").toString() : null);
 
                                 mPrefs.put(Prefs.Keys.SAVED, false);
 
