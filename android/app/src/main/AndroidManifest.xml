@@ -17,7 +17,8 @@
 
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,7 +56,8 @@
         </activity>
         <activity
             android:name="br.com.brosource.hstgbrasil.gui.GaleriaActivity"
-            android:label="@string/title_activity_galeria">
+            android:label="@string/title_activity_galeria"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />

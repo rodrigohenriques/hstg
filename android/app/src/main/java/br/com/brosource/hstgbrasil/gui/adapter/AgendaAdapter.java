@@ -1,6 +1,9 @@
 package br.com.brosource.hstgbrasil.gui.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +13,12 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +37,8 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
     ImageLoader imageLoader;
     String HOUR_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
+    List<Bitmap> images;
+
     public AgendaAdapter(Context context, List<Evento> eventos) {
         super(context, 0, eventos);
 
@@ -38,9 +46,11 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
         this.context = context;
 
         imageLoader = ImageLoader.getInstance();
+
+        images = new ArrayList<Bitmap>();
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
 
@@ -102,7 +112,27 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
         String imagem = eventos.get(position).getImagem();
 
         if (imagem != null && imagem.length() > 0) {
-            imageLoader.displayImage(eventos.get(position).getImagem(), holder.image, options);
+            imageLoader.displayImage(eventos.get(position).getImagem(), holder.image, options, new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
+
+                }
+
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    images.add(position, loadedImage);
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
             holder.txtDia.setVisibility(View.INVISIBLE);
             holder.txtMes.setVisibility(View.INVISIBLE);
         } else {
@@ -126,5 +156,11 @@ public class AgendaAdapter extends ArrayAdapter<Evento> {
 
         TextView txtDia;
         TextView txtMes;
+    }
+
+    public Drawable getImage(int position) {
+
+        Bitmap bitmap = images.get(position);
+        return new BitmapDrawable(getContext().getResources(), bitmap);
     }
 }

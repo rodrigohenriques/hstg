@@ -65,12 +65,13 @@ public class NewsActivity extends HstgActivity {
                             .setCaption(noticia.getTitulo())
                             .setDescription(noticia.getTexto())
                             .setPicture(noticia.getImagem())
+                            .setLink(noticia.getLink())
                             .build();
 
                     uiHelper.trackPendingDialogCall(shareDialog.present());
                 } else {
                     // Fallback. For example, publish the post using the Feed Dialog
-                    publishFeedDialog(noticia);
+                    HstgUtil.publishFeedDialog(this, noticia.getTitulo(), noticia.getTexto(), noticia.getLink(), noticia.getImagem());
                 }
 
                 noticia = null;
@@ -167,56 +168,4 @@ public class NewsActivity extends HstgActivity {
 
         d.show();
     }
-
-    private void publishFeedDialog(Noticia noticia) {
-        Bundle params = new Bundle();
-
-        params.putString("name", C.App.NAME);
-        params.putString("caption", noticia.getTitulo());
-        params.putString("description", noticia.getTexto());
-        params.putString("link", noticia.getLink());
-        params.putString("picture", noticia.getImagem());
-
-        WebDialog feedDialog = (
-                new WebDialog.FeedDialogBuilder(NewsActivity.this,
-                        Session.getActiveSession(),
-                        params))
-                .setOnCompleteListener(new WebDialog.OnCompleteListener() {
-
-                    @Override
-                    public void onComplete(Bundle values,
-                                           FacebookException error) {
-                        if (error == null) {
-                            // When the story is posted, echo the success
-                            // and the post Id.
-                            final String postId = values.getString("post_id");
-
-                            if (postId != null) {
-                                Toast.makeText(NewsActivity.this,
-                                        "Posted story, id: " + postId,
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                // User clicked the Cancel button
-                                Toast.makeText(NewsActivity.this.getApplicationContext(),
-                                        "Publish cancelled",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        } else if (error instanceof FacebookOperationCanceledException) {
-                            // User clicked the "x" button
-                            Toast.makeText(NewsActivity.this.getApplicationContext(),
-                                    "Publish cancelled",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Generic, ex: network error
-                            Toast.makeText(NewsActivity.this.getApplicationContext(),
-                                    "Error posting story",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                })
-                .build();
-        feedDialog.show();
-    }
-
 }

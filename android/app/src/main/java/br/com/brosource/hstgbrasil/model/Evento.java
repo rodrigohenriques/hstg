@@ -6,6 +6,7 @@ import br.com.brosource.hstgbrasil.util.HstgUtil;
  * Created by rodrigohenriques on 11/9/14.
  */
 public class Evento {
+
     public int event_id;
     public String data_inicial;
     public String data_final;

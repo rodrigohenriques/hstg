@@ -10,6 +10,7 @@ public class C {
         public static final String LOG_TAG = "HSTG-APP";
         public static final String HASHTAG = "hstgbrazil";
         public static final String NAME = "Hashtag Brazil";
+        public static final String PAGE_LINK = "https://www.facebook.com/hashtagpartyofficial";
 
         public static class Path {
             public static final String MAIN = Environment.getExternalStorageDirectory() + "/hstg";
