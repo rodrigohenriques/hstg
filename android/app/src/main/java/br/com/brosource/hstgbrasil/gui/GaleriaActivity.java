@@ -83,9 +83,20 @@ public class GaleriaActivity extends Activity {
         Uri data = getIntent().getData();
 
         if (data != null) {
-            String token = data.toString().split(Instagram.PARAM_ACCESS_TOKEN + "=")[1];
+            String[] info = data.toString().split(Instagram.PARAM_ACCESS_TOKEN + "=");
 
-            prefs.put(Prefs.Keys.INSTAGRAM_TOKEN, token);
+            try {
+                if (info != null && info[1] != null) {
+
+                    String token = info[1];
+
+                    prefs.put(Prefs.Keys.INSTAGRAM_TOKEN, token);
+                } else {
+                    finish();
+                }
+            } catch(Exception e) {
+                finish();
+            }
         }
 
         InstagramClient.searchPostByHashtag(prefs.get(Prefs.Keys.INSTAGRAM_TOKEN), C.App.HASHTAG, new InstagramPictureListHandler() {
