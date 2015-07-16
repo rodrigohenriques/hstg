@@ -2,7 +2,6 @@ package br.com.brosource.hstgbrasil.gui;
 
 import android.app.Activity;
 import android.content.Context;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -10,8 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.List;
@@ -51,14 +49,12 @@ public class InstagramPagerActivity extends Activity {
     public class GalleryAdapter extends PagerAdapter {
 
         List<InstagramPicture> instagramPictures;
-        ImageLoader imageLoader;
         Context context;
 
         public GalleryAdapter(Context context, List<InstagramPicture> instagramPictures) {
             super();
             this.context = context;
             this.instagramPictures = instagramPictures;
-            imageLoader = ImageLoader.getInstance();
         }
 
         @Override
@@ -79,19 +75,17 @@ public class InstagramPagerActivity extends Activity {
 
             ImageView imageView = new ImageView(context);
 
-            DisplayImageOptions options = new DisplayImageOptions.Builder()
-                    .showImageOnLoading(R.drawable.ic_galeria_default)
-                    .build();
-
             String imagem = instagramPictures.get(position).getStandardResolution().getUrl();
 
             if (imagem != null && imagem.length() > 0) {
-                imageLoader.displayImage(imagem, imageView, options);
+                Picasso.with(context)
+                        .load(imagem)
+                        .into(imageView);
             } else {
                 imageView.setVisibility(View.GONE);
             }
 
-            ((ViewPager) container).addView(imageView);
+            container.addView(imageView);
 
             return imageView;
         }

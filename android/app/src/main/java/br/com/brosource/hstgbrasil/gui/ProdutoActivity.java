@@ -1,30 +1,24 @@
 package br.com.brosource.hstgbrasil.gui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.R;
-import br.com.brosource.hstgbrasil.gui.ProdutoFragment;
-import br.com.brosource.hstgbrasil.model.Evento;
 import br.com.brosource.hstgbrasil.model.Produto;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
-import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.server.handler.ProdutoListHandler;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
-import br.com.brosource.hstgbrasil.widgets.MultiViewPager;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -33,8 +27,10 @@ public class ProdutoActivity extends FragmentActivity {
 
     @InjectView(R.id.txt_produto)
     TextView labelProduto;
+
     ButteryProgressBar progressBar;
-    private MultiViewPager mPager;
+
+    private ViewPager mPager;
     private FragmentStatePagerAdapter mAdapter;
 
     @Override
@@ -70,7 +66,7 @@ public class ProdutoActivity extends FragmentActivity {
 
                 progressBar.setVisibility(View.INVISIBLE);
 
-                mPager = (MultiViewPager) findViewById(R.id.produto_pager);
+                mPager = (ViewPager) findViewById(R.id.produto_pager);
                 mAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
                     @Override
@@ -80,7 +76,7 @@ public class ProdutoActivity extends FragmentActivity {
 
                     @Override
                     public Fragment getItem(int position) {
-                        return new ProdutoFragment().newInstance(list.get(position));
+                        return ProdutoFragment.newInstance(list.get(position));
                     }
                 };
                 mPager.setAdapter(mAdapter);

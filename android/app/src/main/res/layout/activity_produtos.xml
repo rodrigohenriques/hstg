@@ -65,37 +65,10 @@
             android:textColor="@color/verde" />
     </LinearLayout>
 
-    <br.com.brosource.hstgbrasil.widgets.MultiViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/produto_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/produto_banner"
-        android:layout_below="@+id/produto_black"
-        app:matchChildWidth="@+id/vg_cover" />
-
-    <View
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_above="@+id/produto_banner"
-        android:background="@drawable/line"></View>
-
-    <LinearLayout
-        android:id="@+id/produto_banner"
-        style="@style/ImageViewSize"
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:background="@color/branco"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/banner"
-            android:scaleType="centerCrop" />
-
-    </LinearLayout>
+        android:layout_below="@+id/produto_black" />
 
 </RelativeLayout>
