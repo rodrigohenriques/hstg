@@ -6,33 +6,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import br.com.brosource.hstgbrasil.R;
-import br.com.brosource.hstgbrasil.model.Evento;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 
 /**
  * Created by haroldoolivieri on 11/20/14.
  */
-public class MainAdapter extends ArrayAdapter<String> {
+public class GalleriesAdapter extends ArrayAdapter<String> {
 
     private String[] objects;
+    private String[] hexColors;
     Context ctx;
 
-    public MainAdapter(Context context, String[] objects) {
+    public GalleriesAdapter(Context context, String[] objects, String[] hexColors) {
         super(context, 0, objects);
         this.objects = objects;
-        ctx = context;
+        this.hexColors = hexColors;
+        this.ctx = context;
     }
 
 
@@ -46,8 +38,8 @@ public class MainAdapter extends ArrayAdapter<String> {
             convertView = layoutInflater.inflate(R.layout.item_main_list, parent, false);
             holder = new ViewHolder();
 
-            holder.txtMain = (TextView) convertView.findViewById(R.id.item_main_txt);
-            holder.content = (View) convertView.findViewById(R.id.item_main_content);
+            holder.content = convertView.findViewById(R.id.list_item_content);
+            holder.txtMain = (TextView) convertView.findViewById(R.id.list_item_hashtag);
 
             holder.txtMain.setTypeface(CustomFont.getHumeGeometricSans3Bold(ctx));
 
@@ -58,33 +50,10 @@ public class MainAdapter extends ArrayAdapter<String> {
         }
 
         holder.txtMain.setText(objects[position]);
-        holder.content.setBackgroundColor(getColor(position));
+        holder.content.setBackgroundColor(Color.parseColor(hexColors[position]));
 
         return convertView;
 
-    }
-
-    public int getColor(int position){
-
-        int color = 0;
-
-        switch (position){
-            case 0:
-                color = ctx.getResources().getColor(R.color.amarelo);
-                break;
-            case 1:
-                color = ctx.getResources().getColor(R.color.azul);
-                break;
-            case 2:
-                color = ctx.getResources().getColor(R.color.rosa);
-                break;
-            case 3:
-                color = ctx.getResources().getColor(R.color.verde);
-                break;
-
-        }
-
-        return color;
     }
 
     private class ViewHolder {

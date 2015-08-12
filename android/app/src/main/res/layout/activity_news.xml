@@ -68,7 +68,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/news_footer"
         android:layout_below="@+id/news_black"
-        android:layout_marginTop="2.5dp"></ListView>
+        android:layout_marginTop="2.5dp" />
 
     <LinearLayout
         android:id="@+id/news_footer"

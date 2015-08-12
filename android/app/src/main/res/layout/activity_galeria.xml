@@ -58,7 +58,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
-            android:text="@string/galeria"
             android:textColor="@color/rosa" />
     </LinearLayout>
 

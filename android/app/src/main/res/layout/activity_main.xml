@@ -51,7 +51,7 @@
             android:layout_below="@+id/main_header"
             android:layout_weight="1"
             android:background="@drawable/amarelo_button"
-            android:text="#NEWS" />
+            android:text="@string/news" />
 
         <TextView
             android:id="@+id/main_agenda"
@@ -61,28 +61,28 @@
             android:layout_below="@+id/main_news"
             android:layout_weight="1"
             android:background="@drawable/azul_button"
-            android:text="#AGENDA" />
+            android:text="@string/agenda" />
 
         <TextView
-            android:id="@+id/main_galeria"
+            android:id="@+id/main_galerias"
             style="@style/main_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/main_agenda"
             android:layout_weight="1"
             android:background="@drawable/rosa_button"
-            android:text="#GALERIA" />
+            android:text="@string/galerias" />
 
         <TextView
             android:id="@+id/main_produtos"
             style="@style/main_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_below="@+id/main_galeria"
+            android:layout_below="@+id/main_galerias"
             android:layout_marginBottom="@dimen/main_espaco_itens"
             android:layout_weight="1"
             android:background="@drawable/verde_button"
-            android:text="#PRODUTOS" />
+            android:text="@string/produto" />
 
         <LinearLayout
             android:id="@+id/main_footer"

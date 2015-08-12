@@ -3,10 +3,11 @@
     package="br.com.brosource.hstgbrasil">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="br.com.brosource.hstgbrasil.util.HstgApplication"
+        android:name=".util.HstgApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +17,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.MainActivity"
+            android:name=".gui.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,7 +32,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.NewsActivity"
+            android:name=".gui.NewsActivity"
             android:label="@string/title_activity_news"
             android:screenOrientation="portrait">
             <meta-data
@@ -39,7 +40,7 @@
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
         </activity>
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.AgendaActivity"
+            android:name=".gui.AgendaActivity"
             android:label="@string/title_activity_news"
             android:screenOrientation="portrait">
             <meta-data
@@ -47,7 +48,7 @@
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
         </activity>
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.ProdutoActivity"
+            android:name=".gui.ProdutoActivity"
             android:label="@string/title_activity_news"
             android:screenOrientation="portrait">
             <meta-data
@@ -55,14 +56,16 @@
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
         </activity>
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.GaleriaActivity"
+            android:name=".gui.GaleriaActivity"
             android:label="@string/title_activity_galeria"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -71,7 +74,6 @@
                     android:scheme="hstg" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".gui.InstagramPagerActivity"
             android:label="@string/title_activity_news"
@@ -80,11 +82,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.GaleriaActivity" />
         </activity>
-
         <activity
-            android:name="br.com.brosource.hstgbrasil.gui.MeusDadosActivity"
+            android:name=".gui.MeusDadosActivity"
             android:label="@string/title_meus_dados"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".gui.GalleriesActivity"
+            android:label="@string/title_activity_galleries"
+            android:parentActivityName=".gui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />

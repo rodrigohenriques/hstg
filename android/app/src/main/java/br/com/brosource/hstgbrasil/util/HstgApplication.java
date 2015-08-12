@@ -6,14 +6,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.parse.Parse;
 
-import java.util.HashMap;
-
-import br.com.brosource.hstgbrasil.R;
-
-/**
- * Created by haroldoolivieri on 6/25/14.
- */
 public class HstgApplication extends Application {
 
     @Override
@@ -30,5 +24,10 @@ public class HstgApplication extends Application {
                 .build();
 
         ImageLoader.getInstance().init(config);
+
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
+
+        Parse.initialize(this, "zmrQgVIG05BDRA7oo9XfCXi7Te189kKPAEQJyRYv", "bKTont4rxuoRVXHwrMAt5sQsdm6KnC7NAY3itrwa");
     }
 }

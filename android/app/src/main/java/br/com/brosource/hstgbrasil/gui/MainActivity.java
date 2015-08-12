@@ -1,43 +1,13 @@
 package br.com.brosource.hstgbrasil.gui;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.facebook.Request;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.model.GraphUser;
-import com.facebook.widget.ProfilePictureView;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-
 import br.com.brosource.hstgbrasil.R;
-import br.com.brosource.hstgbrasil.control.HstgActivity;
-import br.com.brosource.hstgbrasil.gui.adapter.MainAdapter;
-import br.com.brosource.hstgbrasil.model.Noticia;
-import br.com.brosource.hstgbrasil.server.GraphClient;
-import br.com.brosource.hstgbrasil.server.HstgRestClient;
-import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
-import br.com.brosource.hstgbrasil.util.C;
 import br.com.brosource.hstgbrasil.util.CustomFont;
-import br.com.brosource.hstgbrasil.util.HstgUtil;
-import br.com.brosource.hstgbrasil.util.Instagram;
 import br.com.brosource.hstgbrasil.util.Prefs;
-import br.com.brosource.hstgbrasil.widgets.ImageViewCircle;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -48,7 +18,7 @@ public class MainActivity extends Activity {
     TextView mNews;
     @InjectView(R.id.main_agenda)
     TextView mAgenda;
-    @InjectView(R.id.main_galeria)
+    @InjectView(R.id.main_galerias)
     TextView mGaleria;
     @InjectView(R.id.main_produtos)
     TextView mProdutos;
@@ -89,16 +59,21 @@ public class MainActivity extends Activity {
         startActivity(itt);
     }
 
-    @OnClick(R.id.main_galeria)
+    @OnClick(R.id.main_galerias)
     public void openGaleria() {
-        if (prefs.get(Prefs.Keys.INSTAGRAM_TOKEN) == null) {
 
-            Instagram.oAuth(MainActivity.this);
-        } else {
+        Intent itt = new Intent(MainActivity.this, GalleriesActivity.class);
+        startActivity(itt);
 
-            Intent itt = new Intent(MainActivity.this, GaleriaActivity.class);
-            startActivity(itt);
-        }
+
+//        if (prefs.get(Prefs.Keys.INSTAGRAM_TOKEN) == null) {
+//
+//            Instagram.oAuth(MainActivity.this);
+//        } else {
+//
+//            Intent itt = new Intent(MainActivity.this, GaleriaActivity.class);
+//            startActivity(itt);
+//        }
     }
 
     @OnClick(R.id.main_produtos)

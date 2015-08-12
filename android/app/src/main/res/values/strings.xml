@@ -14,7 +14,7 @@
     <string name="agenda">#AGENDA</string>
     <string name="produto">#PRODUTO</string>
     <string name="title_activity_galeria">GaleriaActivity</string>
-    <string name="galeria">#GALERIA</string>
+    <string name="galerias">#GALERIAS</string>
     <string name="hint_email">Email</string>
     <string name="hint_nome">Nome</string>
     <string name="title_meus_dados">Meus Dados</string>
@@ -26,5 +26,6 @@
         <item>#GALERIA</item>
         <item>#PRODUTO</item>
     </string-array>
+    <string name="title_activity_galleries">GalleriesActivity</string>
 
 </resources>
