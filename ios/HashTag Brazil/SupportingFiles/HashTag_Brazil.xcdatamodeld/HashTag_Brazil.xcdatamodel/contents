@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Events" representedClassName="Events" syncable="YES">
+        <attribute name="data_final" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="data_inicial" attributeType="String" syncable="YES"/>
+        <attribute name="event_id" attributeType="String" syncable="YES"/>
+        <attribute name="imagem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagemData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="texto" attributeType="String" syncable="YES"/>
+        <attribute name="titulo" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="News" representedClassName="News" syncable="YES">
+        <attribute name="data" attributeType="String" syncable="YES"/>
+        <attribute name="imagem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagemData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="post_id" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="texto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titulo" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Products" representedClassName="Products" syncable="YES">
+        <attribute name="descricao" attributeType="String" syncable="YES"/>
+        <attribute name="imagem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagemData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="link" attributeType="String" syncable="YES"/>
+        <attribute name="preco" attributeType="String" syncable="YES"/>
+        <attribute name="produto_id" attributeType="String" syncable="YES"/>
+        <attribute name="titulo" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Events" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Products" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="News" positionX="-36" positionY="9" width="128" height="135"/>
+    </elements>
+</model>
