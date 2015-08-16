@@ -4,23 +4,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
-import com.facebook.Request;
-import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
-import com.facebook.model.GraphUser;
 import com.facebook.widget.FacebookDialog;
 
-import br.com.brosource.hstgbrasil.util.C;
-import butterknife.ButterKnife;
+import br.com.brosource.hstgbrasil.R;
+import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 
 /**
  * Created by rodrigohenriques on 11/10/14.
  */
 public abstract class HstgActivity extends Activity {
+
+    protected ButteryProgressBar mProgressBar;
+
     protected Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
@@ -37,6 +42,37 @@ public abstract class HstgActivity extends Activity {
 
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
+
+        setupProgressBar();
+    }
+
+    protected void finishProgress() {
+        mProgressBar.setVisibility(View.INVISIBLE);
+    }
+
+    protected void startProgress() {
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void setupProgressBar() {
+        mProgressBar = new ButteryProgressBar(this);
+        mProgressBar.setVisibility(View.INVISIBLE);
+        mProgressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24));
+
+        final FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
+        decorView.addView(mProgressBar);
+
+        ViewTreeObserver observer = mProgressBar.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                View contentView = decorView.findViewById(android.R.id.content);
+                mProgressBar.setY(contentView.getY());
+
+                ViewTreeObserver observer = mProgressBar.getViewTreeObserver();
+                observer.removeGlobalOnLayoutListener(this);
+            }
+        });
     }
 
     @Override
@@ -97,5 +133,9 @@ public abstract class HstgActivity extends Activity {
                 Log.i("Activity", "Success!");
             }
         });
+    }
+
+    protected void communicateFailure() {
+        Toast.makeText(HstgActivity.this, R.string.message_request_failure, Toast.LENGTH_LONG).show();
     }
 }

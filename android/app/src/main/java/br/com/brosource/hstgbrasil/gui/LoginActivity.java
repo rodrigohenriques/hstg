@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -26,7 +26,7 @@ public class LoginActivity extends HstgActivity {
     @Override
     public void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state.isOpened()) {
-            Log.i(C.App.LOG_TAG, "Aplicacao ja logada, prosseguir pra proxima tela");
+            Log.i(Constants.App.LOG_TAG, "Aplicacao ja logada, prosseguir pra proxima tela");
 
             startActivity(new Intent(this, MainActivity.class));
 

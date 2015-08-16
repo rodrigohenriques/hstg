@@ -2,10 +2,7 @@ package br.com.brosource.hstgbrasil.util;
 
 import android.os.Environment;
 
-/**
- * Created by rodrigohenriques on 11/9/14.
- */
-public class C {
+public class Constants {
     public static class App {
         public static final String LOG_TAG = "HSTG-APP";
         public static final String HASHTAG = "hstgbrazil";
@@ -22,7 +19,11 @@ public class C {
         }
     }
 
-    public class Params {
+    public class Extras {
         public static final String PRODUTO = "produto";
+        public static final String HASHTAG = "hashtag";
+        public static final String HEX_COLOR = "hexColor";
+        public static final String GALLERY_ID = "gallery_id";
+        public static final String PHOTO_URI = "photo_uri";
     }
 }

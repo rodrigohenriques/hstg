@@ -23,7 +23,7 @@ public class HstgUtil {
     public static void publishFeedDialog(final Context context, String caption, String description, String link, String picture) {
         Bundle params = new Bundle();
 
-        params.putString("name", C.App.NAME);
+        params.putString("name", Constants.App.NAME);
         params.putString("caption", caption);
         params.putString("description", description);
         params.putString("link", link);

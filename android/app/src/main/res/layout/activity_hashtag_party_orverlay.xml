@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <RelativeLayout
+        android:id="@+id/main_header"
+        style="@style/ImageViewSize"
+        android:layout_width="match_parent"
+        android:background="@color/preto"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textview_title"
+            style="@style/TextViewSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/galerias"
+            android:textColor="@color/amarelo" />
+    </RelativeLayout>
+
+    <com.desmond.squarecamera.SquareImageView
+        android:id="@+id/imageview_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_header"
+        android:scaleType="centerCrop" />
+
+    <GridView
+        android:id="@+id/gridview_shapes"
+        android:layout_width="match_parent"
+        style="@style/ImageViewSize"
+        android:layout_above="@+id/galeria_footer"
+        android:layout_below="@+id/imageview_photo"
+        android:numColumns="4"
+        android:orientation="vertical"
+        android:padding="2dp"
+        android:stretchMode="columnWidth" />
+
+    <TextView
+        android:id="@+id/button_post"
+        style="@style/TextViewLowSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/preto_button"
+        android:clickable="true"
+        android:gravity="center|center_vertical"
+        android:minLines="2"
+        android:text="Compartilhar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"/>
+</RelativeLayout>

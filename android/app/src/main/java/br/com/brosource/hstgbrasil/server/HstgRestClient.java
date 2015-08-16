@@ -3,14 +3,11 @@ package br.com.brosource.hstgbrasil.server;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
 import br.com.brosource.hstgbrasil.server.handler.ProdutoListHandler;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 
 /**
  * Created by rodrigohenriques on 11/1/14.
@@ -40,7 +37,7 @@ public class HstgRestClient {
     private static String getAbsoluteUrl(String relativeUrl) {
         String url = BASE_URL + relativeUrl;
 
-        Log.i(C.App.LOG_TAG, url);
+        Log.i(Constants.App.LOG_TAG, url);
 
         return url;
     }

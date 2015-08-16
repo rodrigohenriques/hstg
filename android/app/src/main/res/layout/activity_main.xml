@@ -84,54 +84,54 @@
             android:background="@drawable/verde_button"
             android:text="@string/produto" />
 
-        <LinearLayout
-            android:id="@+id/main_footer"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1.5"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_weight="1.5">
 
-            <TextView
-                android:id="@+id/main_meus_dados"
-                style="@style/TextViewBigSize"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/main_footer"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/preto_button"
-                android:clickable="true"
-                android:gravity="center"
-                android:minLines="2"
-                android:text="Meus\nDados" />
-
-            <FrameLayout
-                android:id="@+id/content_wifi"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/cinza">
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:background="@color/branco">
 
                 <TextView
-                    android:id="@+id/main_wifi_party"
+                    android:id="@+id/main_meus_dados"
                     style="@style/TextViewBigSize"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:clickable="false"
+                    android:layout_weight="1"
+                    android:background="@drawable/preto_button"
+                    android:clickable="true"
                     android:gravity="center"
-                    android:text="WiFi\nParty"
-                    android:textColor="@drawable/text_button_branco" />
+                    android:minLines="2"
+                    android:text="Meus\nDados"/>
 
-                <ImageView
-                    android:layout_width="135dp"
-                    android:layout_height="54dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/soon_preto" />
-            </FrameLayout>
+                <RelativeLayout
+                    android:id="@+id/main_hashtag_party"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/preto_button"
+                    android:clickable="true"
+                    android:padding="24dp">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/hstg_party_logo" />
+                </RelativeLayout>
+            </LinearLayout>
 
-        </LinearLayout>
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/branco"
+                android:layout_gravity="center"/>
+        </FrameLayout>
     </LinearLayout>
-
-
 </RelativeLayout>

@@ -24,7 +24,7 @@ import java.util.Arrays;
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
 import br.com.brosource.hstgbrasil.server.GraphClient;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.Prefs;
 import br.com.brosource.hstgbrasil.widgets.ImageViewCircle;
@@ -145,7 +145,7 @@ public class MeusDadosActivity extends HstgActivity {
     }
 
     private void checkProfilePicture() {
-        File f = new File(C.App.Files.PROFILE_PIC);
+        File f = new File(Constants.App.Files.PROFILE_PIC);
 
         if (f != null && f.exists() && f.length() > 0) {
 
@@ -156,7 +156,7 @@ public class MeusDadosActivity extends HstgActivity {
 
             } catch (FileNotFoundException e) {
 
-                Log.e(C.App.LOG_TAG, "Erro durante conversao de bitmap: " + f, e);
+                Log.e(Constants.App.LOG_TAG, "Erro durante conversao de bitmap: " + f, e);
                 mProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_picture_holo_light));
 
             }

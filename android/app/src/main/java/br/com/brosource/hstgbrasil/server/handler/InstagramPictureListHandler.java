@@ -12,9 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import br.com.brosource.hstgbrasil.model.InstagramPicture;
-import br.com.brosource.hstgbrasil.model.Produto;
-import br.com.brosource.hstgbrasil.util.C;
-import br.com.brosource.hstgbrasil.util.Instagram;
+import br.com.brosource.hstgbrasil.util.Constants;
 
 /**
  * Created by rodrigohenriques on 11/9/14.
@@ -33,12 +31,12 @@ public abstract class InstagramPictureListHandler extends TextHttpResponseHandle
 
     @Override
     public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-        Log.e(C.App.LOG_TAG, "Erro de conversao de String para JsonArray", throwable);
+        Log.e(Constants.App.LOG_TAG, "Erro de conversao de String para JsonArray", throwable);
     }
 
     @Override
     public void onSuccess(int statusCode, Header[] headers, String responseString) {
-        Log.i(C.App.LOG_TAG, responseString);
+        Log.i(Constants.App.LOG_TAG, responseString);
 
         try {
             ArrayList<InstagramPicture> list = new ArrayList<InstagramPicture>();
@@ -67,12 +65,12 @@ public abstract class InstagramPictureListHandler extends TextHttpResponseHandle
 
                 list.add(picture);
 
-                Log.i(C.App.LOG_TAG, picture.toString());
+                Log.i(Constants.App.LOG_TAG, picture.toString());
             }
 
             onSuccess(list);
         } catch (JSONException e) {
-            Log.e(C.App.LOG_TAG, "Erro de conversao de String para JsonArray", e);
+            Log.e(Constants.App.LOG_TAG, "Erro de conversao de String para JsonArray", e);
         }
     }
 

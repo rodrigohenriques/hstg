@@ -7,6 +7,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.parse.Parse;
+import com.parse.ParseObject;
+
+import br.com.brosource.hstgbrasil.model.Gallery;
+import br.com.brosource.hstgbrasil.model.Shape;
 
 public class HstgApplication extends Application {
 
@@ -29,5 +33,8 @@ public class HstgApplication extends Application {
         Parse.enableLocalDatastore(this);
 
         Parse.initialize(this, "zmrQgVIG05BDRA7oo9XfCXi7Te189kKPAEQJyRYv", "bKTont4rxuoRVXHwrMAt5sQsdm6KnC7NAY3itrwa");
+
+        ParseObject.registerSubclass(Gallery.class);
+        ParseObject.registerSubclass(Shape.class);
     }
 }

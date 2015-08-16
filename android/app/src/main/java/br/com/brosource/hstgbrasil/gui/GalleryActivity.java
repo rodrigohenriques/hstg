@@ -11,7 +11,6 @@ import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import br.com.brosource.hstgbrasil.gui.adapter.InstagramPictureAdapter;
 import br.com.brosource.hstgbrasil.model.InstagramPicture;
 import br.com.brosource.hstgbrasil.server.InstagramClient;
 import br.com.brosource.hstgbrasil.server.handler.InstagramPictureListHandler;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.Instagram;
 import br.com.brosource.hstgbrasil.util.Prefs;
@@ -30,23 +29,28 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class GaleriaActivity extends Activity {
-    Prefs prefs;
+public class GalleryActivity extends Activity {
 
-    @InjectView(R.id.galeria_grid)
-    GridView gridView;
+    @InjectView(R.id.hstg_header)
+    View mHeader;
+    @InjectView(R.id.gridview_gallery)
+    GridView mGridView;
+    @InjectView(R.id.textview_no_items)
+    TextView mTextViewNoItems;
+    @InjectView(R.id.textview_gallery_subheader)
+    TextView mTextViewSubHeader;
+    @InjectView(R.id.button_top)
+    TextView mTextViewTop;
 
-    @InjectView(R.id.btn_back)
-    ImageView btnBack;
-    @InjectView(R.id.txt_galeria)
-    TextView labelGaleria;
-    @InjectView(R.id.txt_topo)
-    TextView btnTopo;
+    Prefs mPrefs;
 
-    ButteryProgressBar progressBar;
+    ButteryProgressBar mProgressBar;
 
-    InstagramPictureAdapter instagramPictureAdapter;
-    ArrayList<InstagramPicture> instagramPictures;
+    InstagramPictureAdapter mInstagramPictureAdapter;
+    ArrayList<InstagramPicture> mInstagramPictures;
+
+    String mHashtag;
+    int mColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,28 +59,36 @@ public class GaleriaActivity extends Activity {
 
         ButterKnife.inject(this);
 
-        labelGaleria.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
-        btnTopo.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
+        mHashtag = getIntent().getStringExtra(Constants.Extras.HASHTAG);
+        mColor = getIntent().getIntExtra(Constants.Extras.HEX_COLOR, 0);
 
-        progressBar = new ButteryProgressBar(this);
-        progressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24));
+        mHeader.setBackgroundColor(mColor);
+        mTextViewSubHeader.setTextColor(mColor);
+        mTextViewSubHeader.setText(String.format("#%s", mHashtag));
+        mGridView.setBackgroundColor(mColor);
+
+        mTextViewSubHeader.setTypeface(CustomFont.getHumeGeometricSans3Bold(this));
+        mTextViewTop.setTypeface(CustomFont.getHumeGeometricSans3Light(this));
+
+        mProgressBar = new ButteryProgressBar(this);
+        mProgressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 24));
 
         final FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
-        decorView.addView(progressBar);
+        decorView.addView(mProgressBar);
 
-        ViewTreeObserver observer = progressBar.getViewTreeObserver();
+        ViewTreeObserver observer = mProgressBar.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 View contentView = decorView.findViewById(android.R.id.content);
-                progressBar.setY(contentView.getY());
+                mProgressBar.setY(contentView.getY());
 
-                ViewTreeObserver observer = progressBar.getViewTreeObserver();
+                ViewTreeObserver observer = mProgressBar.getViewTreeObserver();
                 observer.removeGlobalOnLayoutListener(this);
             }
         });
 
-        prefs = new Prefs(this);
+        mPrefs = new Prefs(this);
 
         Uri data = getIntent().getData();
 
@@ -84,11 +96,11 @@ public class GaleriaActivity extends Activity {
             String[] info = data.toString().split(Instagram.PARAM_ACCESS_TOKEN + "=");
 
             try {
-                if (info != null && info[1] != null) {
+                if (info[1] != null) {
 
                     String token = info[1];
 
-                    prefs.put(Prefs.Keys.INSTAGRAM_TOKEN, token);
+                    mPrefs.put(Prefs.Keys.INSTAGRAM_TOKEN, token);
                 } else {
                     finish();
                 }
@@ -97,26 +109,31 @@ public class GaleriaActivity extends Activity {
             }
         }
 
-        InstagramClient.searchPostByHashtag(prefs.get(Prefs.Keys.INSTAGRAM_TOKEN), C.App.HASHTAG, new InstagramPictureListHandler() {
+        InstagramClient.searchPostByHashtag(mPrefs.get(Prefs.Keys.INSTAGRAM_TOKEN), mHashtag, new InstagramPictureListHandler() {
             @Override
             public void onSuccess(ArrayList<InstagramPicture> list) {
-                Log.e(C.App.LOG_TAG, list.toString());
+                Log.e(Constants.App.LOG_TAG, list.toString());
 
-                instagramPictures = new ArrayList<InstagramPicture>(list);
-                progressBar.setVisibility(View.INVISIBLE);
+                mInstagramPictures = list;
+                mProgressBar.setVisibility(View.INVISIBLE);
 
-                instagramPictureAdapter = new InstagramPictureAdapter(GaleriaActivity.this, list);
-                gridView.setAdapter(instagramPictureAdapter);
+                mInstagramPictureAdapter = new InstagramPictureAdapter(GalleryActivity.this, list, mColor);
+
+                if (mInstagramPictureAdapter.getCount() > 0) {
+                    mGridView.setAdapter(mInstagramPictureAdapter);
+                } else {
+                    mTextViewNoItems.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent itt = new Intent(GaleriaActivity.this, InstagramPagerActivity.class);
+                Intent itt = new Intent(GalleryActivity.this, InstagramPagerActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("list_instagram", instagramPictures);
+                bundle.putSerializable("list_instagram", mInstagramPictures);
                 bundle.putInt("position", position);
 
                 itt.putExtras(bundle);
@@ -142,8 +159,8 @@ public class GaleriaActivity extends Activity {
         onBackPressed();
     }
 
-    @OnClick(R.id.txt_topo)
+    @OnClick(R.id.button_top)
     public void toTop() {
-        gridView.setSelection(0);
+        mGridView.setSelection(0);
     }
 }

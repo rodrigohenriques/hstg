@@ -27,5 +27,8 @@
         <item>#PRODUTO</item>
     </string-array>
     <string name="title_activity_galleries">GalleriesActivity</string>
+    <string name="message_request_failure">Ocorreu um erro durante o processamento da sua requisição</string>
+    <string name="message_no_items">Ainda não temos fotos vinculadas a esta hashtag.\nSeja o primeiro a aparecer aqui!</string>
+    <string name="postar">Postar</string>
 
 </resources>

@@ -9,17 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.facebook.FacebookException;
-import com.facebook.FacebookOperationCanceledException;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.widget.FacebookDialog;
-import com.facebook.widget.WebDialog;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
@@ -27,14 +22,13 @@ import br.com.brosource.hstgbrasil.gui.adapter.NewsAdapter;
 import br.com.brosource.hstgbrasil.model.Noticia;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.NewsListHandler;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class NewsActivity extends HstgActivity {
 
@@ -45,7 +39,7 @@ public class NewsActivity extends HstgActivity {
     ImageView btnBack;
     @InjectView(R.id.txt_news)
     TextView labelNews;
-    @InjectView(R.id.txt_topo)
+    @InjectView(R.id.button_top)
     TextView btnTopo;
 
     ButteryProgressBar progressBar;
@@ -61,7 +55,7 @@ public class NewsActivity extends HstgActivity {
                         FacebookDialog.ShareDialogFeature.SHARE_DIALOG)) {
                     // Publish the post using the Share Dialog
                     FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(NewsActivity.this)
-                            .setName(C.App.NAME)
+                            .setName(Constants.App.NAME)
                             .setCaption(noticia.getTitulo())
                             .setDescription(noticia.getTexto())
                             .setPicture(noticia.getImagem())
@@ -134,7 +128,7 @@ public class NewsActivity extends HstgActivity {
         finish();
     }
 
-    @OnClick(R.id.txt_topo)
+    @OnClick(R.id.button_top)
     public void toTop() {
         listView.setSelection(0);
     }
@@ -144,28 +138,28 @@ public class NewsActivity extends HstgActivity {
 
         noticia = listNoticia.get(position);
 
-        SweetAlertDialog d = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
-
-        d.setTitleText(noticia.getTitulo());
-        d.setContentText(noticia.getTexto());
-        d.setCustomImage(newsAdapter.getImage(position));
-        d.setCancelText("Fechar");
-        d.setConfirmText("Compartilhar");
-        d.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                Session session = Session.getActiveSession();
-
-                if (!session.isOpened() && !session.isClosed()) {
-                    session.openForRead(new Session.OpenRequest(NewsActivity.this).setPermissions(Arrays.asList("public_profile","email")).setCallback(callback));
-                } else {
-                    Session.openActiveSession(NewsActivity.this, true, callback);
-                }
-
-                sweetAlertDialog.dismissWithAnimation();
-            }
-        });
-
-        d.show();
+//        SweetAlertDialog d = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+//
+//        d.setTitleText(noticia.getTitulo());
+//        d.setContentText(noticia.getTexto());
+//        d.setCustomImage(newsAdapter.getImage(position));
+//        d.setCancelText("Fechar");
+//        d.setConfirmText("Compartilhar");
+//        d.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//            @Override
+//            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                Session session = Session.getActiveSession();
+//
+//                if (!session.isOpened() && !session.isClosed()) {
+//                    session.openForRead(new Session.OpenRequest(NewsActivity.this).setPermissions(Arrays.asList("public_profile","email")).setCallback(callback));
+//                } else {
+//                    Session.openActiveSession(NewsActivity.this, true, callback);
+//                }
+//
+//                sweetAlertDialog.dismissWithAnimation();
+//            }
+//        });
+//
+//        d.show();
     }
 }

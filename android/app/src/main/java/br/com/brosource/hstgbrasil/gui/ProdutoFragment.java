@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.model.Produto;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -39,7 +39,7 @@ public class ProdutoFragment extends Fragment {
         ProdutoFragment f = new ProdutoFragment();
 
         Bundle args = new Bundle();
-        args.putSerializable(C.Params.PRODUTO, produto);
+        args.putSerializable(Constants.Extras.PRODUTO, produto);
         f.setArguments(args);
 
         return f;
@@ -50,7 +50,7 @@ public class ProdutoFragment extends Fragment {
         View v = inflater.inflate(R.layout.item_carrousel_produto, container, false);
         ButterKnife.inject(this, v);
 
-        produto = getArguments() != null ? (Produto) getArguments().getSerializable(C.Params.PRODUTO) : null;
+        produto = getArguments() != null ? (Produto) getArguments().getSerializable(Constants.Extras.PRODUTO) : null;
 
         Picasso.with(getActivity())
                 .load(produto.getImagem())

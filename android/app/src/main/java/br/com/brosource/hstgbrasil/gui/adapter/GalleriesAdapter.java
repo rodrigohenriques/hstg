@@ -1,32 +1,45 @@
 package br.com.brosource.hstgbrasil.gui.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 import br.com.brosource.hstgbrasil.R;
+import br.com.brosource.hstgbrasil.model.Gallery;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 
 /**
  * Created by haroldoolivieri on 11/20/14.
  */
-public class GalleriesAdapter extends ArrayAdapter<String> {
+public class GalleriesAdapter extends BaseAdapter {
 
-    private String[] objects;
-    private String[] hexColors;
-    Context ctx;
+    private List<Gallery> objects;
+    private Context ctx;
 
-    public GalleriesAdapter(Context context, String[] objects, String[] hexColors) {
-        super(context, 0, objects);
-        this.objects = objects;
-        this.hexColors = hexColors;
+    public GalleriesAdapter(Context context, List<Gallery> objects) {
         this.ctx = context;
+        this.objects = objects;
     }
 
+    @Override
+    public int getCount() {
+        return objects.size();
+    }
+
+    @Override
+    public Gallery getItem(int position) {
+        return objects.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return getItem(position).getObjectId().hashCode();
+    }
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -34,7 +47,7 @@ public class GalleriesAdapter extends ArrayAdapter<String> {
 
         if (convertView == null) {
 
-            LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.item_main_list, parent, false);
             holder = new ViewHolder();
 
@@ -49,8 +62,10 @@ public class GalleriesAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.txtMain.setText(objects[position]);
-        holder.content.setBackgroundColor(Color.parseColor(hexColors[position]));
+        Gallery gallery = getItem(position);
+
+        holder.txtMain.setText(gallery.getHashtagFormatted());
+        holder.content.setBackgroundColor(gallery.getIntColor());
 
         return convertView;
 

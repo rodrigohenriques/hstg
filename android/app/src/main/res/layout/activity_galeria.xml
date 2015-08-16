@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.brosource.hstgbrasil.gui.GaleriaActivity">
+    tools:context="br.com.brosource.hstgbrasil.gui.GalleryActivity">
 
     <RelativeLayout
         android:id="@+id/main_header"
@@ -26,7 +26,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/hstg_rosa"
+        android:id="@+id/hstg_header"
         style="@style/ImageViewMediumSize"
         android:layout_width="match_parent"
         android:layout_below="@+id/main_header"
@@ -48,11 +48,11 @@
         android:id="@+id/galeria_black"
         style="@style/ImageViewLowSize"
         android:layout_width="match_parent"
-        android:layout_below="@+id/hstg_rosa"
+        android:layout_below="@+id/hstg_header"
         android:background="@color/preto">
 
         <TextView
-            android:id="@+id/txt_galeria"
+            android:id="@+id/textview_gallery_subheader"
             style="@style/TextViewLowSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,16 +61,31 @@
             android:textColor="@color/rosa" />
     </LinearLayout>
 
-    <GridView
-        android:id="@+id/galeria_grid"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/galeria_footer"
-        android:layout_below="@id/galeria_black"
-        android:numColumns="3"
-        android:orientation="vertical"
-        android:padding="2dp"
-        android:stretchMode="columnWidth" />
+        android:layout_below="@id/galeria_black">
+
+        <GridView
+            android:id="@+id/gridview_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="3"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:stretchMode="columnWidth" />
+
+        <TextView
+            android:id="@+id/textview_no_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/message_no_items"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="invisible"/>
+    </FrameLayout>
+
 
     <LinearLayout
         android:id="@+id/galeria_footer"
@@ -80,7 +95,7 @@
         android:background="@color/preto">
 
         <TextView
-            android:id="@+id/txt_topo"
+            android:id="@+id/button_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"

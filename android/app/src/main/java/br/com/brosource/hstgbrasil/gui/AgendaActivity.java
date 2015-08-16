@@ -15,7 +15,6 @@ import com.facebook.SessionState;
 import com.facebook.widget.FacebookDialog;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import br.com.brosource.hstgbrasil.R;
 import br.com.brosource.hstgbrasil.control.HstgActivity;
@@ -23,14 +22,13 @@ import br.com.brosource.hstgbrasil.gui.adapter.AgendaAdapter;
 import br.com.brosource.hstgbrasil.model.Evento;
 import br.com.brosource.hstgbrasil.server.HstgRestClient;
 import br.com.brosource.hstgbrasil.server.handler.AgendaListHandler;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.CustomFont;
 import br.com.brosource.hstgbrasil.util.HstgUtil;
 import br.com.brosource.hstgbrasil.widgets.ButteryProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AgendaActivity extends HstgActivity {
 
@@ -42,7 +40,7 @@ public class AgendaActivity extends HstgActivity {
     ImageView btnBack;
     @InjectView(R.id.txt_agenda)
     TextView labelAgenda;
-    @InjectView(R.id.txt_topo)
+    @InjectView(R.id.button_top)
     TextView btnTopo;
 
     ButteryProgressBar progressBar;
@@ -57,8 +55,8 @@ public class AgendaActivity extends HstgActivity {
                         FacebookDialog.ShareDialogFeature.SHARE_DIALOG)) {
                     // Publish the post using the Share Dialog
                     FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(AgendaActivity.this)
-                            .setName(C.App.NAME)
-                            .setLink(C.App.PAGE_LINK)
+                            .setName(Constants.App.NAME)
+                            .setLink(Constants.App.PAGE_LINK)
                             .setCaption(evento.getTitulo())
                             .setDescription(evento.getTexto())
                             .setPicture(evento.getImagem())
@@ -67,7 +65,7 @@ public class AgendaActivity extends HstgActivity {
                     uiHelper.trackPendingDialogCall(shareDialog.present());
                 } else {
                     // Fallback. For example, publish the post using the Feed Dialog
-                    HstgUtil.publishFeedDialog(this, evento.getTitulo(), evento.getTexto(), C.App.PAGE_LINK, evento.getImagem());
+                    HstgUtil.publishFeedDialog(this, evento.getTitulo(), evento.getTexto(), Constants.App.PAGE_LINK, evento.getImagem());
                 }
 
                 evento = null;
@@ -127,7 +125,7 @@ public class AgendaActivity extends HstgActivity {
         finish();
     }
 
-    @OnClick(R.id.txt_topo)
+    @OnClick(R.id.button_top)
     public void toTop() {
         listView.setSelection(0);
     }
@@ -136,29 +134,29 @@ public class AgendaActivity extends HstgActivity {
 
         evento = agendaAdapter.getItem(position);
 
-        SweetAlertDialog d = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
-
-        d.setTitleText(evento.getTitulo());
-        d.setContentText(evento.getTexto());
-        d.setCustomImage(agendaAdapter.getImage(position));
-        d.setCancelText("Fechar");
-        d.setConfirmText("Compartilhar");
-        d.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                Session session = Session.getActiveSession();
-
-                if (!session.isOpened() && !session.isClosed()) {
-                    session.openForRead(new Session.OpenRequest(AgendaActivity.this).setPermissions(Arrays.asList("public_profile", "email")).setCallback(callback));
-                } else {
-                    Session.openActiveSession(AgendaActivity.this, true, callback);
-                }
-
-                sweetAlertDialog.dismissWithAnimation();
-            }
-        });
-
-        d.show();
+//        SweetAlertDialog d = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+//
+//        d.setTitleText(evento.getTitulo());
+//        d.setContentText(evento.getTexto());
+//        d.setCustomImage(agendaAdapter.getImage(position));
+//        d.setCancelText("Fechar");
+//        d.setConfirmText("Compartilhar");
+//        d.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//            @Override
+//            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                Session session = Session.getActiveSession();
+//
+//                if (!session.isOpened() && !session.isClosed()) {
+//                    session.openForRead(new Session.OpenRequest(AgendaActivity.this).setPermissions(Arrays.asList("public_profile", "email")).setCallback(callback));
+//                } else {
+//                    Session.openActiveSession(AgendaActivity.this, true, callback);
+//                }
+//
+//                sweetAlertDialog.dismissWithAnimation();
+//            }
+//        });
+//
+//        d.show();
     }
 
 }

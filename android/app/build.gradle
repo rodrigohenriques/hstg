@@ -6,12 +6,13 @@ android {
 
     defaultConfig {
         applicationId "br.com.brosource.hstgbrasil"
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 22
         versionCode 9
         versionName "0.4.0"
     }
 
+    aaptOptions.cruncherEnabled = false
 
     buildTypes {
         release {
@@ -29,8 +30,11 @@ dependencies {
     compile 'com.viewpagerindicator:library:2.4.1@aar'
     compile project(':facebook')
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
-    compile 'cn.pedant.sweetalert:library:1.3'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+
+    compile 'com.github.boxme:squarecamera:1.0.0'
+
+    compile 'com.android.support:appcompat-v7:22.2.1'
 }

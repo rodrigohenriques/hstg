@@ -2,7 +2,6 @@ package br.com.brosource.hstgbrasil.server;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -14,13 +13,8 @@ import org.apache.http.Header;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 
 /**
  * Created by rodrigohenriques on 11/13/14.
@@ -30,14 +24,14 @@ public class GraphClient {
 
     public static void getPhotoFacebook(final String id, final ImageView imageView) {
 
-        File f = new File(C.App.Files.PROFILE_PIC);
+        File f = new File(Constants.App.Files.PROFILE_PIC);
 
         f.getParentFile().mkdirs();
 
         client.get("https://graph.facebook.com/" + id + "/picture?type=large", new FileAsyncHttpResponseHandler(f) {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
-                Log.e(C.App.LOG_TAG, "Carregamento da imagem do perfil", throwable);
+                Log.e(Constants.App.LOG_TAG, "Carregamento da imagem do perfil", throwable);
             }
 
             @Override
@@ -49,7 +43,7 @@ public class GraphClient {
 
 
                 } catch (FileNotFoundException e) {
-                    Log.e(C.App.LOG_TAG, "Carregamento da imagem do perfil", e);
+                    Log.e(Constants.App.LOG_TAG, "Carregamento da imagem do perfil", e);
                 }
             }
         });

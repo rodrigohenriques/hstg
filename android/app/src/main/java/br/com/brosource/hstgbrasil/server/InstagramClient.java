@@ -3,11 +3,10 @@ package br.com.brosource.hstgbrasil.server;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import br.com.brosource.hstgbrasil.server.handler.InstagramPictureListHandler;
-import br.com.brosource.hstgbrasil.util.C;
+import br.com.brosource.hstgbrasil.util.Constants;
 import br.com.brosource.hstgbrasil.util.Instagram;
 
 /**
@@ -33,7 +32,7 @@ public class InstagramClient {
     private static String getAbsoluteUrl(String relativeUrl) {
         String url = API_HOST + relativeUrl;
 
-        Log.i(C.App.LOG_TAG, url);
+        Log.i(Constants.App.LOG_TAG, url);
 
         return url;
     }

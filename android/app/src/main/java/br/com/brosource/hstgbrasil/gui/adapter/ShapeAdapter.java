@@ -1,10 +1,9 @@
 package br.com.brosource.hstgbrasil.gui.adapter;
 
 import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -12,23 +11,31 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import br.com.brosource.hstgbrasil.R;
-import br.com.brosource.hstgbrasil.model.InstagramPicture;
+import br.com.brosource.hstgbrasil.model.Shape;
 
-/**
- * Created by haroldoolivieri on 11/13/14.
- */
-public class InstagramPictureAdapter extends ArrayAdapter<InstagramPicture> {
+public class ShapeAdapter extends BaseAdapter {
 
-    private final int placeholderColor;
-    private final List<InstagramPicture> instagramPictures;
+    private final List<Shape> shapes;
     private final Activity context;
 
-    public InstagramPictureAdapter(Activity context, List<InstagramPicture> instagramPictures, int placeholderColor) {
-        super(context, 0, instagramPictures);
-
-        this.instagramPictures = instagramPictures;
+    public ShapeAdapter(Activity context, List<Shape> shapes) {
+        this.shapes = shapes;
         this.context = context;
-        this.placeholderColor = placeholderColor;
+    }
+
+    @Override
+    public int getCount() {
+        return shapes.size();
+    }
+
+    @Override
+    public Shape getItem(int position) {
+        return shapes.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return getItem(position).getObjectId().hashCode();
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -47,18 +54,17 @@ public class InstagramPictureAdapter extends ArrayAdapter<InstagramPicture> {
             imageView = (ImageView) convertView.getTag();
         }
 
-        int size = context.getResources().getDisplayMetrics().widthPixels / 3;
+        int size = context.getResources().getDisplayMetrics().widthPixels / 4;
 
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         layoutParams.height = layoutParams.width = size;
         imageView.setLayoutParams(layoutParams);
 
-        String imagem = instagramPictures.get(position).getThumbnail().getUrl();
+        String imagem = getItem(position).getThumb().getUrl();
 
         if (imagem != null && imagem.length() > 0) {
             Picasso.with(context)
                     .load(imagem)
-                    .placeholder(new ColorDrawable(placeholderColor))
                     .into(imageView);
         } else {
             imageView.setVisibility(View.GONE);

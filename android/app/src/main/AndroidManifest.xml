@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="br.com.brosource.hstgbrasil">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera2" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".util.HstgApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -56,12 +63,12 @@
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
         </activity>
         <activity
-            android:name=".gui.GaleriaActivity"
+            android:name=".gui.GalleryActivity"
             android:label="@string/title_activity_galeria"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
+                android:value="br.com.brosource.hstgbrasil.gui.GalleriesActivity" />
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -80,7 +87,7 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.brosource.hstgbrasil.gui.GaleriaActivity" />
+                android:value=".gui.GalleryActivity" />
         </activity>
         <activity
             android:name=".gui.MeusDadosActivity"
@@ -93,7 +100,16 @@
         <activity
             android:name=".gui.GalleriesActivity"
             android:label="@string/title_activity_galleries"
-            android:parentActivityName=".gui.MainActivity">
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
+        </activity>
+
+        <activity android:name="com.desmond.squarecamera.CameraActivity" />
+
+        <activity android:name=".gui.HashtagPartyOverlayActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.brosource.hstgbrasil.gui.MainActivity" />
