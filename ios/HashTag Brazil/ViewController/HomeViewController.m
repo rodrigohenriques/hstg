@@ -38,11 +38,7 @@
     self.navigationHeaderView.frame = CGRectMake(8, 6, 304, 33);
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-//    self.fbProfileView.profileID = [prefs objectForKey:@"FBID"];
     self.nameLabel.text = [NSString stringWithFormat:@"Olá, %@", [prefs objectForKey:@"FBUSER"]];
-    
-//    self.fbProfileView.layer.cornerRadius = (self.fbProfileView.bounds.size.width / 2);
-//    self.fbProfileView.layer.masksToBounds = YES;
 }
 
 #pragma mark - Navigation

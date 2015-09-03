@@ -193,6 +193,7 @@ typedef enum
     if (accessToken)
     {
         self.accessToken = accessToken;
+        [[NSUserDefaults standardUserDefaults] setValue:accessToken forKey:@"instagramAccessToken"];
         if (self.instagramLoginBlock) self.instagramLoginBlock(nil);
     }
     else if (self.instagramLoginBlock)

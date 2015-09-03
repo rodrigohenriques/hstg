@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PartiesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface PartiesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

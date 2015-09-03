@@ -12,6 +12,7 @@
 #import "AppHelper.h"
 #import <InstagramKit/InstagramKit.h>
 #import "GaleriaFotosViewController.h"
+#import "ParametroTelaGaleria.h"
 
 @interface GaleriasViewController ()
 
@@ -30,10 +31,15 @@
     self.galerias = [NSMutableArray arrayWithArray:[query findObjects]];
     
     if (![AppHelper getInstagramToken].length > 0) {
+        NSString *accesToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"instagramAccessToken"];
         self.instagramEngine = [InstagramEngine sharedEngine];
-        [self.instagramEngine loginWithBlock:^(NSError *error) {
-            NSLog(@"Logou");
-        }];
+        if (accesToken.length > 0) {
+            self.instagramEngine.accessToken = accesToken;
+        } else {
+            [self.instagramEngine loginWithBlock:^(NSError *error) {
+                NSLog(@"Logou");
+            }];
+        }
     }
     
     self.tabela.delegate = self;
@@ -70,8 +76,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     PFObject *galeria = [self.galerias objectAtIndex:indexPath.row];
+    self.instagramEngine.accessToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"instagramAccessToken"];
     [self.instagramEngine getMediaWithTagName:galeria[@"hashtag"] count:100 maxId:nil withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
-        [self performSegueWithIdentifier:@"sgGaleriaFotos" sender:media];
+        NSString *hashtag = [NSString stringWithFormat:@"#%@", galeria[@"hashtag"]];
+        ParametroTelaGaleria *parametroTelaGaleria = [ParametroTelaGaleria new];
+        parametroTelaGaleria.medias = media;
+        parametroTelaGaleria.nomeHashtag = hashtag;
+        
+        [self performSegueWithIdentifier:@"sgGaleriaFotos" sender:parametroTelaGaleria];
+
     } failure:^(NSError *error) {
         NSLog(@"%@", [error localizedDescription]);
     }];
@@ -84,7 +97,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"sgGaleriaFotos"]) {
         GaleriaFotosViewController *galeria = (GaleriaFotosViewController*) segue.destinationViewController;
-        galeria.instagramMedias = (NSMutableArray*) sender;
+        galeria.parametroTelaGaleria = (ParametroTelaGaleria*) sender;
     }
 }
 

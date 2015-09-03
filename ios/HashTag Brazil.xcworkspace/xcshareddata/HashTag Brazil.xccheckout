@@ -10,31 +10,31 @@
 	<string>HashTag Brazil</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>95A624589701B8F262E870349C49EB1EB6B7F579</key>
-		<string>https://github.com/ppgsalomao/hashtag-brazil.git</string>
+		<key>B0C8E926B9077808804C9865D657AE44CB58F5FC</key>
+		<string>https://github.com/rodrigohenriques/hstg.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HashTag Brazil.xcworkspace</string>
+	<string>ios/HashTag Brazil.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>95A624589701B8F262E870349C49EB1EB6B7F579</key>
-		<string>..</string>
+		<key>B0C8E926B9077808804C9865D657AE44CB58F5FC</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ppgsalomao/hashtag-brazil.git</string>
+	<string>https://github.com/rodrigohenriques/hstg.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>95A624589701B8F262E870349C49EB1EB6B7F579</string>
+	<string>B0C8E926B9077808804C9865D657AE44CB58F5FC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>95A624589701B8F262E870349C49EB1EB6B7F579</string>
+			<string>B0C8E926B9077808804C9865D657AE44CB58F5FC</string>
 			<key>IDESourceControlWCCName</key>
-			<string>HashTag%20Brazil</string>
+			<string>hstg</string>
 		</dict>
 	</array>
 </dict>

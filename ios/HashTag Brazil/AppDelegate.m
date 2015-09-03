@@ -30,6 +30,9 @@
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
     
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+    
     [FBSDKAppEvents activateApp];
     
     [FBSDKProfilePictureView class];

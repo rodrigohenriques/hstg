@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3ko-wE-Tef">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3ko-wE-Tef">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -167,7 +167,7 @@ Dados</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                                         <state key="normal">
-                                            <string key="title">Wifi
+                                            <string key="title">HSTG
 Party</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,23 +179,16 @@ Party</string>
                                             <segue destination="Ady-li-h1Z" kind="push" id="rrJ-gO-mA6"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emBreve" translatesAutoresizingMaskIntoConstraints="NO" id="Jgd-WQ-FY6">
-                                        <rect key="frame" x="168" y="8" width="144" height="74"/>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="uDu-Ut-16a" firstAttribute="top" secondItem="Gdz-Dw-ag9" secondAttribute="top" id="6G0-Nu-Uyb"/>
                                     <constraint firstAttribute="trailing" secondItem="uDu-Ut-16a" secondAttribute="trailing" id="DcY-pn-kFg"/>
                                     <constraint firstAttribute="bottom" secondItem="TG5-jc-gT0" secondAttribute="bottom" id="HQv-V9-Fjk"/>
-                                    <constraint firstItem="Jgd-WQ-FY6" firstAttribute="top" secondItem="uDu-Ut-16a" secondAttribute="top" constant="8" id="NVn-a3-5N6"/>
                                     <constraint firstItem="uDu-Ut-16a" firstAttribute="width" secondItem="TG5-jc-gT0" secondAttribute="width" id="Vof-uX-bRX"/>
                                     <constraint firstItem="uDu-Ut-16a" firstAttribute="leading" secondItem="TG5-jc-gT0" secondAttribute="trailing" id="YTr-wa-26Z"/>
-                                    <constraint firstItem="Jgd-WQ-FY6" firstAttribute="bottom" secondItem="uDu-Ut-16a" secondAttribute="bottom" constant="-8" id="bOR-hS-0JX"/>
                                     <constraint firstAttribute="height" constant="90" id="gnl-yF-wtt"/>
                                     <constraint firstAttribute="bottom" secondItem="uDu-Ut-16a" secondAttribute="bottom" id="hlP-iC-tuF"/>
-                                    <constraint firstItem="Jgd-WQ-FY6" firstAttribute="leading" secondItem="uDu-Ut-16a" secondAttribute="leading" constant="8" id="lIg-CV-R3J"/>
                                     <constraint firstItem="TG5-jc-gT0" firstAttribute="leading" secondItem="Gdz-Dw-ag9" secondAttribute="leading" id="s01-GN-kNg"/>
-                                    <constraint firstItem="Jgd-WQ-FY6" firstAttribute="trailing" secondItem="uDu-Ut-16a" secondAttribute="trailing" constant="-8" id="uCf-Zg-ZDu"/>
                                     <constraint firstItem="TG5-jc-gT0" firstAttribute="top" secondItem="Gdz-Dw-ag9" secondAttribute="top" id="ufe-Ex-YL7"/>
                                 </constraints>
                             </view>
@@ -305,19 +298,19 @@ Party</string>
                                 <rect key="frame" x="0.0" y="110" width="320" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HSTGGaleriasCell" rowHeight="76" id="aca-13-kde" customClass="HSTGGaleriasCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HSTGGaleriasCell" rowHeight="76" id="aca-13-kde" customClass="HSTGGaleriasCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aca-13-kde" id="Fl7-s3-c8S">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HashTagBrazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-BM-WIB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HashTagBrazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-BM-WIB">
                                                     <rect key="frame" x="8" y="21" width="271" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="JpV-UR-4tm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -352,11 +345,101 @@ Party</string>
                     <navigationItem key="navigationItem" id="8L6-7z-fGb"/>
                     <connections>
                         <outlet property="tabela" destination="SEn-zq-gYv" id="NJ1-aK-R4Q"/>
+                        <segue destination="bVO-fR-oV2" kind="push" identifier="segueAddFoto" id="fCo-4B-43I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltT-3q-f7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1348" y="996"/>
+            <point key="canvasLocation" x="1208" y="1012"/>
+        </scene>
+        <!--Publicacao View Controller-->
+        <scene sceneID="0bH-SR-YwW">
+            <objects>
+                <viewController id="bVO-fR-oV2" customClass="PublicacaoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ek9-6N-JTN"/>
+                        <viewControllerLayoutGuide type="bottom" id="nS6-aP-f9a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dbs-hH-cuu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsNoPicture" translatesAutoresizingMaskIntoConstraints="NO" id="heu-Kb-vy6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="328"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B8N-9P-jfj">
+                                <rect key="frame" x="0.0" y="328" width="320" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="2zL-e9-gAB"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="4" id="qoK-oC-Yn0">
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="4" minY="4" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MolduraCell" id="HsK-kC-HcQ" customClass="MolduraCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eci-4B-tSc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="eci-4B-tSc" firstAttribute="leading" secondItem="HsK-kC-HcQ" secondAttribute="leadingMargin" constant="-8" id="BzO-bl-e2h"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="eci-4B-tSc" secondAttribute="bottom" constant="-8" id="ckk-rg-KnN"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="eci-4B-tSc" secondAttribute="trailing" constant="-8" id="qUu-LX-wMx"/>
+                                            <constraint firstItem="eci-4B-tSc" firstAttribute="top" secondItem="HsK-kC-HcQ" secondAttribute="topMargin" constant="-8" id="vJ5-MH-jyL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imgMoldura" destination="eci-4B-tSc" id="zH8-fc-2IR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B8N-9P-jfj" firstAttribute="top" secondItem="heu-Kb-vy6" secondAttribute="bottom" id="5fy-eT-vhH"/>
+                            <constraint firstItem="heu-Kb-vy6" firstAttribute="leading" secondItem="dbs-hH-cuu" secondAttribute="leadingMargin" constant="-16" id="7Xu-um-KRX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B8N-9P-jfj" secondAttribute="trailing" constant="-16" id="BnT-6Y-FGA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="heu-Kb-vy6" secondAttribute="trailing" constant="-16" id="dia-Hn-ksp"/>
+                            <constraint firstItem="nS6-aP-f9a" firstAttribute="top" secondItem="B8N-9P-jfj" secondAttribute="bottom" id="gJQ-q1-Efc"/>
+                            <constraint firstItem="B8N-9P-jfj" firstAttribute="leading" secondItem="dbs-hH-cuu" secondAttribute="leadingMargin" constant="-16" id="jMz-QG-m9D"/>
+                            <constraint firstItem="heu-Kb-vy6" firstAttribute="top" secondItem="ek9-6N-JTN" secondAttribute="bottom" id="k1H-jp-z0a"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="C2f-5o-Gxc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6Zb-fH-DId">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LVQ-er-Tx6">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Publicar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPublicarClick:" destination="bVO-fR-oV2" eventType="touchUpInside" id="hep-zY-xZn"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="galeria" destination="B8N-9P-jfj" id="q7b-I0-5E8"/>
+                        <outlet property="imgFoto" destination="heu-Kb-vy6" id="v1g-lD-NIA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Igh-Rx-Z86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208" y="1616"/>
         </scene>
         <!--Novidades View Controller-->
         <scene sceneID="noU-PF-cOf">
@@ -577,19 +660,19 @@ Party</string>
                                 <rect key="frame" x="0.0" y="110" width="320" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HSTGGaleriasCell" rowHeight="76" id="8fz-kf-uqs" customClass="HSTGGaleriasCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HSTGGaleriasCell" rowHeight="76" id="8fz-kf-uqs" customClass="HSTGGaleriasCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8fz-kf-uqs" id="0Z0-BI-rlH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HashTagBrazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpF-Bu-jnw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HashTagBrazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="NpF-Bu-jnw">
                                                     <rect key="frame" x="8" y="21" width="271" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="dlL-d8-cXe"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -658,7 +741,7 @@ Party</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppz-5B-hJQ" userLabel="TitleView">
                                 <rect key="frame" x="0.0" y="80" width="320" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#GALERIA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTs-kC-qZK" customClass="HSTGLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#GALERIA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTs-kC-qZK">
                                         <rect key="frame" x="20" y="2" width="280" height="28"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.60784313729999995" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -719,6 +802,7 @@ Party</string>
                     <navigationItem key="navigationItem" id="Kys-22-zbk"/>
                     <connections>
                         <outlet property="galeria" destination="RmI-Qz-vgV" id="S2i-kR-og8"/>
+                        <outlet property="labelHashTag" destination="GTs-kC-qZK" id="Xav-uZ-zWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omE-5Z-ZgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1236,7 +1320,6 @@ E-mail:</string>
         </scene>
     </scenes>
     <resources>
-        <image name="emBreve" width="209" height="90"/>
         <image name="eventsNoPicture" width="232" height="172"/>
         <image name="ic_hstg" width="431" height="211"/>
         <image name="ic_hstg_topo" width="220" height="106"/>

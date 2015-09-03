@@ -14,12 +14,15 @@
 @interface GaleriaFotosViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *galeria;
 
+
 @end
 
 @implementation GaleriaFotosViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.instagramMedias = [NSMutableArray arrayWithArray:self.parametroTelaGaleria.medias];
+    self.labelHashTag.text = self.parametroTelaGaleria.nomeHashtag;
     self.galeria.dataSource = self;
     self.galeria.delegate = self;
 }

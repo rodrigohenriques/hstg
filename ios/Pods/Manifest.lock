@@ -25,16 +25,19 @@ PODS:
     - ASBPlayerScrubbing (~> 0.1)
   - InstagramKit (3.5.0):
     - AFNetworking (~> 2.0)
+  - MBProgressHUD (0.9.1)
 
 DEPENDENCIES:
   - AFNetworking (= 2.5)
   - ASMediaFocusManager
   - InstagramKit (= 3.5.0)
+  - MBProgressHUD (~> 0.9.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
   ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
   ASMediaFocusManager: 5a071038ada1a79abf9d0c95b6b2b1c1e5cd3a87
   InstagramKit: 32fe78c44f41701825ac567343fb2b682c6e3d02
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
 
 COCOAPODS: 0.36.3

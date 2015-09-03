@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3DE6871657841FC04AA2BFD6"
+               BlueprintIdentifier = "795179AEF94DC7FEB79A2563"
                BuildableName = "libPods-ASBPlayerScrubbing.a"
                BlueprintName = "Pods-ASBPlayerScrubbing"
                ReferencedContainer = "container:Pods.xcodeproj">

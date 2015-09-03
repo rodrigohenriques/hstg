@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0348CE05E8C942D06D6C5DF9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0AB8C8E97D3598C08D5B7B /* libPods.a */; };
+		790FE6401B935BFA00EE8B35 /* ParametroTelaGaleria.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FE63F1B935BFA00EE8B35 /* ParametroTelaGaleria.m */; };
+		79A6EBBB1B97EC5800531FE5 /* ParametroTelaPublicacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6EBBA1B97EC5800531FE5 /* ParametroTelaPublicacao.m */; };
 		79D9DC081B7AEEF90097002B /* GaleriasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D9DC071B7AEEF90097002B /* GaleriasViewController.m */; };
 		79D9DC0B1B7AEFBE0097002B /* HSTGGaleriasCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D9DC0A1B7AEFBE0097002B /* HSTGGaleriasCell.m */; };
 		79D9DC0F1B7AF0B30097002B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D9DC0D1B7AF0B30097002B /* Parse.framework */; };
@@ -27,6 +29,9 @@
 		79D9DC2E1B7AFB060097002B /* PartiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D9DC2D1B7AFB060097002B /* PartiesViewController.m */; };
 		79D9DC311B7AFCC60097002B /* GaleriaFotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D9DC301B7AFCC60097002B /* GaleriaFotosViewController.m */; };
 		79D9DC341B7AFD4D0097002B /* GaleriaFotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D9DC331B7AFD4D0097002B /* GaleriaFotoCell.m */; };
+		79F7B9E21B96B59A00B6AA9E /* PublicacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F7B9E11B96B59A00B6AA9E /* PublicacaoViewController.m */; };
+		79F7B9E51B96B64000B6AA9E /* MolduraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F7B9E41B96B64000B6AA9E /* MolduraCell.m */; };
+		79F7B9E81B96BFE300B6AA9E /* Imagem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F7B9E71B96BFE300B6AA9E /* Imagem.m */; };
 		EB26DB6C1A355C0600B261D4 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = EB26DB6B1A355C0600B261D4 /* Default-568h.png */; };
 		EB2D6DA61A2A6D8A00ECBB2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2D6DA51A2A6D8A00ECBB2E /* main.m */; };
 		EB2D6DA91A2A6D8A00ECBB2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2D6DA81A2A6D8A00ECBB2E /* AppDelegate.m */; };
@@ -98,6 +103,10 @@
 		0F0AB8C8E97D3598C08D5B7B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14237EDC3EE946681468C044 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3D3452851EB7610FE935B649 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		790FE63E1B935BFA00EE8B35 /* ParametroTelaGaleria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParametroTelaGaleria.h; path = Model/ParametroTelaGaleria.h; sourceTree = "<group>"; };
+		790FE63F1B935BFA00EE8B35 /* ParametroTelaGaleria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParametroTelaGaleria.m; path = Model/ParametroTelaGaleria.m; sourceTree = "<group>"; };
+		79A6EBB91B97EC5800531FE5 /* ParametroTelaPublicacao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParametroTelaPublicacao.h; sourceTree = "<group>"; };
+		79A6EBBA1B97EC5800531FE5 /* ParametroTelaPublicacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParametroTelaPublicacao.m; sourceTree = "<group>"; };
 		79D9DC061B7AEEF90097002B /* GaleriasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaleriasViewController.h; sourceTree = "<group>"; };
 		79D9DC071B7AEEF90097002B /* GaleriasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriasViewController.m; sourceTree = "<group>"; };
 		79D9DC091B7AEFBE0097002B /* HSTGGaleriasCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSTGGaleriasCell.h; sourceTree = "<group>"; };
@@ -122,6 +131,12 @@
 		79D9DC301B7AFCC60097002B /* GaleriaFotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriaFotosViewController.m; sourceTree = "<group>"; };
 		79D9DC321B7AFD4D0097002B /* GaleriaFotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaleriaFotoCell.h; sourceTree = "<group>"; };
 		79D9DC331B7AFD4D0097002B /* GaleriaFotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriaFotoCell.m; sourceTree = "<group>"; };
+		79F7B9E01B96B59A00B6AA9E /* PublicacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicacaoViewController.h; sourceTree = "<group>"; };
+		79F7B9E11B96B59A00B6AA9E /* PublicacaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicacaoViewController.m; sourceTree = "<group>"; };
+		79F7B9E31B96B64000B6AA9E /* MolduraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MolduraCell.h; sourceTree = "<group>"; };
+		79F7B9E41B96B64000B6AA9E /* MolduraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MolduraCell.m; sourceTree = "<group>"; };
+		79F7B9E61B96BFE300B6AA9E /* Imagem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Imagem.h; sourceTree = "<group>"; };
+		79F7B9E71B96BFE300B6AA9E /* Imagem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Imagem.m; sourceTree = "<group>"; };
 		EB26DB6B1A355C0600B261D4 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		EB2D6DA01A2A6D8A00ECBB2E /* HashTag Brazil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HashTag Brazil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2D6DA41A2A6D8A00ECBB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -345,6 +360,12 @@
 				EB2D6DDD1A2A6E1A00ECBB2E /* News.m */,
 				EB2D6DDE1A2A6E1A00ECBB2E /* Products.h */,
 				EB2D6DDF1A2A6E1A00ECBB2E /* Products.m */,
+				790FE63E1B935BFA00EE8B35 /* ParametroTelaGaleria.h */,
+				790FE63F1B935BFA00EE8B35 /* ParametroTelaGaleria.m */,
+				79F7B9E61B96BFE300B6AA9E /* Imagem.h */,
+				79F7B9E71B96BFE300B6AA9E /* Imagem.m */,
+				79A6EBB91B97EC5800531FE5 /* ParametroTelaPublicacao.h */,
+				79A6EBBA1B97EC5800531FE5 /* ParametroTelaPublicacao.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,6 +424,8 @@
 				79D9DC0A1B7AEFBE0097002B /* HSTGGaleriasCell.m */,
 				79D9DC321B7AFD4D0097002B /* GaleriaFotoCell.h */,
 				79D9DC331B7AFD4D0097002B /* GaleriaFotoCell.m */,
+				79F7B9E31B96B64000B6AA9E /* MolduraCell.h */,
+				79F7B9E41B96B64000B6AA9E /* MolduraCell.m */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -430,6 +453,8 @@
 				79D9DC2D1B7AFB060097002B /* PartiesViewController.m */,
 				79D9DC2F1B7AFCC60097002B /* GaleriaFotosViewController.h */,
 				79D9DC301B7AFCC60097002B /* GaleriaFotosViewController.m */,
+				79F7B9E01B96B59A00B6AA9E /* PublicacaoViewController.h */,
+				79F7B9E11B96B59A00B6AA9E /* PublicacaoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -534,6 +559,7 @@
 				TargetAttributes = {
 					EB2D6D9F1A2A6D8A00ECBB2E = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 26M9MN8LPE;
 					};
 					EB2D6DBB1A2A6D8A00ECBB2E = {
 						CreatedOnToolsVersion = 6.1;
@@ -639,13 +665,17 @@
 				EB2D6E2F1A2A6ECF00ECBB2E /* AgendaViewController.m in Sources */,
 				EB2D6DE11A2A6E1A00ECBB2E /* News.m in Sources */,
 				EB2D6E0B1A2A6E9D00ECBB2E /* DateUtil.m in Sources */,
+				79F7B9E21B96B59A00B6AA9E /* PublicacaoViewController.m in Sources */,
 				EB2D6E0C1A2A6E9D00ECBB2E /* FacebookUtil.m in Sources */,
 				EB2D6DF51A2A6E5000ECBB2E /* Model+JSONKit.m in Sources */,
+				79A6EBBB1B97EC5800531FE5 /* ParametroTelaPublicacao.m in Sources */,
+				79F7B9E51B96B64000B6AA9E /* MolduraCell.m in Sources */,
 				79D9DC341B7AFD4D0097002B /* GaleriaFotoCell.m in Sources */,
 				EB2D6E9B1A2A76C800ECBB2E /* HashTag_Brazil.xcdatamodeld in Sources */,
 				EBA6EC641A689DF5007C46D4 /* MeusDadosViewController.m in Sources */,
 				EB2D6E301A2A6ECF00ECBB2E /* HomeViewController.m in Sources */,
 				EB2D6DE01A2A6E1A00ECBB2E /* Events.m in Sources */,
+				790FE6401B935BFA00EE8B35 /* ParametroTelaGaleria.m in Sources */,
 				79D9DC2E1B7AFB060097002B /* PartiesViewController.m in Sources */,
 				EB495E721ABF56AD00E3F8A1 /* NSString+Utils.m in Sources */,
 				EB2D6E281A2A6ECF00ECBB2E /* HSTGAgendaTableViewCell.m in Sources */,
@@ -658,6 +688,7 @@
 				EB2D6DF41A2A6E5000ECBB2E /* Model.m in Sources */,
 				EB2D6E2A1A2A6ECF00ECBB2E /* HSTGButton.m in Sources */,
 				EB2D6E291A2A6ECF00ECBB2E /* HSTGBarButtonItem.m in Sources */,
+				79F7B9E81B96BFE300B6AA9E /* Imagem.m in Sources */,
 				EB495E781ABF584F00E3F8A1 /* ValidatorUtil.m in Sources */,
 				EB2D6E0E1A2A6E9D00ECBB2E /* NumberUtil.m in Sources */,
 				EB2D6DF31A2A6E5000ECBB2E /* AppHelper.m in Sources */,
@@ -776,6 +807,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Guilherme/Documents/FacebookSDK,
@@ -798,6 +830,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Guilherme/Documents/FacebookSDK,

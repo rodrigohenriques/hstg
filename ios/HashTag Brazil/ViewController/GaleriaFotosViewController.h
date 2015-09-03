@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HSTGLabel.h"
+#import "ParametroTelaGaleria.h"
 
 @interface GaleriaFotosViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
-
+@property (nonatomic, strong) ParametroTelaGaleria *parametroTelaGaleria;
 @property (nonatomic, strong) NSMutableArray *instagramMedias;
+@property (strong, nonatomic) IBOutlet UILabel *labelHashTag;
 
 @end

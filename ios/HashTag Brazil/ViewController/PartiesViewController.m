@@ -9,11 +9,16 @@
 #import "PartiesViewController.h"
 #import "HSTGGaleriasCell.h"
 #import <Parse/Parse.h>
+#import "PublicacaoViewController.h"
+#import "ParametroTelaPublicacao.h"
+#import "MBProgressHUD.h"
 
 @interface PartiesViewController ()
 
 @property (nonatomic, strong) NSMutableArray *parties;
 @property (strong, nonatomic) IBOutlet UITableView *tabela;
+@property (strong, nonatomic) UIImage *foto;
+@property (nonatomic, strong) PFObject *galeriaSelecionada;
 
 @end
 
@@ -21,6 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.foto = [UIImage new];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"Carregando";
     
     PFQuery *query = [PFQuery queryWithClassName:@"Galeria"];
     [query whereKey:@"isParty" equalTo:[NSNumber numberWithBool:YES]];
@@ -30,6 +41,7 @@
     self.tabela.delegate = self;
     self.tabela.dataSource = self;
     
+    [hud hide:YES];
 }
 
 -(UIColor *)colorFromHexString:(NSString *)hexString {
@@ -60,11 +72,44 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    PFObject *galeria = [self.parties objectAtIndex:indexPath.row];
+    self.galeriaSelecionada = galeria;
+    [self abrirCamera];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.parties count];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    PublicacaoViewController *publicacaoVC = (PublicacaoViewController*) segue.destinationViewController;
+    publicacaoVC.parametros = (ParametroTelaPublicacao*) sender;
+}
+
+#pragma mark - UIImagePicker
+
+-(void) abrirCamera{
+    @try
+    {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+    @catch (NSException *exception)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Sem Câmera" message:@"Câmera não disponível" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    ParametroTelaPublicacao *parametroTela = [ParametroTelaPublicacao new];
+    parametroTela.foto = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    parametroTela.galeria = self.galeriaSelecionada;
+    
+    [self performSegueWithIdentifier:@"segueAddFoto" sender:parametroTela];
 }
 
 @end
