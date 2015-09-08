@@ -117,13 +117,19 @@
         self.documentController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
         [self.documentController setUTI:@"com.instagram.exclusivegram"];
         [self.documentController setAnnotation:@{@"InstagramCaption" : [NSString stringWithFormat:@"#%@", self.parametros.galeria[@"hashtag"]]}];
-        [self.documentController presentOpenInMenuFromRect:CGRectMake(0, 0, 320, 480) inView:self.view animated:YES];
+        [self.documentController presentOpenInMenuFromRect:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 480) inView:self.view animated:YES];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Falha" message:@"Aplicativo Instagram não instalado neste dispositivo" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
     }
+    
+    
 }
 
--(void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(NSString *)application{
+-(void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)documentInteractionControllerDidDismissOptionsMenu:(UIDocumentInteractionController *)controller{
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

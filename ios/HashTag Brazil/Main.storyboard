@@ -304,6 +304,13 @@ Party</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aca-13-kde" id="Fl7-s3-c8S">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldy-NQ-TFo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="322" height="2"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="VGX-Ni-Kwz"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HashTagBrazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-BM-WIB">
                                                     <rect key="frame" x="8" y="21" width="271" height="34"/>
                                                     <constraints>
@@ -315,9 +322,12 @@ Party</string>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ldy-NQ-TFo" secondAttribute="trailing" constant="-35" id="Sm0-aO-20L"/>
+                                                <constraint firstItem="ldy-NQ-TFo" firstAttribute="leading" secondItem="Fl7-s3-c8S" secondAttribute="leading" id="c9l-Rs-AKQ"/>
                                                 <constraint firstItem="pHe-BM-WIB" firstAttribute="leading" secondItem="Fl7-s3-c8S" secondAttribute="leadingMargin" id="j9f-pk-nuG"/>
                                                 <constraint firstAttribute="centerY" secondItem="pHe-BM-WIB" secondAttribute="centerY" id="lAm-IE-6N2"/>
                                                 <constraint firstItem="pHe-BM-WIB" firstAttribute="trailing" secondItem="Fl7-s3-c8S" secondAttribute="trailingMargin" id="non-Md-vPY"/>
+                                                <constraint firstItem="ldy-NQ-TFo" firstAttribute="top" secondItem="Fl7-s3-c8S" secondAttribute="top" id="rCW-ZM-ghU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.10980392160000001" green="0.60784313729999995" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -659,6 +669,7 @@ Party</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vV8-Gg-1tV">
                                 <rect key="frame" x="0.0" y="110" width="320" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HSTGGaleriasCell" rowHeight="76" id="8fz-kf-uqs" customClass="HSTGGaleriasCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -666,6 +677,13 @@ Party</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8fz-kf-uqs" id="0Z0-BI-rlH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1F-tG-Kod">
+                                                    <rect key="frame" x="0.0" y="0.0" width="322" height="2"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="LyZ-yw-5El"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#HashTagBrazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="NpF-Bu-jnw">
                                                     <rect key="frame" x="8" y="21" width="271" height="34"/>
                                                     <constraints>
@@ -678,8 +696,11 @@ Party</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="NpF-Bu-jnw" secondAttribute="centerY" id="5MI-lN-ocD"/>
+                                                <constraint firstAttribute="trailing" secondItem="o1F-tG-Kod" secondAttribute="trailing" constant="-35" id="Iyj-I8-fU7"/>
+                                                <constraint firstItem="o1F-tG-Kod" firstAttribute="top" secondItem="0Z0-BI-rlH" secondAttribute="top" id="O6V-b8-cyg"/>
                                                 <constraint firstItem="NpF-Bu-jnw" firstAttribute="leading" secondItem="0Z0-BI-rlH" secondAttribute="leadingMargin" id="gBN-Dr-NQy"/>
                                                 <constraint firstItem="NpF-Bu-jnw" firstAttribute="trailing" secondItem="0Z0-BI-rlH" secondAttribute="trailingMargin" id="pTc-n3-ENu"/>
+                                                <constraint firstItem="o1F-tG-Kod" firstAttribute="leading" secondItem="0Z0-BI-rlH" secondAttribute="leading" id="sJK-H7-PHV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.10980392160000001" green="0.60784313729999995" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
