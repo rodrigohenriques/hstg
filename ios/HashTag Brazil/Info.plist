@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>InstagramKitAppClientId</key>
-	<string>d7fddae81b9c4f8ea35323861c752c18</string>
-	<key>InstagramKitAppRedirectURL</key>
-	<string>hstg://insta-auth</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -19,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -33,11 +29,15 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.1.0</string>
+	<string>2.0.0</string>
 	<key>FacebookAppID</key>
 	<string>301196450079640</string>
 	<key>FacebookDisplayName</key>
 	<string>HSTG</string>
+	<key>InstagramKitAppClientId</key>
+	<string>d7fddae81b9c4f8ea35323861c752c18</string>
+	<key>InstagramKitAppRedirectURL</key>
+	<string>hstg://insta-auth</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
