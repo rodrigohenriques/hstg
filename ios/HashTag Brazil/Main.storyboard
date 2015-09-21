@@ -161,16 +161,14 @@ Dados</string>
                                             <segue destination="RIa-4F-MxF" kind="push" id="k1W-EF-kYX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uDu-Ut-16a" customClass="HSTGButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uDu-Ut-16a" customClass="HSTGButton">
                                         <rect key="frame" x="160" y="0.0" width="160" height="90"/>
-                                        <color key="backgroundColor" red="0.57647058823529407" green="0.58431372549019611" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal">
-                                            <string key="title">HSTG
-Party</string>
+                                        <inset key="imageEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
+                                        <state key="normal" image="hstg_party_logo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="tipo" value="semibold"/>
@@ -179,13 +177,23 @@ Party</string>
                                             <segue destination="Ady-li-h1Z" kind="push" id="rrJ-gO-mA6"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5Y-uH-Nny">
+                                        <rect key="frame" x="159" y="0.0" width="3" height="90"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="3" id="g1f-Sg-Tlj"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="uDu-Ut-16a" firstAttribute="top" secondItem="Gdz-Dw-ag9" secondAttribute="top" id="6G0-Nu-Uyb"/>
+                                    <constraint firstItem="TG5-jc-gT0" firstAttribute="height" secondItem="A5Y-uH-Nny" secondAttribute="height" id="D26-rC-20G"/>
                                     <constraint firstAttribute="trailing" secondItem="uDu-Ut-16a" secondAttribute="trailing" id="DcY-pn-kFg"/>
                                     <constraint firstAttribute="bottom" secondItem="TG5-jc-gT0" secondAttribute="bottom" id="HQv-V9-Fjk"/>
+                                    <constraint firstAttribute="centerX" secondItem="A5Y-uH-Nny" secondAttribute="centerX" id="VVB-WX-Sba"/>
                                     <constraint firstItem="uDu-Ut-16a" firstAttribute="width" secondItem="TG5-jc-gT0" secondAttribute="width" id="Vof-uX-bRX"/>
                                     <constraint firstItem="uDu-Ut-16a" firstAttribute="leading" secondItem="TG5-jc-gT0" secondAttribute="trailing" id="YTr-wa-26Z"/>
+                                    <constraint firstAttribute="centerY" secondItem="A5Y-uH-Nny" secondAttribute="centerY" id="dvD-dF-xE4"/>
                                     <constraint firstAttribute="height" constant="90" id="gnl-yF-wtt"/>
                                     <constraint firstAttribute="bottom" secondItem="uDu-Ut-16a" secondAttribute="bottom" id="hlP-iC-tuF"/>
                                     <constraint firstItem="TG5-jc-gT0" firstAttribute="leading" secondItem="Gdz-Dw-ag9" secondAttribute="leading" id="s01-GN-kNg"/>
@@ -747,6 +755,15 @@ Party</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ainda não temos fotos vinculadas a esta hashtag. Seja o primeiro a aparecer aqui!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwn-mc-hjs">
+                                <rect key="frame" x="16" y="192" width="288" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="BpC-Ot-oXU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2e-f1-zeV" userLabel="HeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
@@ -806,17 +823,20 @@ Party</string>
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.60784313729999995" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ppz-5B-hJQ" secondAttribute="trailing" constant="-16" id="92z-Sr-jt2"/>
                             <constraint firstItem="Ppz-5B-hJQ" firstAttribute="top" secondItem="d2e-f1-zeV" secondAttribute="bottom" id="ESm-eU-47s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RmI-Qz-vgV" secondAttribute="trailing" constant="-16" id="Pfu-2D-lSw"/>
                             <constraint firstItem="d2e-f1-zeV" firstAttribute="leading" secondItem="T6M-6v-NX1" secondAttribute="leadingMargin" constant="-16" id="TSP-4e-8Ar"/>
                             <constraint firstItem="gGi-1g-5RV" firstAttribute="top" secondItem="RmI-Qz-vgV" secondAttribute="bottom" id="VGk-yz-Swp"/>
+                            <constraint firstItem="Mwn-mc-hjs" firstAttribute="trailing" secondItem="T6M-6v-NX1" secondAttribute="trailingMargin" id="VZX-Od-1fp"/>
                             <constraint firstItem="RmI-Qz-vgV" firstAttribute="top" secondItem="Ppz-5B-hJQ" secondAttribute="bottom" id="dZP-tl-g4G"/>
                             <constraint firstItem="RmI-Qz-vgV" firstAttribute="leading" secondItem="T6M-6v-NX1" secondAttribute="leadingMargin" constant="-16" id="eoN-j6-dux"/>
+                            <constraint firstAttribute="centerY" secondItem="Mwn-mc-hjs" secondAttribute="centerY" constant="-1" id="hld-rd-hcw"/>
                             <constraint firstItem="Ppz-5B-hJQ" firstAttribute="leading" secondItem="T6M-6v-NX1" secondAttribute="leadingMargin" constant="-16" id="hxr-g2-QEN"/>
                             <constraint firstItem="d2e-f1-zeV" firstAttribute="top" secondItem="Qwx-Cc-Ow5" secondAttribute="bottom" id="jI6-NK-tDI"/>
+                            <constraint firstItem="Mwn-mc-hjs" firstAttribute="leading" secondItem="T6M-6v-NX1" secondAttribute="leadingMargin" id="p6T-LL-uAr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d2e-f1-zeV" secondAttribute="trailing" constant="-16" id="q18-Cr-xgS"/>
                         </constraints>
                     </view>
@@ -851,7 +871,7 @@ Party</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.60784313725490191" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="STJ-RO-R0n"/>
+                                    <constraint firstAttribute="height" constant="80" id="Ucw-Un-R38"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icP-qH-lDe" userLabel="TitleView">
@@ -869,32 +889,25 @@ Party</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="mra-Q3-uYK"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-VL-OLZ" userLabel="BottomBar">
-                                <rect key="frame" x="0.0" y="346" width="320" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="YGC-EF-XCr"/>
+                                    <constraint firstAttribute="height" constant="30" id="Fmc-Lx-RGz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-94-nOz" userLabel="ActivityIndicatorView">
-                                <rect key="frame" x="0.0" y="110" width="320" height="236"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="306"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pbh-gK-bpZ">
-                                        <rect key="frame" x="141" y="100" width="37" height="37"/>
+                                        <rect key="frame" x="142" y="134" width="37" height="37"/>
                                         <color key="color" red="0.10980392160000001" green="0.60784313729999995" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="pbh-gK-bpZ" secondAttribute="centerX" id="RL0-RB-VXs"/>
-                                    <constraint firstAttribute="centerY" secondItem="pbh-gK-bpZ" secondAttribute="centerY" id="nP1-Qa-6hR"/>
+                                    <constraint firstAttribute="centerX" secondItem="pbh-gK-bpZ" secondAttribute="centerX" id="3vz-HD-zzB"/>
+                                    <constraint firstAttribute="centerY" secondItem="pbh-gK-bpZ" secondAttribute="centerY" id="wyA-wF-XBq"/>
                                 </constraints>
                             </view>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fi9-jT-vHC">
-                                <rect key="frame" x="0.0" y="110" width="320" height="236"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="306"/>
                                 <connections>
                                     <outlet property="delegate" destination="Zwd-tu-4tW" id="sVe-xq-rcn"/>
                                 </connections>
@@ -902,23 +915,20 @@ Party</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gTS-94-nOz" firstAttribute="top" secondItem="icP-qH-lDe" secondAttribute="bottom" id="6r4-RP-arU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5HZ-VL-OLZ" secondAttribute="trailing" constant="-16" id="8jd-mm-GHo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gTS-94-nOz" secondAttribute="trailing" constant="-16" id="EQS-Wy-9fU"/>
-                            <constraint firstItem="5HZ-VL-OLZ" firstAttribute="top" secondItem="Fi9-jT-vHC" secondAttribute="bottom" id="HE6-ji-anM"/>
-                            <constraint firstItem="5HZ-VL-OLZ" firstAttribute="top" secondItem="gTS-94-nOz" secondAttribute="bottom" id="Jdu-Rk-fsN"/>
-                            <constraint firstItem="qGS-Qe-LqR" firstAttribute="top" secondItem="5HZ-VL-OLZ" secondAttribute="bottom" id="L94-RH-KYm"/>
-                            <constraint firstItem="icP-qH-lDe" firstAttribute="top" secondItem="fve-3O-WmA" secondAttribute="bottom" id="MPn-BP-6A8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fve-3O-WmA" secondAttribute="trailing" constant="-16" id="NcQ-mF-bm4"/>
-                            <constraint firstItem="5HZ-VL-OLZ" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="UPw-zg-yrz"/>
-                            <constraint firstItem="gTS-94-nOz" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="XUF-G8-ad5"/>
-                            <constraint firstItem="icP-qH-lDe" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="bjP-AP-SDk"/>
-                            <constraint firstItem="Fi9-jT-vHC" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="lKp-tA-IGb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="icP-qH-lDe" secondAttribute="trailing" constant="-16" id="myC-Ax-vb3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fi9-jT-vHC" secondAttribute="trailing" constant="-16" id="rEQ-wF-CsG"/>
-                            <constraint firstItem="fve-3O-WmA" firstAttribute="top" secondItem="I1d-Yf-lWR" secondAttribute="bottom" id="vjW-RN-Syu"/>
-                            <constraint firstItem="fve-3O-WmA" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="ysw-Wk-Thj"/>
-                            <constraint firstItem="Fi9-jT-vHC" firstAttribute="top" secondItem="icP-qH-lDe" secondAttribute="bottom" id="zQv-2G-YvN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="icP-qH-lDe" secondAttribute="trailing" constant="-16" id="48d-fi-tGk"/>
+                            <constraint firstItem="fve-3O-WmA" firstAttribute="top" secondItem="I1d-Yf-lWR" secondAttribute="bottom" id="5yh-3c-eyt"/>
+                            <constraint firstItem="fve-3O-WmA" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="9aq-Jk-Mzr"/>
+                            <constraint firstItem="Fi9-jT-vHC" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="CvJ-J1-T8c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fve-3O-WmA" secondAttribute="trailing" constant="-16" id="Ecp-jF-T5k"/>
+                            <constraint firstItem="gTS-94-nOz" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="FSo-dG-ODn"/>
+                            <constraint firstItem="gTS-94-nOz" firstAttribute="top" secondItem="icP-qH-lDe" secondAttribute="bottom" id="INk-zB-paS"/>
+                            <constraint firstItem="qGS-Qe-LqR" firstAttribute="top" secondItem="gTS-94-nOz" secondAttribute="bottom" id="XKo-j7-Hio"/>
+                            <constraint firstItem="icP-qH-lDe" firstAttribute="leading" secondItem="SYb-xQ-ZPO" secondAttribute="leadingMargin" constant="-16" id="aI5-n7-zJF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fi9-jT-vHC" secondAttribute="trailing" constant="-16" id="eV3-3U-82Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gTS-94-nOz" secondAttribute="trailing" constant="-16" id="fId-UC-efH"/>
+                            <constraint firstItem="Fi9-jT-vHC" firstAttribute="top" secondItem="icP-qH-lDe" secondAttribute="bottom" id="qBL-Ub-OGl"/>
+                            <constraint firstItem="icP-qH-lDe" firstAttribute="top" secondItem="fve-3O-WmA" secondAttribute="bottom" id="rBN-oR-f9u"/>
+                            <constraint firstItem="qGS-Qe-LqR" firstAttribute="top" secondItem="Fi9-jT-vHC" secondAttribute="bottom" id="yhb-Wr-nMp"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1342,6 +1352,7 @@ E-mail:</string>
     </scenes>
     <resources>
         <image name="eventsNoPicture" width="232" height="172"/>
+        <image name="hstg_party_logo" width="400" height="250"/>
         <image name="ic_hstg" width="431" height="211"/>
         <image name="ic_hstg_topo" width="220" height="106"/>
         <image name="newsNoPicture" width="233" height="171"/>

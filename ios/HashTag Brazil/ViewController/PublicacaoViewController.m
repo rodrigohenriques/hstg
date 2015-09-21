@@ -121,8 +121,6 @@
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Falha" message:@"Aplicativo Instagram não instalado neste dispositivo" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
     }
-    
-    
 }
 
 -(void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller{

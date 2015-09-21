@@ -11,6 +11,7 @@
 #import <InstagramKit/InstagramKit.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
+
 @interface GaleriaFotosViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *galeria;
 
@@ -22,9 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.instagramMedias = [NSMutableArray arrayWithArray:self.parametroTelaGaleria.medias];
+    if (self.instagramMedias.count > 0) {
+        self.galeria.dataSource = self;
+        self.galeria.delegate = self;
+    } else {
+        self.galeria.hidden = YES;
+    }
     self.labelHashTag.text = self.parametroTelaGaleria.nomeHashtag;
-    self.galeria.dataSource = self;
-    self.galeria.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +50,7 @@
     
     InstagramMedia *media = [self.instagramMedias objectAtIndex:indexPath.row];
     
-    [cell.imgFoto setImageWithURL:media.standardResolutionImageURL placeholderImage:[UIImage imageNamed:@"ic_hstg"]];
+    [cell.imgFoto setImageWithURL:media.standardResolutionImageURL placeholderImage:[UIImage imageNamed:@"newsNoPicture"]];
     cell.imagemUrl = media.standardResolutionImageURL;
     
     NSMutableString *strTitulo = [NSMutableString new];

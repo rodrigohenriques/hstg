@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tabela;
 @property (strong, nonatomic) UIImage *foto;
 @property (nonatomic, strong) PFObject *galeriaSelecionada;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -29,9 +30,10 @@
     
     self.foto = [UIImage new];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Carregando";
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.labelText = @"Carregando";
+    [self.hud show:YES];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Galeria"];
     [query whereKey:@"isParty" equalTo:[NSNumber numberWithBool:YES]];
@@ -41,7 +43,7 @@
     self.tabela.delegate = self;
     self.tabela.dataSource = self;
     
-    [hud hide:YES];
+    [self.hud hide:YES];
 }
 
 -(UIColor *)colorFromHexString:(NSString *)hexString {
@@ -102,6 +104,7 @@
     {
         [[[UIAlertView alloc] initWithTitle:@"Sem Câmera" message:@"Câmera não disponível" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
+    [self.hud hide:YES];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{

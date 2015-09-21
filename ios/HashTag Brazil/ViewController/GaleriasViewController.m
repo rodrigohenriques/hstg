@@ -13,12 +13,14 @@
 #import <InstagramKit/InstagramKit.h>
 #import "GaleriaFotosViewController.h"
 #import "ParametroTelaGaleria.h"
+#import "MBProgressHUD.h"
 
 @interface GaleriasViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tabela;
 @property (strong, nonatomic) NSMutableArray *galerias;
 @property (strong, nonatomic) InstagramEngine *instagramEngine;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -75,6 +77,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.labelText = @"Carregando...";
+    [self.hud show:YES];
+    
     PFObject *galeria = [self.galerias objectAtIndex:indexPath.row];
     self.instagramEngine.accessToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"instagramAccessToken"];
     [self.instagramEngine getMediaWithTagName:galeria[@"hashtag"] count:100 maxId:nil withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
@@ -95,6 +102,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [self.hud hide:YES];
     if ([segue.identifier isEqualToString:@"sgGaleriaFotos"]) {
         GaleriaFotosViewController *galeria = (GaleriaFotosViewController*) segue.destinationViewController;
         galeria.parametroTelaGaleria = (ParametroTelaGaleria*) sender;
